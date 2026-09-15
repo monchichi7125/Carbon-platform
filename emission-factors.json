@@ -1,0 +1,178 @@
+[
+  {
+    "cat": "电力",
+    "name": "全国电网平均",
+    "unit": "kgCO₂/kWh",
+    "factor": 0.5703,
+    "source": "生态环境部 2022 年全国电网平均排放因子",
+    "year": 2022
+  },
+  {
+    "cat": "电力",
+    "name": "华北区域电网",
+    "unit": "kgCO₂/kWh",
+    "factor": 0.968,
+    "source": "生态环境部 区域电网排放因子（缺省）",
+    "year": 2019
+  },
+  {
+    "cat": "电力",
+    "name": "东北区域电网",
+    "unit": "kgCO₂/kWh",
+    "factor": 1.096,
+    "source": "生态环境部 区域电网排放因子（缺省）",
+    "year": 2019
+  },
+  {
+    "cat": "电力",
+    "name": "华东区域电网",
+    "unit": "kgCO₂/kWh",
+    "factor": 0.792,
+    "source": "生态环境部 区域电网排放因子（缺省）",
+    "year": 2019
+  },
+  {
+    "cat": "电力",
+    "name": "华中区域电网",
+    "unit": "kgCO₂/kWh",
+    "factor": 0.858,
+    "source": "生态环境部 区域电网排放因子（缺省）",
+    "year": 2019
+  },
+  {
+    "cat": "电力",
+    "name": "西北区域电网",
+    "unit": "kgCO₂/kWh",
+    "factor": 0.892,
+    "source": "生态环境部 区域电网排放因子（缺省）",
+    "year": 2019
+  },
+  {
+    "cat": "电力",
+    "name": "南方区域电网",
+    "unit": "kgCO₂/kWh",
+    "factor": 0.804,
+    "source": "生态环境部 区域电网排放因子（缺省）",
+    "year": 2019
+  },
+  {
+    "cat": "电力",
+    "name": "西南区域电网",
+    "unit": "kgCO₂/kWh",
+    "factor": 0.23,
+    "source": "生态环境部 区域电网排放因子（缺省）",
+    "year": 2019
+  },
+  {
+    "cat": "化石燃料",
+    "name": "原煤",
+    "unit": "tCO₂/t",
+    "factor": 1.9003,
+    "source": "IPCC 2006 /《省级温室气体清单编制指南》",
+    "year": 2006
+  },
+  {
+    "cat": "化石燃料",
+    "name": "标准煤",
+    "unit": "tCO₂/tce",
+    "factor": 2.493,
+    "source": "IPCC 2006 缺省（碳含量 0.68 tC/tce）",
+    "year": 2006
+  },
+  {
+    "cat": "化石燃料",
+    "name": "焦炭",
+    "unit": "tCO₂/t",
+    "factor": 2.86,
+    "source": "IPCC 2006 缺省因子",
+    "year": 2006
+  },
+  {
+    "cat": "化石燃料",
+    "name": "汽油",
+    "unit": "kgCO₂/L",
+    "factor": 2.3,
+    "source": "IPCC 2006 / 中国温室气体排放因子库",
+    "year": 2006
+  },
+  {
+    "cat": "化石燃料",
+    "name": "柴油",
+    "unit": "kgCO₂/L",
+    "factor": 2.63,
+    "source": "IPCC 2006 / 中国温室气体排放因子库",
+    "year": 2006
+  },
+  {
+    "cat": "化石燃料",
+    "name": "煤油",
+    "unit": "kgCO₂/L",
+    "factor": 2.52,
+    "source": "IPCC 2006 缺省因子",
+    "year": 2006
+  },
+  {
+    "cat": "化石燃料",
+    "name": "燃料油",
+    "unit": "kgCO₂/L",
+    "factor": 3.17,
+    "source": "IPCC 2006 缺省因子",
+    "year": 2006
+  },
+  {
+    "cat": "化石燃料",
+    "name": "液化石油气",
+    "unit": "kgCO₂/kg",
+    "factor": 3,
+    "source": "IPCC 2006 缺省因子",
+    "year": 2006
+  },
+  {
+    "cat": "化石燃料",
+    "name": "天然气",
+    "unit": "kgCO₂/m³",
+    "factor": 2.16,
+    "source": "IPCC 2006（≈56.1 kgCO₂/GJ）",
+    "year": 2006
+  },
+  {
+    "cat": "出行",
+    "name": "燃油私家车(单人)",
+    "unit": "kgCO₂/人·km",
+    "factor": 0.19,
+    "source": "IPCC 2006 道路客运缺省（参考量级）",
+    "year": 2006
+  },
+  {
+    "cat": "出行",
+    "name": "公交车",
+    "unit": "kgCO₂/人·km",
+    "factor": 0.05,
+    "source": "IPCC 2006 道路客运缺省（参考量级）",
+    "year": 2006
+  },
+  {
+    "cat": "出行",
+    "name": "地铁/轨道",
+    "unit": "kgCO₂/人·km",
+    "factor": 0.04,
+    "source": "城市客运碳排放系数（参考量级）",
+    "year": 2020
+  },
+  {
+    "cat": "出行",
+    "name": "高铁",
+    "unit": "kgCO₂/人·km",
+    "factor": 0.04,
+    "source": "铁路客运碳排放系数（参考量级）",
+    "year": 2020
+  },
+  {
+    "cat": "出行",
+    "name": "飞机(短途)",
+    "unit": "kgCO₂/人·km",
+    "factor": 0.15,
+    "source": "IPCC 2006 航空缺省（参考量级）",
+    "year": 2006
+  }
+]
