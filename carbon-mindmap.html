@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>双碳整体架构思维导图 · 放射状层级全景</title>
+<style>
+  :root{
+    --bg1:#f8fafc; --bg2:#eef2ff;
+    --ink:#0f172a; --muted:#64748b; --line:#e2e8f0;
+    --card:#ffffff; --shadow:0 10px 30px rgba(15,23,42,.08);
+    --c1:#6366f1; --c2:#14b8a6; --c3:#f59e0b; --c4:#f97316;
+    --c5:#8b5cf6; --c6:#22c55e; --c7:#ec4899; --c8:#0ea5e9;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(135deg,var(--bg1),var(--bg2));
+    color:var(--ink); min-height:100vh; -webkit-font-smoothing:antialiased;
+  }
+  header{padding:22px 28px 14px;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between}
+  .title h1{margin:0;font-size:20px;letter-spacing:.5px}
+  .title p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .tbtn{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    padding:8px 14px;border-radius:999px;font-size:13px;cursor:pointer;
+    box-shadow:var(--shadow);transition:.15s;display:inline-flex;align-items:center;gap:6px}
+  .tbtn.on{background:linear-gradient(135deg,var(--c1),var(--c5));color:#fff;border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;padding:0 28px 8px;font-size:12px;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .dot{width:10px;height:10px;border-radius:50%}
+  .layout{display:flex;gap:18px;padding:6px 22px 28px;align-items:flex-start}
+  .mapwrap{flex:1 1 auto;min-width:0;background:var(--card);border-radius:18px;
+    box-shadow:var(--shadow);padding:8px;position:relative}
+  svg{width:100%;height:auto;display:block}
+  .panel{flex:0 0 400px;max-width:400px;background:var(--card);border-radius:18px;
+    box-shadow:var(--shadow);padding:20px;align-self:stretch;max-height:86vh;overflow:auto}
+  .panel h2{margin:0 0 4px;font-size:17px}
+  .panel .sub{font-size:12px;color:var(--muted);margin-bottom:14px}
+  .lvl{display:inline-block;font-size:11.5px;padding:3px 10px;border-radius:999px;color:#fff;margin-bottom:10px}
+  .role{font-size:13.5px;line-height:1.85;color:#334155;margin:0 0 14px}
+  .ptitle{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.5px;margin:16px 0 8px}
+  .pts{list-style:none;margin:0 0 10px;padding:0}
+  .pts li{font-size:13px;line-height:1.7;padding:7px 10px;border-left:3px solid var(--ac,#cbd5e1);background:#f8fafc;border-radius:0 8px 8px 0;margin-bottom:7px}
+  .sdesc{font-size:12px;color:#64748b;margin:3px 0 5px;line-height:1.6}
+  .overview{font-size:13px;line-height:1.9;color:#334155}
+  .overview b{color:var(--ink)}
+  .olayer{margin:10px 0}
+  .olayer .lab{font-weight:700;font-size:12.5px}
+  /* 关系清单 */
+  .rgroup{margin:0 0 14px}
+  .rhead{font-size:12px;font-weight:800;color:#334155;padding:6px 2px;border-bottom:2px solid var(--line);margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+  .rhead .cnt{font-size:11px;color:var(--muted);font-weight:600}
+  .rrow{display:flex;gap:8px;padding:6px 8px;border-radius:9px;cursor:default;transition:.12s;align-items:flex-start}
+  .rrow:hover,.rrow.hl{background:#eef2ff}
+  .rrow.dim{opacity:.32}
+  .rrow .bar{flex:0 0 4px;align-self:stretch;border-radius:2px;margin-top:3px}
+  .rrow .rt{font-size:12.5px;line-height:1.55;color:#334155}
+  .rrow .rt b{color:var(--ink)}
+  .rrow .rt .rd{display:block;font-size:11.5px;color:#64748b;line-height:1.6;margin-top:1px}
+  .goal{cursor:pointer}
+  .sec-node{cursor:pointer;transition:.15s}
+  .sec-node.dim{opacity:.25}
+  .chip{cursor:pointer;transition:.15s}
+  .chip.dim{opacity:.22}
+  .sec-title{font-size:16px;font-weight:800;fill:#fff}
+  .sec-sub{font-size:10.5px;font-weight:700;fill:rgba(255,255,255,.92)}
+  .goaltext{font-size:19px;font-weight:800;fill:#fff;text-anchor:middle}
+  .goalsub{font-size:10.5px;fill:rgba(255,255,255,.85);text-anchor:middle}
+  .pill-t{font-size:12.5px;font-weight:700;text-anchor:middle}
+  .ring-label{font-size:10.5px;font-weight:700;fill:#94a3b8;text-anchor:middle}
+  .arc{fill:none;stroke-width:2;stroke-dasharray:7 5;opacity:.5;transition:.15s;cursor:pointer}
+  .arc.hl{opacity:1;stroke-width:3}
+  .arc.dim{opacity:.06}
+  .subarc{fill:none;stroke-width:1.6;opacity:0;transition:.15s;cursor:pointer}
+  .subarc.show{opacity:.55}
+  .subarc.hl{opacity:1;stroke-width:3}
+  .subarc.dim{opacity:.05}
+  .crossarc{fill:none;stroke-width:1.6;opacity:0;transition:.15s;stroke-dasharray:5 4;cursor:pointer}
+  .crossarc.show{opacity:.5}
+  .crossarc.hl{opacity:1;stroke-width:3}
+  .crossarc.dim{opacity:.05}
+  .arclabel{font-size:10px;font-weight:700;transition:.15s;pointer-events:none}
+  .arclabel.hl{opacity:1}
+  .arclabel.dim{opacity:0}
+  .sublabel{font-size:9.5px;font-weight:700;transition:.15s;pointer-events:none}
+  .sublabel.show{opacity:.85}
+  .sublabel.hl{opacity:1}
+  .sublabel.dim{opacity:0}
+  .crosslabel{font-size:9.5px;font-weight:700;transition:.15s;pointer-events:none}
+  .crosslabel.show{opacity:.8}
+  .crosslabel.hl{opacity:1}
+  .crosslabel.dim{opacity:0}
+  .spoke-main{stroke:#cbd5e1;stroke-width:1.3;opacity:.75}
+  .spoke-sub{stroke-width:1.2;opacity:.3;transition:.15s}
+  .spoke-sub.dim{opacity:.06}
+  .spoke-sub.hl{opacity:1;stroke-width:2.2}
+  /* 悬浮说明 */
+  #tt{position:absolute;display:none;max-width:300px;background:#0f172a;color:#fff;
+    font-size:12px;line-height:1.7;padding:9px 12px;border-radius:10px;pointer-events:none;
+    box-shadow:0 8px 24px rgba(15,23,42,.35);z-index:9}
+  #tt b{color:#a5b4fc}
+  .hint{font-size:11.5px;color:var(--muted);padding:4px 28px 0}
+  @media(max-width:920px){
+    .layout{flex-direction:column}
+    .panel{flex:1 1 auto;max-width:none;width:100%;max-height:none}
+    .mapwrap{width:100%}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="title">
+    <h1>双碳整体架构思维导图 · 放射状层级全景</h1>
+    <p>中心总主题 → 第一层 10 大分类 → 第二层 40 个细分领域；板块间 23 条 + 细分间 40 条 + 跨层 23 条，每条关系均附文字说明（右侧清单 / 图上悬浮）</p>
+  </div>
+  <div class="toolbar">
+    <button class="tbtn on" id="tgArc" onclick="toggleArc()">🔗 板块关系（23）</button>
+    <button class="tbtn on" id="tgSub" onclick="toggleSub()">🔬 细分板块关系（40）</button>
+    <button class="tbtn on" id="tgCross" onclick="toggleCross()">🔀 跨层关系（23）</button>
+    <button class="tbtn" id="tgLbl" onclick="toggleLbl()">🏷 图上标注</button>
+    <button class="tbtn" onclick="resetMap()">↺ 重置视图</button>
+  </div>
+</header>
+<div class="legend" id="legend"></div>
+<div class="layout">
+  <div class="mapwrap">
+    <svg id="map" viewBox="0 0 1600 1600" role="img" aria-label="双碳整体架构思维导图（放射状层级）" onmousemove="ttMove(event)"></svg>
+    <div id="tt"></div>
+  </div>
+  <aside class="panel" id="panel"></aside>
+</div>
+<div class="hint">提示：悬停/点击任意节点或连线即高亮其关联并淡化其余；每条连线的<b>完整文字说明</b>见右侧「关系清单」，或将鼠标悬停在连线上查看悬浮说明。「🏷 图上标注」可在图上显示关系短标签。</div>
+
+<script>
+/* ===== 数据：十大分类 + 细分领域（子模块） ===== */
+const SECTIONS = [
+ {no:"01",name:"顶层政策",short:"顶层政策",icon:"🏛️",color:"#1e40af",deep:"#1e3a8a",
+  level:"顶层 · 制度框架",
+  role:"双碳工作的「指挥棒」，包含国家层面的纲领性文件，为所有板块定方向、立规则与时间表。",
+  points:["「1+N」政策体系（顶层设计+分领域方案）","《2030年前碳达峰行动方案》","《「十四五」现代能源体系规划》","地方与重点行业碳达峰实施方案"],
+  subs:[
+    {id:"s1a",t:"「1+N」政策体系",d:"中共中央国务院顶层设计文件 + 分领域、分行业 N 项实施方案，构成目标与路径总纲。",key:true},
+    {id:"s1b",t:"碳达峰行动方案",d:"国家碳达峰行动方案 + 省级/重点城市/重点行业实施方案，把顶层目标分解为施工图。"},
+    {id:"s1c",t:"现代能源体系规划",d:"《「十四五」现代能源体系规划》等能源侧纲领，明确非化石能源占比与能源安全目标。"},
+    {id:"s1d",t:"地方/行业实施方案",d:"各省市碳达峰实施方案与钢铁、有色、石化、建材等重点行业达峰方案。"}
+  ]},
+ {no:"02",name:"碳排放核算与标准",short:"核算标准",icon:"📐",color:"#0f766e",deep:"#115e59",
+  level:"基础层 · 量化底座",
+  role:"解决「碳是多少」的问题，是碳市场、ESG披露、CBAM应对的共同数据底座。",
+  points:["GB/T 32151 系列国家标准","ISO 14064 / ISO 14067","PAS 2050 产品碳足迹","清单编制指南与排放因子库"],
+  subs:[
+    {id:"s2a",t:"国标核算体系",d:"GB/T 32151 系列覆盖发电、钢铁、化工等 24 个行业的温室气体核算与报告要求。",key:true},
+    {id:"s2b",t:"ISO 国际标准",d:"ISO 14064（组织层面）与 ISO 14067（产品碳足迹），与国际披露、贸易规则衔接。"},
+    {id:"s2c",t:"产品碳足迹/PAS 2050",d:"PAS 2050 与产品碳足迹标准，服务出口企业应对 CBAM 与绿色采购。"},
+    {id:"s2d",t:"清单指南与因子库",d:"各省市温室气体清单编制指南、生态环境部电网排放因子等基础数据工具。"}
+  ]},
+ {no:"03",name:"CCER自愿减排方法学",short:"CCER",icon:"🌲",color:"#15803d",deep:"#14532d",
+  level:"机制层 · 自愿减排",
+  role:"解决「如何产生可交易的减排量」，连接生态碳汇、新能源与碳市场。",
+  points:["造林碳汇方法学","红树林营造/蓝碳","新能源与节能方法学","CCER管理办法"],
+  subs:[
+    {id:"s3a",t:"造林碳汇",d:"林业碳汇是 CCER 重启后首批方法学，也是最大规模的自然增汇路径。",key:true},
+    {id:"s3b",t:"红树林营造/蓝碳",d:"红树林营造等蓝碳方法学，把滨海生态系统固碳纳入自愿减排交易。"},
+    {id:"s3c",t:"新能源/节能方法学",d:"海上风电、分布式光伏、光热发电、公路隧道照明节能、甲烷利用等方法学。"},
+    {id:"s3d",t:"管理办法与流程",d:"《温室气体自愿减排交易管理办法（试行）》规定项目登记、签发与交易流程。"}
+  ]},
+ {no:"04",name:"碳交易市场",short:"交易市场",icon:"💹",color:"#0891b2",deep:"#0e7490",
+  level:"机制层 · 定价流通",
+  role:"解决「碳如何定价和流通」，以价格信号优化配置减排资源。",
+  points:["全国碳市场","地方试点市场","碳价走势分析","欧盟 EU ETS"],
+  subs:[
+    {id:"s4a",t:"全国碳市场",d:"以发电行业为突破口，逐步扩容至钢铁、水泥、铝等行业，通过配额分配与清缴履约控排。",key:true},
+    {id:"s4b",t:"地方试点市场",d:"北京、上海、广东、深圳、天津、湖北、重庆、福建试点各具特色的交易规则。"},
+    {id:"s4c",t:"碳价走势分析",d:"碳价周报/月报、配额供需与政策预期分析，为企业碳资产管理提供决策参考。"},
+    {id:"s4d",t:"欧盟 EU ETS",d:"作为全球标杆碳市场，其价格机制、改革方向（Fit for 55）值得长期跟踪。"}
+  ]},
+ {no:"05",name:"碳普惠",short:"碳普惠",icon:"🌐",color:"#16a34a",deep:"#166534",
+  level:"社会层 · 公众参与",
+  role:"解决「公众和小微企业如何参与」，把骑行、节电、无纸化等微观低碳行为量化并激励。",
+  points:["互联网平台模式","地方碳普惠机制","场景减排量核算","个人/小微企业参与"],
+  subs:[
+    {id:"s5a",t:"互联网平台模式",d:"碳阻迹、蚂蚁森林等平台把公众低碳行为转化为积分或碳减排量。"},
+    {id:"s5b",t:"地方核证减排机制",d:"广东 PHCER、北京绿色生活季等地方碳普惠核证减排量机制。",key:true},
+    {id:"s5c",t:"场景减排量核算",d:"骑行、节电、无纸化办公等场景的方法学开发与减排算法。"},
+    {id:"s5d",t:"个人/小微参与",d:"碳普惠降低社会参与门槛，把宏观双碳目标与微观行为连接起来。"}
+  ]},
+ {no:"06",name:"ESG与信息披露",short:"ESG披露",icon:"📊",color:"#2563eb",deep:"#1e40af",
+  level:"资本层 · 非财务绩效",
+  role:"企业非财务绩效的核心与资本市场的通行证，碳排放数据是其环境维度的核心内容。",
+  points:["ISSB IFRS S1/S2","沪深北交易所可持续发展报告指引","GRI 标准","MSCI/中证 ESG 评级"],
+  subs:[
+    {id:"s6a",t:"ISSB 国际准则",d:"IFRS S1/S2 由国际可持续准则理事会发布，正成为全球可持续披露基准。",key:true},
+    {id:"s6b",t:"国内披露指引",d:"沪深北交易所《上市公司可持续发展报告指引（试行）》对披露范围、议题与口径提出要求。"},
+    {id:"s6c",t:"GRI 标准",d:"全球报告倡议组织标准，应用最广泛的可持续发展报告框架。"},
+    {id:"s6d",t:"ESG 评级体系",d:"MSCI、S&P Global CSA、中证 ESG 等评级体系把碳排放作为重要权重。"}
+  ]},
+ {no:"07",name:"国际碳机制与CBAM",short:"国际/CBAM",icon:"🌍",color:"#15803d",deep:"#14532d",
+  level:"国际层 · 贸易与治理",
+  role:"应对国际贸易壁垒和全球气候治理，直接影响出口型企业的碳成本与竞争力。",
+  points:["CBAM 碳边境调节机制","隐含碳排放计算细则","《巴黎协定》第6条","美国 CCA 等潜在机制"],
+  subs:[
+    {id:"s7a",t:"CBAM 机制",d:"欧盟碳边境调节机制过渡期已启动，覆盖钢铁、铝、水泥、化肥、电力、氢。",key:true},
+    {id:"s7b",t:"行业与隐含碳",d:"CBAM 按产品隐含碳排放收费，出口企业需建立产品级碳足迹数据。"},
+    {id:"s7c",t:"巴黎协定第6条",d:"国际碳市场与合作机制规则，影响全球碳信用流动与对应调整。"},
+    {id:"s7d",t:"美国 CCA 等",d:"美国清洁竞争法案（CCA）等潜在的美国版碳关税与气候贸易规则。"}
+  ]},
+ {no:"08",name:"零碳园区/零碳建筑",short:"零碳园区",icon:"🏢",color:"#1d4ed8",deep:"#1e40af",
+  level:"落地层 · 物理载体",
+  role:"双碳落地的具体物理载体，通过源网荷储一体化与超低能耗设计实现近零碳运行。",
+  points:["《零碳建筑技术标准》","《绿色工业园区评价要求》","绿色建筑/LEED/WELL","源网荷储一体化方案"],
+  subs:[
+    {id:"s8a",t:"零碳建筑标准",d:"《零碳建筑技术标准》等规范，指导建筑从节能到净零的梯次升级。",key:true},
+    {id:"s8b",t:"绿色园区评价",d:"《绿色工业园区评价要求》等指标，推动园区能源、资源、产业协同降碳。"},
+    {id:"s8c",t:"绿色建筑认证",d:"中国绿色建筑三星、LEED v4.1、WELL 等认证标准与评价体系。"},
+    {id:"s8d",t:"源网荷储一体化",d:"分布式能源、储能、柔性负荷与智能调度协同，实现园区/建筑级自平衡。"}
+  ]},
+ {no:"09",name:"能源转型与低碳技术",short:"能源技术",icon:"⚡",color:"#15803d",deep:"#14532d",
+  level:"硬科技层 · 供给侧",
+  role:"实现双碳目标的硬科技支撑，以清洁替代从源头削减排放，并以 CCUS 等兜底难减排行业。",
+  points:["新能源与新型电力系统","新型储能","CCUS 全链条","氢能产业链"],
+  subs:[
+    {id:"s9a",t:"新能源与电力系统",d:"风光大基地、分布式光伏、海上风电与新型电力系统建设。",key:true},
+    {id:"s9b",t:"新型储能",d:"液流电池、压缩空气储能、电化学储能等技术支撑高比例新能源接入。"},
+    {id:"s9c",t:"CCUS 全链条",d:"碳捕集、利用与封存，是钢铁、水泥等难减排行业深度脱碳的兜底技术。"},
+    {id:"s9d",t:"氢能产业链",d:"制氢（绿氢）、储运、燃料电池与工业/交通应用全链条。"}
+  ]},
+ {no:"10",name:"绿色金融",short:"绿色金融",icon:"💰",color:"#1e40af",deep:"#1e3a8a",
+  level:"资金层 · 转型杠杆",
+  role:"为双碳项目提供资金支持，推动碳资产金融化、气候投融资与转型金融。",
+  points:["绿色债券支持项目目录","碳金融产品","转型债券/转型金融","气候投融资试点"],
+  subs:[
+    {id:"s10a",t:"绿色债券与目录",d:"《绿色债券支持项目目录（2021年版）》界定绿色债券可投范围。",key:true},
+    {id:"s10b",t:"碳金融产品",d:"碳期货、碳期权、碳质押融资、碳资产回购等市场化工具。"},
+    {id:"s10c",t:"转型金融",d:"转型债券、可持续发展挂钩债券等支持高碳行业有序转型。"},
+    {id:"s10d",t:"气候投融资试点",d:"气候投融资试点项目名单、国家绿色发展基金等政策性资金安排。"}
+  ]}
+];
+
+const SUBMAP={};
+SECTIONS.forEach((s,i)=>s.subs.forEach(x=>{SUBMAP[x.id]={...x,sec:i};}));
+
+/* ===== 关系类型 ===== */
+const TYPE = {
+  policy:{c:"#6366f1",n:"政策指导 / 制度框架"},
+  market:{c:"#14b8a6",n:"碳市场 / 配额配置"},
+  data:{c:"#0891b2",n:"MRV 数据底座"},
+  finance:{c:"#ec4899",n:"资金 / 碳资产金融"},
+  tech:{c:"#8b5cf6",n:"技术赋能 / 支撑"},
+  cap:{c:"#0ea5e9",n:"人才 / 能力建设"},
+  sink:{c:"#22c55e",n:"碳汇抵消 / 净零闭环"}
+};
+/* 板块关系（板块→板块）：[A,B,短标签,类型,文字说明] */
+const RELS = [
+ [0,1,"制度框架","policy","「1+N」政策体系为碳核算与标准制定提供上位依据，统一各行业核算口径与方法。"],
+ [0,2,"制度框架","policy","顶层政策明确 CCER 重启与方法学管理要求，是自愿减排市场的制度来源。"],
+ [0,3,"制度框架","policy","《碳排放权交易管理暂行条例》等法规确立全国碳市场的功能定位与运行规则。"],
+ [0,4,"政策动员","policy","《绿色低碳全民行动方案》等文件推动碳普惠成为公众参与双碳的入口。"],
+ [0,5,"政策要求","policy","上市公司可持续发展报告指引等政策要求企业披露 ESG 与气候信息。"],
+ [0,6,"国际立场","policy","国家层面对 CBAM、巴黎协定第6条等国际机制的态度与谈判立场。"],
+ [0,7,"标准制定","policy","《零碳建筑技术标准》《绿色工业园区评价要求》等由政策层发布并推动实施。"],
+ [0,8,"产业规划","policy","能源、工业领域碳达峰实施方案与科技支撑方案，引导能源转型与低碳技术攻关。"],
+ [0,9,"金融引导","policy","央行碳减排支持工具、绿色金融政策指引，引导资金流向双碳重点领域。"],
+ [1,2,"数据底座","data","碳核算标准是 CCER 减排量核证与额外性论证的共同数据基础。"],
+ [1,3,"数据底座","data","精准的核算 MRV 为全国碳市场配额分配、履约清缴与第三方核查提供数据。"],
+ [1,5,"披露口径","data","ESG 与可持续披露中的碳排放数据，依赖 GB/T/ISO 等核算标准统一口径。"],
+ [1,6,"CBAM数据","data","CBAM 按产品隐含碳排放征税，核算标准与碳足迹方法是其计算基础。"],
+ [2,3,"抵消通道","market","CCER 可进入全国碳市场抵销配额清缴（上限 5%），是自愿与强制市场的桥梁。"],
+ [3,4,"市场衔接","market","碳市场的价格信号可传导至碳普惠核证减排量，形成多元减排价值实现通道。"],
+ [3,9,"碳金融","finance","配额与 CCER 是碳期货、碳质押、碳回购等碳金融产品的底层标的。"],
+ [5,6,"披露协同","policy","ISSB、GRI 等披露准则与 ESG 评级体系，是国际机制与企业非财务绩效的接口。"],
+ [6,8,"贸易影响","market","CBAM 等国际机制倒逼出口型企业使用绿电、绿氢等低碳技术降碳。"],
+ [7,8,"落地载体","tech","零碳园区/建筑依赖新能源、储能与源网荷储一体化技术实现近零碳运行。"],
+ [8,9,"技术赋能","tech","能源转型技术为零碳园区/建筑提供清洁电力、储能与智慧能碳管理。"],
+ [9,3,"资金注入","finance","绿色信贷、绿色债券、气候投融资为新能源、储能、CCUS 项目提供资本。"],
+ [9,2,"项目投资","finance","绿色金融支持造林碳汇、红树林营造等 CCER 项目开发与生态修复。"],
+ [9,7,"园区融资","finance","转型金融、气候投融资为零碳园区节能改造与基础设施升级提供资金。"]
+];
+/* 细分板块关系（第二层 ↔ 第二层）：[A,B,短标签,类型,文字说明] */
+const RELS_SUB = [
+ ["s1a","s2a","政策定核算标准","policy","「1+N」体系发布《碳排放核算与报告通则》等国家标准，从制度上统一核算口径。"],
+ ["s1a","s3a","政策定方法学","policy","顶层设计明确 CCER 重启方向，造林碳汇等首批方法学由政策层推动发布。"],
+ ["s1a","s4a","政策定碳市场","policy","碳排放权交易管理暂行条例与配额分配方案，源于「1+N」政策体系的制度安排。"],
+ ["s1a","s5b","政策推碳普惠","policy","绿色低碳全民行动方案为地方碳普惠机制提供政策依据与动员框架。"],
+ ["s1a","s6a","政策要求披露","policy","ISSB 准则采纳与国内可持续发展报告指引，体现政策层对 ESG 披露的要求。"],
+ ["s1a","s7a","政策应对 CBAM","policy","国家层面对欧盟 CBAM 的立场、反制措施与谈判策略由顶层政策确定。"],
+ ["s1a","s8a","政策定零碳标准","policy","《零碳建筑技术标准》《绿色工业园区评价要求》等由政策层制定发布。"],
+ ["s1a","s9a","政策规划新能源","policy","风光大基地、新型电力系统、非化石能源占比目标由能源领域政策文件明确。"],
+ ["s1a","s10a","政策引导绿金","policy","绿色债券支持项目目录、碳减排支持工具等政策引导金融资源投向双碳。"],
+ ["s1b","s1a","方案落实总纲","policy","碳达峰行动方案是「1+N」中「N」的首要文件，把顶层目标分解为地方施工图。"],
+ ["s2a","s3a","核算支撑核证","data","GB/T 32151 等核算标准支撑林业碳汇项目的减排量测算与额外性论证。"],
+ ["s2a","s4a","核算支撑市场","data","发电、钢铁等行业核算指南是全国碳市场配额分配与履约清缴的数据底座。"],
+ ["s2a","s6a","核算统一口径","data","ESG 与可持续披露中的碳排放数据，需依据 GB/T/ISO 核算标准保持一致。"],
+ ["s2a","s7a","碳足迹算 CBAM","data","CBAM 按产品隐含碳排放征税，产品碳足迹与核算标准是其计算基础。"],
+ ["s2c","s7b","产品碳对隐含碳","data","PAS 2050 与产品碳足迹方法，直接服务于 CBAM 隐含碳排放计算。"],
+ ["s3a","s4a","碳汇进碳市场","market","林业碳汇 CCER 经核证后可进入全国碳市场，抵销控排企业配额清缴。"],
+ ["s3b","s4a","蓝碳进碳市场","market","红树林等蓝碳项目产生的 CCER 同样可进入碳市场交易变现。"],
+ ["s3c","s4a","新能源 CCER","market","海上风电、分布式光伏等新能源方法学产生的减排量可参与市场交易。"],
+ ["s4a","s9b","碳价促储能","market","碳价上升缩短储能、灵活性资源的投资回收期，激励企业低碳投资。"],
+ ["s4c","s9a","碳价影响新能源","market","碳价与绿电环境价值共同影响新能源项目收益与投资决策。"],
+ ["s4d","s4a","EU ETS 借鉴","policy","欧盟碳市场价格机制、改革方向（Fit for 55）为全国碳市场提供参考。"],
+ ["s5b","s4b","地方市场联动","market","地方碳普惠核证减排量（如广东 PHCER）可与地方试点碳市场衔接。"],
+ ["s5c","s5b","场景核算是基础","data","骑行、节电等场景减排量核算方法是碳普惠积分或减排量核发的技术前提。"],
+ ["s6a","s6b","ISSB 与国内指引","policy","ISSB IFRS S1/S2 与沪深北交易所可持续发展报告指引相互影响、逐步协同。"],
+ ["s6c","s6b","GRI 与国内披露","policy","GRI 标准作为国内企业可持续发展报告的重要参考，与国内披露指引互补。"],
+ ["s6b","s6d","披露支撑评级","data","ESG 评级体系依赖企业披露的气候与碳排放数据进行评分。"],
+ ["s7a","s7b","机制决定范围","policy","CBAM 法规明确覆盖行业、过渡期与隐含碳计算细则。"],
+ ["s7a","s2c","CBAM 需碳足迹","data","CBAM 要求申报产品碳含量，企业需建立 PAS 2050/ISO 14067 级碳足迹数据。"],
+ ["s7c","s7a","国际规则联动","policy","巴黎协定第6条国际碳市场规则影响 CBAM 抵扣与碳信用认定。"],
+ ["s8a","s8d","建筑需源网荷储","tech","零碳建筑的光储直柔与柔性用能依赖源网荷储一体化技术。"],
+ ["s8b","s8d","园区需源网荷储","tech","绿色工业园区实现能源自平衡，需要分布式电源、储能与智能调度。"],
+ ["s9a","s8d","新能源供园区","tech","风光等分布式新能源为零碳园区/建筑提供清洁电力。"],
+ ["s9b","s9a","储能支撑新能源","tech","液流/锂电/压缩空气储能平抑新能源波动，支撑高比例可再生能源接入。"],
+ ["s9c","s9d","CCUS 与氢能协同","tech","CCUS 捕集的 CO₂ 可与氢基合成燃料、化工利用结合，形成协同产业链。"],
+ ["s9d","s8d","氢能用于园区","tech","绿氢可用于园区/建筑的热电联供与交通接驳，实现多能互补。"],
+ ["s10a","s9a","绿金投新能源","finance","绿色债券、碳减排支持工具定向支持风电、光伏与储能项目建设。"],
+ ["s10b","s4a","碳金融基于市场","finance","碳期货、碳质押、碳回购等碳金融产品以全国碳市场配额/CCER 为底层标的。"],
+ ["s10c","s9c","转型金融投 CCUS","finance","转型债券、可持续发展挂钩债券支持 CCUS 等难减排技术示范。"],
+ ["s10d","s8b","投融资支持园区","finance","气候投融资试点与国家绿色发展基金支持绿色工业园区建设。"]
+];
+/* 跨层关系（第二层子模块 → 第一层其它板块）：[A,板块序号,短标签,类型,文字说明] */
+const RELS_CROSS = [
+ ["s2a",0,"核算支撑政策考核","data","准确核算与统计是政策目标分解、进度评估与地方考核的数据前提。"],
+ ["s2a",2,"核算支撑 CCER","data","CCER 项目的额外性论证、减排量核算与监测全部依赖核算 MRV 技术框架。"],
+ ["s2a",3,"核算支撑碳市场","data","配额分配、企业履约、第三方核查均以 GB/T 32151 等核算标准为技术底座。"],
+ ["s2a",5,"核算支撑披露","data","ESG 与可持续报告中的碳排放数据需依据统一核算标准才能保证可比。"],
+ ["s2a",6,"核算支撑 CBAM","data","CBAM 的产品隐含碳计算依赖企业碳盘查与产品碳足迹方法。"],
+ ["s1a",1,"政策定核算标准","policy","「1+N」政策体系推动《碳排放核算与报告要求》等国家标准发布与更新。"],
+ ["s1a",2,"政策定 CCER 规则","policy","《温室气体自愿减排交易管理办法》等政策确立 CCER 方法学、登记与交易规则。"],
+ ["s1a",3,"政策定碳市场","policy","碳排放权交易管理暂行条例、配额分配方案等政策确立全国碳市场制度。"],
+ ["s1a",5,"政策要求 ESG 披露","policy","上市公司可持续发展报告指引等政策把 ESG 与气候披露纳入合规要求。"],
+ ["s1a",7,"政策定零碳标准","policy","零碳建筑、绿色工业园区等评价标准由政策层制定并推动落地。"],
+ ["s1a",8,"政策推能源转型","policy","能源领域碳达峰实施方案与科技支撑方案引导新能源、储能、氢能发展。"],
+ ["s1a",9,"政策引绿色金融","policy","绿色债券支持项目目录、碳减排支持工具等金融政策由顶层政策设计。"],
+ ["s3a",3,"碳汇进碳市场","market","林业碳汇项目经 CCER 核证后进入全国碳市场，成为控排企业抵消工具。"],
+ ["s4a",9,"碳市场生碳金融","finance","全国碳市场配额与 CCER 是碳期货、碳质押、碳回购等碳金融产品的基础资产。"],
+ ["s5b",3,"碳普惠进市场","market","地方碳普惠核证减排量可与地方试点碳市场衔接，实现社会减排价值变现。"],
+ ["s6a",5,"ISSB 影响国内","policy","ISSB IFRS S1/S2 正成为全球披露基准，推动国内指引与之协同。"],
+ ["s7a",8,"CBAM 倒逼降碳","market","CBAM 增加出口产品碳成本，倒逼企业采用绿电、绿氢等低碳技术。"],
+ ["s7b",1,"隐含碳需核算","data","CBAM 产品隐含碳排放计算依赖 GB/T/ISO 核算标准与产品碳足迹方法。"],
+ ["s8d",8,"园区需能源技术","tech","源网荷储一体化方案需要新能源、储能与智能调度技术共同支撑。"],
+ ["s9a",7,"绿电供零碳园区","tech","风光等分布式新能源是零碳园区/建筑实现近零碳运行的电力基础。"],
+ ["s9c",6,"CCUS 服务 CBAM","tech","CCUS 为钢铁、水泥等难减排行业降碳，缓解 CBAM 带来的出口碳成本。"],
+ ["s10a",7,"绿债支持零碳建筑","finance","绿色债券支持目录覆盖超低能耗建筑、绿色园区等零碳载体建设。"],
+ ["s10d",7,"投融资支持园区","finance","气候投融资试点项目库纳入绿色工业园区，提供政策性资金支持。"]
+];
+
+/* ===== 几何布局（参考样式：中心圆 + 大圆板块 + 外圈胶囊） ===== */
+const CX=800, CY=800;
+const GOAL_R=94;                 // 中心圆半径
+const R1=272, SEC_R=67;          // 第一层：板块圆 环半径/圆半径
+const R2A=478, R2B=558;          // 第二层：细分板块胶囊 两种环半径（交错防重叠）
+const CH_H=34;                   // 胶囊高
+const SUB_ANG=[-16.9,-5.6,5.6,16.9];   // 每板块 4 个细分板块的角度偏移
+const SUB_RAD=[R2A,R2B,R2A,R2B];
+
+const secName = i => `板块${SECTIONS[i].no}·${SECTIONS[i].short}`;
+const subName = id => `板块${SECTIONS[SUBMAP[id].sec].no}·${SUBMAP[id].t}`;
+
+/* 板块位置 */
+const SEC_POS = SECTIONS.map((s,i)=>{
+  const a = -Math.PI/2 + i*(2*Math.PI/SECTIONS.length);
+  return {x:CX+R1*Math.cos(a), y:CY+R1*Math.sin(a), a};
+});
+/* 胶囊位置 */
+const CHIP = {};
+SECTIONS.forEach((s,si)=>{
+  const a0 = SEC_POS[si].a;
+  s.subs.forEach((sub,k)=>{
+    const a = a0 + SUB_ANG[k]*Math.PI/180;
+    const R = SUB_RAD[k];
+    const x=CX+R*Math.cos(a), y=CY+R*Math.sin(a);
+    const w = Math.max(86, sub.t.length*12.8+30);
+    CHIP[sub.id]={x:x-w/2, y:y-CH_H/2, w, h:CH_H, cx:x, cy:y, sec:si, r:R, a};
+  });
+});
+
+/* 圆边界上朝向目标的点 */
+function anchorOnCircle(cx,cy,r,tx,ty){
+  const dx=tx-cx, dy=ty-cy, L=Math.hypot(dx,dy)||1;
+  return {x:cx+dx/L*r, y:cy+dy/L*r};
+}
+/* 矩形边界上朝向目标的点 */
+function anchorOnRect(box,tx,ty){
+  const dx=tx-box.cx, dy=ty-box.cy;
+  if(dx===0&&dy===0) return {x:box.cx,y:box.cy};
+  const t=1/Math.max(Math.abs(dx)/(box.w/2), Math.abs(dy)/(box.h/2));
+  return {x:box.cx+dx*t, y:box.cy+dy*t};
+}
+/* 二次贝塞尔取点 */
+function qpoint(A,C,B,t){const u=1-t;return {x:u*u*A.x+2*u*t*C.x+t*t*B.x, y:u*u*A.y+2*u*t*C.y+t*t*B.y};}
+/* 内层弧控制点：中点向中心收（花瓣状虚线） */
+function bowCtrlIn(a,b,f){
+  const mx=(a.x+b.x)/2, my=(a.y+b.y)/2;
+  return {x:mx+(CX-mx)*f, y:my+(CY-my)*f};
+}
+/* 外层弧控制点：中点背离中心外凸 */
+function bowCtrlOut(a,b,f){
+  const mx=(a.x+b.x)/2, my=(a.y+b.y)/2;
+  const dx=b.x-a.x, dy=b.y-a.y, L=Math.hypot(dx,dy)||1;
+  let px=-dy/L, py=dx/L;
+  if((mx-CX)*px+(my-CY)*py<0){ px=-px; py=-py; }
+  return {x:mx+px*L*f, y:my+py*L*f};
+}
+/* 弧中点（用于标签定位） */
+function arcMid(A,C,B){ return qpoint(A,C,B,0.5); }
+
+let arcOn=true, subOn=true, crossOn=true, lblOn=false;
+let holdSel=null;   // {type:'sec',i} | {type:'sub',id}
+
+/* ===== 渲染 ===== */
+function render(){
+  let s='';
+  s+='<defs>';
+  s+='<radialGradient id="cg" cx="50%" cy="38%" r="75%"><stop offset="0%" stop-color="#334155"/><stop offset="100%" stop-color="#0b1220"/></radialGradient>';
+  s+='<marker id="ah" markerWidth="9" markerHeight="9" refX="6.5" refY="3" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L6.5,3 L0,6 Z" fill="context-stroke"/></marker>';
+  s+='<marker id="ahs" markerWidth="8" markerHeight="8" refX="5.5" refY="2.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L5.5,2.5 L0,5 Z" fill="context-stroke"/></marker>';
+  s+='</defs>';
+
+  /* 外圈细虚线圆（第二层轨道） */
+  s+=`<circle cx="${CX}" cy="${CY}" r="${(R2A+R2B)/2}" fill="none" stroke="#e2e8f0" stroke-width="1.2" stroke-dasharray="2 8"/>`;
+  /* 层标注（板块间隙处） */
+  const la=-Math.PI*0.375;
+  s+=`<text class="ring-label" x="${CX+(R1+SEC_R+22)*Math.cos(la)}" y="${CY+(R1+SEC_R+22)*Math.sin(la)}">第 1 层 · 十大分类（10）</text>`;
+  s+=`<text class="ring-label" x="${CX+(R2B+30)*Math.cos(la)}" y="${CY+(R2B+30)*Math.sin(la)}">第 2 层 · 40 个细分领域</text>`;
+
+  /* 中心→板块 细线（层级归属） */
+  s+='<g id="spokeMainLayer">';
+  SEC_POS.forEach(p=>{
+    const a=anchorOnCircle(CX,CY,GOAL_R,p.x,p.y);
+    const b=anchorOnCircle(p.x,p.y,SEC_R,CX,CY);
+    s+=`<line class="spoke-main" x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${b.x.toFixed(1)}" y2="${b.y.toFixed(1)}"/>`;
+  });
+  s+='</g>';
+
+  /* 板块关系弧（内层花瓣状虚线） */
+  s+='<g id="arcLayer">';
+  RELS.forEach((r,idx)=>{
+    const A=SEC_POS[r[0]], B=SEC_POS[r[1]];
+    const pa=anchorOnCircle(A.x,A.y,SEC_R+2,B.x,B.y), pb=anchorOnCircle(B.x,B.y,SEC_R+2,A.x,A.y);
+    const C=bowCtrlIn(pa,pb,0.62);
+    const start=qpoint(pa,C,pb,0.10), end=qpoint(pa,C,pb,0.90), mid=arcMid(pa,C,pb);
+    const col=TYPE[r[3]].c;
+    s+=`<path class="arc" data-i="${idx}" d="M${start.x.toFixed(1)},${start.y.toFixed(1)} Q${C.x.toFixed(1)},${C.y.toFixed(1)} ${end.x.toFixed(1)},${end.y.toFixed(1)}" stroke="${col}" marker-end="url(#ah)" onmouseenter="arcEnter('arc',${idx})" onmouseleave="arcLeave()"/>`;
+    const w=Math.max(22, r[2].length*6.6+10);
+    s+=`<rect class="arclabelbg" data-i="${idx}" x="${(mid.x-w/2).toFixed(1)}" y="${(mid.y-8).toFixed(1)}" width="${w}" height="16" rx="8" fill="#fff" stroke="${col}" stroke-width="1" opacity=".95"/>`;
+    s+=`<text class="arclabel" data-i="${idx}" x="${mid.x.toFixed(1)}" y="${(mid.y+3.5).toFixed(1)}" text-anchor="middle" fill="${col}">${r[2]}</text>`;
+  });
+  s+='</g>';
+
+  /* 细分板块关系弧（外层细弧，外凸） */
+  s+='<g id="subArcLayer">';
+  RELS_SUB.forEach((r,idx)=>{
+    const A=CHIP[r[0]], B=CHIP[r[1]]; if(!A||!B) return;
+    const pa=anchorOnRect(A, B.cx,B.cy), pb=anchorOnRect(B, A.cx,A.cy);
+    const C=bowCtrlOut(pa,pb,0.16);
+    const start=qpoint(pa,C,pb,0.07), end=qpoint(pa,C,pb,0.93), mid=arcMid(pa,C,pb);
+    const col=TYPE[r[3]].c;
+    s+=`<path class="subarc" data-i="${idx}" d="M${start.x.toFixed(1)},${start.y.toFixed(1)} Q${C.x.toFixed(1)},${C.y.toFixed(1)} ${end.x.toFixed(1)},${end.y.toFixed(1)}" stroke="${col}" marker-end="url(#ahs)" onmouseenter="arcEnter('sub',${idx})" onmouseleave="arcLeave()"/>`;
+    const w=Math.max(20, r[2].length*6.2+10);
+    s+=`<rect class="sublabelbg" data-i="${idx}" x="${(mid.x-w/2).toFixed(1)}" y="${(mid.y-8).toFixed(1)}" width="${w}" height="16" rx="8" fill="#fff" stroke="${col}" stroke-width="1" opacity=".92"/>`;
+    s+=`<text class="sublabel" data-i="${idx}" x="${mid.x.toFixed(1)}" y="${(mid.y+3.5).toFixed(1)}" text-anchor="middle" fill="${col}">${r[2]}</text>`;
+  });
+  s+='</g>';
+
+  /* 跨层关系弧（第二层胶囊 → 第一层其它板块） */
+  s+='<g id="crossLayer">';
+  RELS_CROSS.forEach((r,idx)=>{
+    const A=CHIP[r[0]], B=SEC_POS[r[1]]; if(!A||!B) return;
+    const pa=anchorOnRect(A, B.x,B.y), pb=anchorOnCircle(B.x,B.y,SEC_R+2,A.cx,A.cy);
+    const C=bowCtrlOut(pa,pb,0.14);
+    const start=qpoint(pa,C,pb,0.08), end=qpoint(pa,C,pb,0.92), mid=arcMid(pa,C,pb);
+    const col=TYPE[r[3]].c;
+    s+=`<path class="crossarc" data-i="${idx}" d="M${start.x.toFixed(1)},${start.y.toFixed(1)} Q${C.x.toFixed(1)},${C.y.toFixed(1)} ${end.x.toFixed(1)},${end.y.toFixed(1)}" stroke="${col}" marker-end="url(#ahs)" onmouseenter="arcEnter('cross',${idx})" onmouseleave="arcLeave()"/>`;
+    const w=Math.max(20, r[2].length*6.2+10);
+    s+=`<rect class="crosslabelbg" data-i="${idx}" x="${(mid.x-w/2).toFixed(1)}" y="${(mid.y-8).toFixed(1)}" width="${w}" height="16" rx="8" fill="#fff" stroke="${col}" stroke-width="1" opacity=".92"/>`;
+    s+=`<text class="crosslabel" data-i="${idx}" x="${mid.x.toFixed(1)}" y="${(mid.y+3.5).toFixed(1)}" text-anchor="middle" fill="${col}">${r[2]}</text>`;
+  });
+  s+='</g>';
+
+  /* 板块→细分板块 辐射细线 */
+  s+='<g id="spokeSubLayer">';
+  SECTIONS.forEach((sec,si)=>{
+    const sp=SEC_POS[si];
+    sec.subs.forEach(sub=>{
+      const ch=CHIP[sub.id];
+      const a=anchorOnCircle(sp.x,sp.y,SEC_R+1,ch.cx,ch.cy);
+      const b=anchorOnRect({cx:ch.cx,cy:ch.cy,w:ch.w,h:ch.h}, sp.x,sp.y);
+      s+=`<line class="spoke-sub" data-sec="${si}" x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${b.x.toFixed(1)}" y2="${b.y.toFixed(1)}" stroke="${sec.color}"/>`;
+    });
+  });
+  s+='</g>';
+
+  /* 中心总主题 */
+  s+=`<g class="goal" onclick="resetMap()">`;
+  s+=`<circle cx="${CX}" cy="${CY}" r="${GOAL_R}" fill="none" stroke="#0b1220" stroke-width="1.6"/>`;
+  s+=`<circle cx="${CX}" cy="${CY}" r="${GOAL_R-7}" fill="url(#cg)"/>`;
+  s+=`<text class="goaltext" x="${CX}" y="${CY-4}">双碳目标</text>`;
+  s+=`<text class="goalsub" x="${CX}" y="${CY+20}">碳达峰 · 碳中和（总主题）</text>`;
+  s+=`<text class="goalsub" x="${CX}" y="${CY+38}" style="font-size:9px;opacity:.7">第 0 层 · 中心主题（1）</text>`;
+  s+='</g>';
+
+  /* 第一层：10 大分类实心圆 */
+  SECTIONS.forEach((sec,i)=>{
+    const p=SEC_POS[i];
+    s+=`<g class="sec-node" data-sec="${i}" onmouseenter="hlb(${i})" onmouseleave="unhl()" onclick="selectSec(${i})">`;
+    s+=`<circle cx="${p.x}" cy="${p.y}" r="${SEC_R}" fill="${sec.color}"/>`;
+    s+=`<text class="sec-title" x="${p.x}" y="${p.y-1}" text-anchor="middle">${sec.short}</text>`;
+    s+=`<text class="sec-sub" x="${p.x}" y="${p.y+18}" text-anchor="middle">板块${sec.no}</text>`;
+    s+='</g>';
+  });
+
+  /* 第二层：40 个细分领域胶囊 */
+  SECTIONS.forEach((sec,si)=>{
+    sec.subs.forEach(sub=>{
+      const ch=CHIP[sub.id];
+      const label=sub.t+(sub.key?' ★':'');
+      s+=`<g class="chip" data-id="${sub.id}" data-sec="${si}" onmouseenter="hls('${sub.id}')" onmouseleave="unhl()" onclick="selectSub('${sub.id}')">`;
+      s+=`<rect x="${ch.x.toFixed(1)}" y="${ch.y.toFixed(1)}" width="${ch.w.toFixed(1)}" height="${CH_H}" rx="${CH_H/2}" fill="#fff" stroke="${sec.deep}" stroke-width="1.5"/>`;
+      s+=`<text class="pill-t" x="${ch.cx.toFixed(1)}" y="${(ch.cy+4.5).toFixed(1)}" fill="${sec.deep}">${label}</text>`;
+      s+='</g>';
+    });
+  });
+
+  document.getElementById('map').innerHTML=s;
+  renderLegend();
+  renderPanelOverview();
+  applyArcVisibility();
+  applySubVisibility();
+  applyCrossVisibility();
+  applyLblVisibility();
+  if(holdSel){ if(holdSel.type==='sec') hlb(holdSel.i,true); else hls(holdSel.id,true); }
+}
+
+/* ===== 关系索引 ===== */
+function incident(i){const set=new Set();RELS.forEach((r,k)=>{if(r[0]===i||r[1]===i)set.add(k);});return set;}
+function incidentSub(id){const set=new Set();RELS_SUB.forEach((r,k)=>{if(r[0]===id||r[1]===id)set.add(k);});return set;}
+function incidentCrossSec(i){const set=new Set();RELS_CROSS.forEach((r,k)=>{if(r[1]===i)set.add(k);});return set;}
+function incidentCrossSub(id){const set=new Set();RELS_CROSS.forEach((r,k)=>{if(r[0]===id)set.add(k);});return set;}
+
+/* ===== 高亮：节点 ===== */
+function hlNodeState(state){
+  /* state = {secs:Set, chips:Set, arcInc:Set, subInc:Set, crossInc:Set} */
+  document.querySelectorAll('.arc').forEach(el=>{const k=+el.dataset.i;el.classList.toggle('hl',state.arcInc.has(k));el.classList.toggle('dim',!state.arcInc.has(k));});
+  document.querySelectorAll('.subarc').forEach(el=>{const k=+el.dataset.i;el.classList.toggle('hl',state.subInc.has(k));el.classList.toggle('dim',!state.subInc.has(k));});
+  document.querySelectorAll('.crossarc').forEach(el=>{const k=+el.dataset.i;el.classList.toggle('hl',state.crossInc.has(k));el.classList.toggle('dim',!state.crossInc.has(k));});
+  ['arclabelbg','arclabel'].forEach(c=>document.querySelectorAll('.'+c).forEach(el=>{const k=+el.dataset.i;el.classList.toggle('hl',state.arcInc.has(k));el.classList.toggle('dim',!state.arcInc.has(k));}));
+  ['sublabelbg','sublabel'].forEach(c=>document.querySelectorAll('.'+c).forEach(el=>{const k=+el.dataset.i;el.classList.toggle('hl',state.subInc.has(k));el.classList.toggle('dim',!state.subInc.has(k));}));
+  ['crosslabelbg','crosslabel'].forEach(c=>document.querySelectorAll('.'+c).forEach(el=>{const k=+el.dataset.i;el.classList.toggle('hl',state.crossInc.has(k));el.classList.toggle('dim',!state.crossInc.has(k));}));
+  document.querySelectorAll('.sec-node').forEach(el=>el.classList.toggle('dim',!state.secs.has(+el.dataset.sec)));
+  document.querySelectorAll('.chip').forEach(el=>el.classList.toggle('dim',!state.chips.has(el.dataset.id)));
+  document.querySelectorAll('.spoke-sub').forEach(el=>el.classList.toggle('hl',state.secs.has(+el.dataset.sec)));
+  /* 关系清单行联动 */
+  document.querySelectorAll('.rrow').forEach(el=>{
+    const kind=el.dataset.kind, k=+el.dataset.i;
+    const on=(kind==='arc'&&state.arcInc.has(k))||(kind==='sub'&&state.subInc.has(k))||(kind==='cross'&&state.crossInc.has(k));
+    el.classList.toggle('hl',on); el.classList.toggle('dim',!on);
+  });
+}
+function clearHlState(){
+  document.querySelectorAll('.arc,.subarc,.crossarc,.arclabelbg,.arclabel,.sublabelbg,.sublabel,.crosslabelbg,.crosslabel,.sec-node,.chip,.spoke-sub,.rrow').forEach(e=>e.classList.remove('hl','dim'));
+}
+function hlb(i,fromHold){
+  if(!fromHold) holdSel={type:'sec',i};
+  const arcInc=incident(i), crossInc=incidentCrossSec(i);
+  const secs=new Set([i]), chips=new Set();
+  RELS.forEach(r=>{ if(arcInc.has(RELS.indexOf(r))){} });
+  RELS.forEach((r,k)=>{ if(arcInc.has(k)){ secs.add(r[0]); secs.add(r[1]); } });
+  RELS_CROSS.forEach((r,k)=>{ if(crossInc.has(k)){ chips.add(r[0]); secs.add(SUBMAP[r[0]].sec); } });
+  SECTIONS.forEach((sec,si)=>{ if(si===i) sec.subs.forEach(x=>chips.add(x.id)); });
+  hlNodeState({secs,chips,arcInc,subInc:new Set(),crossInc});
+  renderPanel(i);
+}
+function hls(id,fromHold){
+  if(!fromHold) holdSel={type:'sub',id};
+  const subInc=incidentSub(id), crossInc=incidentCrossSub(id);
+  const secs=new Set([SUBMAP[id].sec]), chips=new Set([id]);
+  RELS_SUB.forEach((r,k)=>{ if(subInc.has(k)){ secs.add(SUBMAP[r[0]].sec); secs.add(SUBMAP[r[1]].sec); chips.add(r[0]); chips.add(r[1]); } });
+  RELS_CROSS.forEach((r,k)=>{ if(crossInc.has(k)){ secs.add(r[1]); chips.add(r[0]); } });
+  hlNodeState({secs,chips,arcInc:new Set(),subInc,crossInc});
+  renderSubPanel(id);
+}
+function unhl(){
+  clearHlState();
+  if(holdSel){ if(holdSel.type==='sec') hlb(holdSel.i,true); else hls(holdSel.id,true); }
+}
+function selectSec(i){ holdSel={type:'sec',i}; renderPanel(i); }
+function selectSub(id){ holdSel={type:'sub',id}; renderSubPanel(id); }
+
+/* ===== 高亮：单条关系（清单行 / 连线） ===== */
+function hlRel(kind,idx){
+  clearHlState();
+  const cls={arc:['.arc','.arclabelbg','.arclabel'],sub:['.subarc','.sublabelbg','.sublabel'],cross:['.crossarc','.crosslabelbg','.crosslabel']}[kind];
+  cls.forEach(c=>document.querySelectorAll(c).forEach(el=>{const k=+el.dataset.i;el.classList.toggle('hl',k===idx);el.classList.toggle('dim',k!==idx);}));
+  /* 相关节点保持可见，其余淡化 */
+  const secs=new Set(), chips=new Set();
+  if(kind==='arc'){ secs.add(RELS[idx][0]); secs.add(RELS[idx][1]); }
+  else if(kind==='sub'){ const r=RELS_SUB[idx]; secs.add(SUBMAP[r[0]].sec); secs.add(SUBMAP[r[1]].sec); chips.add(r[0]); chips.add(r[1]); }
+  else { const r=RELS_CROSS[idx]; secs.add(r[1]); secs.add(SUBMAP[r[0]].sec); chips.add(r[0]); }
+  document.querySelectorAll('.sec-node').forEach(el=>el.classList.toggle('dim',!secs.has(+el.dataset.sec)));
+  document.querySelectorAll('.chip').forEach(el=>el.classList.toggle('dim',!chips.has(el.dataset.id)));
+  document.querySelectorAll('.rrow').forEach(el=>{const on=el.dataset.kind===kind&&+el.dataset.i===idx;el.classList.toggle('hl',on);el.classList.toggle('dim',!on);});
+}
+function unhlRel(){ unhl(); }
+
+/* ===== 连线悬浮说明 ===== */
+function relText(kind,idx){
+  if(kind==='arc'){ const r=RELS[idx]; return `<b>${secName(r[0])} → ${secName(r[1])}</b><br>${r[2]}：${r[4]}`; }
+  if(kind==='sub'){ const r=RELS_SUB[idx]; return `<b>${subName(r[0])} ↔ ${subName(r[1])}</b><br>${r[2]}：${r[4]}`; }
+  const r=RELS_CROSS[idx]; return `<b>${subName(r[0])} → ${secName(r[1])}</b><br>${r[2]}：${r[4]}`;
+}
+function arcEnter(kind,idx){
+  const tt=document.getElementById('tt');
+  tt.innerHTML=relText(kind,idx);
+  tt.style.display='block';
+  hlRel(kind,idx);
+}
+function arcLeave(){
+  document.getElementById('tt').style.display='none';
+  unhl();
+}
+function ttMove(ev){
+  const tt=document.getElementById('tt');
+  if(tt.style.display!=='block') return;
+  const wrap=tt.parentElement.getBoundingClientRect();
+  let x=ev.clientX-wrap.left+16, y=ev.clientY-wrap.top+14;
+  const mw=tt.offsetWidth, mh=tt.offsetHeight;
+  if(x+mw>wrap.width-10) x=ev.clientX-wrap.left-mw-14;
+  if(y+mh>wrap.height-10) y=ev.clientY-wrap.top-mh-12;
+  tt.style.left=x+'px'; tt.style.top=y+'px';
+}
+
+/* ===== 右侧面板 ===== */
+function relRow(kind,idx,txt,desc,col){
+  return `<div class="rrow" data-kind="${kind}" data-i="${idx}" onmouseenter="hlRel('${kind}',${idx})" onmouseleave="unhlRel()">
+    <span class="bar" style="background:${col}"></span>
+    <span class="rt"><b>${txt}</b><span class="rd">${desc}</span></span></div>`;
+}
+function relListBlock(){
+  const g1=RELS.map((r,idx)=>relRow('arc',idx,`${secName(r[0])} → ${secName(r[1])} · ${r[2]}`,r[4],TYPE[r[3]].c)).join('');
+  const g2=RELS_SUB.map((r,idx)=>relRow('sub',idx,`${subName(r[0])} ↔ ${subName(r[1])} · ${r[2]}`,r[4],TYPE[r[3]].c)).join('');
+  const g3=RELS_CROSS.map((r,idx)=>relRow('cross',idx,`${subName(r[0])} → ${secName(r[1])} · ${r[2]}`,r[4],TYPE[r[3]].c)).join('');
+  return `
+    <p class="ptitle">关系清单 · 每条关系的文字说明（悬停行可在图上高亮对应连线）</p>
+    <div class="rgroup" data-rel="arc">
+      <div class="rhead"><span>🔗 板块间关系（第一层 ↔ 第一层）</span><span class="cnt">23 条</span></div>${g1}</div>
+    <div class="rgroup" data-rel="sub">
+      <div class="rhead"><span>🔬 细分领域关系（第二层 ↔ 第二层）</span><span class="cnt">40 条</span></div>${g2}</div>
+    <div class="rgroup" data-rel="cross">
+      <div class="rhead"><span>🔀 跨层关系（第二层子模块 → 第一层分类）</span><span class="cnt">23 条</span></div>${g3}</div>`;
+}
+function renderPanelOverview(){
+  holdSel=null;
+  const html=`
+    <h2>整体架构总览（放射状层级）</h2>
+    <div class="sub">中心总主题 → 第一层 10 大分类 → 第二层 40 个细分领域；点击任意节点查看详情</div>
+    <div class="overview">
+      <div class="olayer"><span class="lab" style="color:var(--c1)">第 0 层 · 中心主题（1）</span>：双碳目标 · 碳达峰碳中和 —— 整体架构的总纲与统领。</div>
+      <div class="olayer"><span class="lab" style="color:var(--c2)">第 1 层 · 十大分类（10）</span>：以中心为原点环形辐射；① 顶层政策 ② 核算标准 ③ CCER ④ 碳市场 构成制度与机制层，⑤–⑩ 构成实施、国际与资金层。</div>
+      <div class="olayer"><span class="lab" style="color:var(--c3)">第 2 层 · 细分领域（40 = 10×4）</span>：每个板块向外辐射 4 个细分领域，胶囊标「★」者为该板块底座。</div>
+      <div style="height:8px"></div>
+      <div class="ptitle" style="margin-top:0">主干依赖逻辑</div>
+      1. 制度（板块1）统领全局，并直接建立 <b>核算标准（2a）</b>、<b>CCER（3a）</b>与<b>碳市场（4a）</b>；<br>
+      2. <b>核算 MRV（2a）</b>是全系统底座：其上建立碳市场（4a）/ CCER（3a），并支撑 ESG 披露（6a）与 CBAM（7a）；<br>
+      3. 能源转型与低碳技术（9）是减排主力，由绿色金融（10）注资、零碳园区/建筑（8）落地；<br>
+      4. 生态碳汇（3a）经 CCER 进入碳市场（4a）抵消残余排放 → <b>净零闭环</b>；<br>
+      5. 碳普惠（5）与社会参与提供需求侧动力，ESG 披露（6）与 CBAM（7）连接国际规则，全系统共享 MRV 数据底座。
+    </div>
+    ${relListBlock()}`;
+  document.getElementById('panel').innerHTML=html;
+}
+function renderPanel(i){
+  const s=SECTIONS[i];
+  const pts=s.points.map(p=>`<li style="--ac:${s.color}">${p}</li>`).join("");
+  const subs=s.subs.map(x=>
+    `<li style="--ac:${s.color}"><b>${x.t}${x.key?' ★':''}</b><div class="sdesc">${x.d}</div></li>`
+  ).join("");
+  const links=RELS.filter(r=>r[0]===i||r[1]===i).map((r)=>{
+    const other=r[0]===i?r[1]:r[0];
+    return `<li style="--ac:${TYPE[r[3]].c}"><b>${r[0]===i?'→':'←'} 板块${SECTIONS[other].no}·${SECTIONS[other].short}</b>（${r[2]}）<div class="sdesc">${r[4]}</div></li>`;
+  }).join("");
+  const cross=RELS_CROSS.filter(r=>r[1]===i).map(r=>
+    `<li style="--ac:${TYPE[r[3]].c}"><b>⇅ ${subName(r[0])}</b>（${r[2]}）<div class="sdesc">${r[4]}</div></li>`).join("");
+  document.getElementById('panel').innerHTML=`
+    <h2><span style="color:${s.color}">${s.icon}</span> 板块 ${s.no} · ${s.name}</h2>
+    <div class="sub">放射状第一层节点（共 10 个）</div>
+    <span class="lvl" style="background:${s.color}">${s.level}</span>
+    <p class="role">${s.role}</p>
+    <p class="ptitle" style="margin-top:0">第二层细分板块（向外辐射 4 个）</p>
+    <ul class="pts">${subs}</ul>
+    <p class="ptitle">与同层其它板块的关系（含文字说明）</p>
+    <ul class="pts">${links||'<li>暂无</li>'}</ul>
+    <p class="ptitle">跨层联系（其它板块的细分板块 → 本板块）</p>
+    <ul class="pts">${cross||'<li>暂无跨层连线</li>'}</ul>
+    <p class="ptitle" style="color:#94a3b8;cursor:pointer" onclick="renderPanelOverview()">← 返回总览与关系清单</p>`;
+}
+function renderSubPanel(id){
+  const x=SUBMAP[id]; const sec=SECTIONS[x.sec];
+  const subs=RELS_SUB.filter(r=>r[0]===id||r[1]===id).map(r=>{
+    const other=r[0]===id?r[1]:r[0];
+    const dir=r[0]===id?'→':'←';
+    return `<li style="--ac:${TYPE[r[3]].c}"><b>${dir} ${subName(other)}</b>（${r[2]}）<div class="sdesc">${r[4]}</div></li>`;
+  }).join("");
+  const cross=RELS_CROSS.filter(r=>r[0]===id).map(r=>
+    `<li style="--ac:${TYPE[r[3]].c}"><b>⇅ → ${secName(r[1])}</b>（${r[2]}）<div class="sdesc">${r[4]}</div></li>`).join("");
+  document.getElementById('panel').innerHTML=`
+    <h2><span style="color:${sec.color}">${sec.icon}</span> 细分板块 · ${x.t}${x.key?' ★':''}</h2>
+    <div class="sub">隶属：板块 ${sec.no} · ${sec.name}（放射状第二层）</div>
+    <span class="lvl" style="background:${sec.color}">${x.key?'该板块底座 · ':''}${sec.level}</span>
+    <p class="role">${x.d}</p>
+    ${x.key?`<div class="overview" style="margin-bottom:6px">该细分板块是板块 ${sec.no} 的基础支撑：向上承接板块目标，向下贯通具体落地，并以「数据 / 资金 / 技术」向外连接其他板块。</div>`:''}
+    <p class="ptitle">与其他细分板块的关系（含文字说明）</p>
+    <ul class="pts">${subs||'<li>暂无（板块内基础节点）</li>'}</ul>
+    <p class="ptitle">跨层关系（→ 其它板块）</p>
+    <ul class="pts">${cross||'<li>暂无跨层连线</li>'}</ul>
+    <p class="ptitle" style="color:#94a3b8;cursor:pointer" onclick="renderPanelOverview()">← 返回总览与关系清单</p>`;
+}
+
+/* ===== 图例 ===== */
+function renderLegend(){
+  const el=document.getElementById('legend');
+  const a=Object.keys(TYPE).map(k=>`<span><i class="dot" style="background:${TYPE[k].c}"></i>${TYPE[k].n}</span>`).join("");
+  const b=`<span><i style="display:inline-block;width:18px;height:0;border-top:2px dashed #6366f1"></i>板块关系（内层虚线弧）</span><span><i style="display:inline-block;width:18px;height:0;border-top:2px solid #6366f1"></i>细分/跨层关系（外层细弧）</span><span><i class="dot" style="background:#64748b"></i>细灰线 = 层级辐射</span><span>★ = 板块底座</span>`;
+  el.innerHTML=a+b;
+}
+
+/* ===== 开关 ===== */
+function toggleArc(){
+  arcOn=!arcOn;
+  document.getElementById('tgArc').classList.toggle('on',arcOn);
+  applyArcVisibility();
+}
+function applyArcVisibility(){
+  const el=document.getElementById('arcLayer');
+  if(el) el.style.display=arcOn?'':'none';
+  applyLblVisibility();
+}
+function toggleSub(){
+  subOn=!subOn;
+  document.getElementById('tgSub').classList.toggle('on',subOn);
+  applySubVisibility();
+}
+function applySubVisibility(){
+  document.querySelectorAll('.subarc').forEach(e=>{
+    e.classList.toggle('show',subOn);
+    if(!subOn) e.classList.remove('hl','dim');
+  });
+  document.querySelectorAll('.rgroup[data-rel="sub"]').forEach(e=>e.style.display=subOn?'':'none');
+  applyLblVisibility();
+}
+function toggleCross(){
+  crossOn=!crossOn;
+  document.getElementById('tgCross').classList.toggle('on',crossOn);
+  applyCrossVisibility();
+}
+function applyCrossVisibility(){
+  document.querySelectorAll('.crossarc').forEach(e=>{
+    e.classList.toggle('show',crossOn);
+    if(!crossOn) e.classList.remove('hl','dim');
+  });
+  document.querySelectorAll('.rgroup[data-rel="cross"]').forEach(e=>e.style.display=crossOn?'':'none');
+  applyLblVisibility();
+}
+function toggleLbl(){
+  lblOn=!lblOn;
+  document.getElementById('tgLbl').classList.toggle('on',lblOn);
+  applyLblVisibility();
+}
+function applyLblVisibility(){
+  document.querySelectorAll('.arclabelbg,.arclabel').forEach(e=>{ e.style.display=(lblOn&&arcOn)?'':'none'; });
+  document.querySelectorAll('.sublabelbg,.sublabel').forEach(e=>{ e.style.opacity = (subOn&&lblOn)?'':'0'; });
+  document.querySelectorAll('.crosslabelbg,.crosslabel').forEach(e=>{ e.style.opacity = (crossOn&&lblOn)?'':'0'; });
+}
+function resetMap(){
+  holdSel=null;
+  document.getElementById('tt').style.display='none';
+  clearHlState();
+  renderPanelOverview();
+}
+
+render();
+</script>
+</body>
+</html>

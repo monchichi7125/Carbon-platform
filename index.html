@@ -31,6 +31,19 @@
   .cover-tools{margin-top:22px;display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center}
   .cover-tools .cv-btn{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.42);font-weight:600;font-size:13px;padding:9px 16px;border-radius:999px;transition:.2s}
   .cover-tools .cv-btn:hover{background:rgba(255,255,255,.28)}
+  /* ===== 关系网络图弹层（白底文本框） ===== */
+  .mindmap-modal{position:fixed;inset:0;z-index:1000;display:none;background:rgba(15,23,42,.6);align-items:center;justify-content:center;padding:24px}
+  .mindmap-modal.open{display:flex}
+  .mindmap-modal .mm-box{display:flex;flex-direction:column;width:100%;height:100%;max-width:1180px;max-height:92vh;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 24px 70px rgba(0,0,0,.4)}
+  .mindmap-modal .mm-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#fff;color:#0f2f44;border-bottom:1px solid #e6edf2}
+  .mindmap-modal .mm-bar .t{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
+  .mindmap-modal .mm-bar .acts{display:flex;gap:8px}
+  .mindmap-modal .mm-bar button{background:#eef7f3;color:#0f2f44;border:1px solid #cfe6dc;font-weight:600;font-size:13px;padding:7px 14px;border-radius:999px;cursor:pointer;transition:.2s}
+  .mindmap-modal .mm-bar button:hover{background:#e0f0e8}
+  .mindmap-modal iframe{flex:1;width:100%;border:0;background:#fff;min-height:0}
+  /* 封面：导入/导出用小一号字体 */
+  .cover-tools-sm{margin-top:10px}
+  .cover-tools-sm .cv-btn-sm{font-size:11.5px;padding:6px 13px}
   /* scenario reflection note */
   .reflect{font-size:13px;color:#0a7d56;background:#e6f6ef;border:1px dashed var(--green-l);border-radius:10px;padding:10px 12px;margin-top:10px;text-align:left}
   .eg-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--blue);background:#e6f1fb;padding:2px 9px;border-radius:999px;margin-left:6px}
@@ -425,20 +438,51 @@
   details.card summary::after{content:"▾";float:right;color:var(--muted);transition:.2s}
   details.card[open] summary::after{content:"▴"}
 
+  /* 模块操作栏 / 笔记角标 */
+  .module-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+  .module-actions .btn.sm{font-size:13px;padding:8px 14px}
+  .note-badge{display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:700;color:var(--green-d);background:#e6f6ef;padding:2px 9px;border-radius:999px;white-space:nowrap}
+  .kcard h3 .note-badge{margin-top:2px;margin-left:8px}
+  /* 笔记 / 政策面板内元素（复用 io-box 弹窗） */
+  .nt-ta{width:100%;min-height:110px;font-family:inherit;font-size:14px;line-height:1.7;border:1px solid var(--line);border-radius:10px;padding:12px;resize:vertical;outline:none;background:#fbfdfc}
+  .nt-ta:focus{border-color:var(--green-l);box-shadow:0 0 0 3px rgba(14,159,110,.12)}
+  .nt-list{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+  .nt-item{border:1px solid var(--line);border-left:3px solid var(--green-l);border-radius:10px;padding:10px 12px;background:#fff}
+  .nt-meta{font-size:11.5px;color:var(--muted);margin-bottom:4px}
+  .nt-text{font-size:14px;line-height:1.75;color:var(--text);white-space:pre-wrap;word-break:break-word}
+  .nt-ops{margin-top:8px;display:flex;gap:8px}
+  .nt-mini{font-size:12px;padding:4px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--blue);cursor:pointer;font-weight:600}
+  .nt-mini.ghost{color:var(--muted)}
+  .nt-mini:hover{border-color:var(--green-l)}
+  .nt-mod{margin-bottom:14px}
+  .nt-mod-t{font-weight:700;color:var(--green-d);cursor:pointer;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .ph-chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+  .ph-chip{font-size:13px;padding:7px 13px;border-radius:999px;background:#eef5f2;color:var(--blue);text-decoration:none;font-weight:600;border:1px solid var(--line);transition:.15s}
+  .ph-chip:hover{border-color:var(--blue-l);background:#e6f1fb}
+  .ph-form{margin-top:12px;border-top:1px dashed var(--line);padding-top:12px}
+  .ph-field{margin-bottom:10px;display:flex;flex-direction:column;gap:4px}
+  .ph-row{display:flex;gap:12px}
+  .ph-row .ph-field{flex:1}
+  .ph-field label{font-size:12.5px;color:var(--muted);font-weight:600}
+  .ph-field input,.ph-field textarea{font-family:inherit;font-size:14px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;outline:none}
+  .ph-field input:focus,.ph-field textarea:focus{border-color:var(--green-l);box-shadow:0 0 0 3px rgba(14,159,110,.12)}
+  .ph-field textarea{min-height:90px;resize:vertical;line-height:1.7}
+  @media(max-width:600px){ .ph-row{flex-direction:column;gap:10px} }
+  /* 隐藏页面最下方说明文字（按需求） */
+  footer{display:none}
 </style>
 </head>
 <body data-page-node-id="08aMkBC1SEBHhpJBWWAvBN">
 
 <div class="cover" data-page-node-id="6caCvke7ITSOsmXn9XjDwj">
   <h1 data-page-node-id="86jp9RUCXBKG4WMFy5nHDn">双碳学习平台</h1>
-  <div class="enter" data-page-node-id="PR2euJqL0CefGIVs0o6IBo">
-    <button onclick="go('m01')" data-page-node-id="t3QN4rWc6V8dwaQWMKOD7f">开始学习 →</button>
-    <button class="ghost" style="background:rgba(255,255,255,.15);color:#fff" onclick="go('m02')" data-page-node-id="j32tGanETFzknT4971LBdD">核算与标准</button>
-    <button class="ghost" style="background:rgba(255,255,255,.15);color:#fff" onclick="go('exam')" data-page-node-id="Du4wrsbJABv2Kyba0UJJ9R">考核认证</button>
-  </div>
   <div class="cover-tools" data-page-node-id="49ECNkTvcuvYvyvVH70K6o">
-    <button class="cv-btn" onclick="pickImportFile()" data-page-node-id="BO3vsfOpvY4Cddwh7VyqyP">导入数据</button>
-    <button class="cv-btn" onclick="exportData()" data-page-node-id="KtFAKZ8v5m1ezGnxoC2AT6">导出数据</button>
+    <button class="cv-btn" onclick="openNotes(null)" data-page-node-id="NOTESBTN000000000000000001">📝 我的笔记</button>
+    <button class="cv-btn" onclick="openMindmap()" title="查看双碳关系网络图">🕸 关系网络图</button>
+  </div>
+  <div class="cover-tools cover-tools-sm">
+    <button class="cv-btn cv-btn-sm" onclick="pickImportFile()" data-page-node-id="BO3vsfOpvY4Cddwh7VyqyP">导入数据</button>
+    <button class="cv-btn cv-btn-sm" onclick="exportData()" data-page-node-id="KtFAKZ8v5m1ezGnxoC2AT6">导出数据</button>
   </div>
 </div>
 
@@ -447,14 +491,16 @@
   <div class="nav wrap" data-page-node-id="CzeA09HLp6scabk1dypa7D">
     <div class="brand" data-page-node-id="mKjnuA8iG7h4O5v8GnC0tQ"><span class="dot" data-page-node-id="iqHTuPV1rh1d1Z40zYY1dx"></span><span class="txt" data-page-node-id="MfDL8RS3PHmq2G2QmghObF">双碳学习平台</span></div>
     <button class="tab" data-m="cover" onclick="go('cover')" data-page-node-id="o2nfNABQNrlBfnihkp86UG">封面</button>
-    <button class="tab" data-m="s1" onclick="go('s1')" title="顶层设计与政策法规">1 政策法规</button>
-    <button class="tab" data-m="s2" onclick="go('s2')" title="碳管理与市场机制">2 碳管理市场</button>
-    <button class="tab" data-m="s3" onclick="go('s3')" title="能源绿色低碳转型">3 能源转型</button>
-    <button class="tab" data-m="s4" onclick="go('s4')" title="工业与产业绿色升级">4 工业升级</button>
-    <button class="tab" data-m="s5" onclick="go('s5')" title="低碳技术与科技创新">5 低碳技术</button>
-    <button class="tab" data-m="s6" onclick="go('s6')" title="生态碳汇与基于自然的解决方案">6 生态碳汇</button>
-    <button class="tab" data-m="s7" onclick="go('s7')" title="绿色金融与投资">7 绿色金融</button>
-    <button class="tab" data-m="s8" onclick="go('s8')" title="社会行动与能力建设">8 社会行动</button>
+    <button class="tab" data-m="c01" onclick="go('c01')" title="顶层政策">1 顶层政策</button>
+    <button class="tab" data-m="c02" onclick="go('c02')" title="碳排放核算与标准">2 核算标准</button>
+    <button class="tab" data-m="c03" onclick="go('c03')" title="CCER自愿减排方法学">3 CCER</button>
+    <button class="tab" data-m="c04" onclick="go('c04')" title="碳交易市场">4 交易市场</button>
+    <button class="tab" data-m="c05" onclick="go('c05')" title="碳普惠">5 碳普惠</button>
+    <button class="tab" data-m="c06" onclick="go('c06')" title="ESG与信息披露">6 ESG</button>
+    <button class="tab" data-m="c07" onclick="go('c07')" title="国际碳机制与CBAM">7 国际/CBAM</button>
+    <button class="tab" data-m="c08" onclick="go('c08')" title="零碳园区/零碳建筑">8 零碳园区</button>
+    <button class="tab" data-m="c09" onclick="go('c09')" title="能源转型与低碳技术">9 能源技术</button>
+    <button class="tab" data-m="c10" onclick="go('c10')" title="绿色金融">10 绿色金融</button>
     <button class="tab" data-m="exam" onclick="go('exam')" data-page-node-id="EXAMTAB000000000000000001">考核认证</button>
   </div>
 </div>
@@ -463,8 +509,21 @@
 
 <input type="file" id="fileIn" accept="application/json,.json,text/plain" style="display:none" onchange="importData(this)" data-page-node-id="oJVpUixeGdQOOuYxwhJgEe">
 <footer data-page-node-id="E2GYoMaSCqj6rquZJfOCo5">
-  双碳学习平台 · 八大板块框架（政策法规 / 碳管理市场 / 能源转型 / 工业升级 / 低碳技术 / 生态碳汇 / 绿色金融 / 社会行动）｜ 原有专题作为子模块完整保留 ｜ 数据可导入导出 · 进度本地保存
+  双碳学习平台 · 十大分类框架（顶层政策 / 碳排放核算与标准 / CCER方法学 / 碳交易市场 / 碳普惠 / ESG与信息披露 / 国际碳机制与CBAM / 零碳园区建筑 / 能源转型与低碳技术 / 绿色金融）｜ 原有专题作为子模块完整保留 ｜ 数据可导入导出 · 进度本地保存
 </footer>
+
+<div class="mindmap-modal" id="mindmapModal" onclick="if(event.target===this)closeMindmap()">
+  <div class="mm-box">
+    <div class="mm-bar">
+      <div class="t">🕸 双碳关系网络图</div>
+      <div class="acts">
+        <button onclick="openMindmapNew()">↗ 新窗口打开</button>
+        <button onclick="closeMindmap()">✕ 关闭</button>
+      </div>
+    </div>
+    <iframe id="mindmapFrame" src="" title="双碳关系网络图" allow="fullscreen"></iframe>
+  </div>
+</div>
 
 <div class="toast" id="toast" data-page-node-id="NvB0kx3mtYYc6J4k1zHGKX"></div>
 
@@ -476,7 +535,7 @@ const DATA = {
   /* ---------- 八大学习模块（依据「momo的双碳知识库」01-08 结构划分） ---------- */
   modules: [
     /* ============ 00 基础认知（前置基础） ============ */
-    { id:"m00", no:"00", name:"基础认知", icon:"🌱",
+    { id:"m00", no:"01", name:"基础认知", icon:"🌱",
       desc:"气候变化科学基础、双碳概念与「3060」目标解读，以及关键术语速查 —— 学习后续各模块前的共同基础",
       knowledge:[
         {t:"一、气候变化科学基础",
@@ -517,7 +576,7 @@ const DATA = {
 
     /* ============ 01 双碳政策 ============ */
     { id:"m01", no:"01", name:"双碳政策", icon:"📜",
-      desc:"国家双碳领域纲领性文件与权威解读 ｜ 对应知识库「01 双碳政策」：4 项资料 · 8/19 更新",
+      desc:"国家双碳领域纲领性文件与权威解读 ｜ 对应知识库「01 双碳政策」：8 项资料 · 2026-09 更新（含十五五规划等最新政策，可点「🔄 更新政策」持续补充）",
       knowledge:[
         {t:"《关于推进绿色低碳转型加强全国碳市场建设的意见》（中办、国办，2025年5月印发）",
          x:"明确加快全国碳市场建设的总体要求、功能定位、中长期路线图，确立了碳市场作为控制温室气体排放政策工具的基本定位，提出建设「更加有效、更有活力、更具国际影响力」的全国碳市场。文件指出：我国已建立重点排放单位履行强制减排责任的全国碳排放权交易市场和激励社会自主减排的全国温室气体自愿减排交易市场，形成「强制 + 自愿」双轮驱动格局。"},
@@ -526,7 +585,15 @@ const DATA = {
         {t:"《2024—2025年节能降碳行动方案》（国发〔2024〕12号，2024年5月29日印发）",
          x:"国务院印发的节能降碳专项行动文件，部署重点领域节能降碳任务，是「十四五」后两年节能降碳工作的纲领性安排，为完成「十四五」节能降碳约束性指标提供支撑。"},
         {t:"碳市场建设解读（生态环境部，2025-08-26）",
-         x:"碳市场是利用市场机制控制和减少温室气体排放、加快经济社会发展全面绿色低碳转型的重大制度创新，是实施积极应对气候变化国家战略、实现碳达峰碳中和目标的关键政策工具。"}
+         x:"碳市场是利用市场机制控制和减少温室气体排放、加快经济社会发展全面绿色低碳转型的重大制度创新，是实施积极应对气候变化国家战略、实现碳达峰碳中和目标的关键政策工具。"},
+        {t:"《国家应对气候变化“十五五”规划》（生态环境部、外交部、国家发展改革委等联合印发，2026-07-29 发布）",
+         x:"“十五五”时期推进应对气候变化工作的总抓手。明确到 2030 年，单位国内生产总值二氧化碳排放较 2025 年降低 17%；全国碳排放权交易市场覆盖行业单位产品二氧化碳排放比 2025 年下降 3% 左右；建成诚信透明、方法统一、参与广泛、与国际接轨的全国温室气体自愿减排交易市场，产品碳足迹管理体系基本建成；加强非二氧化碳温室气体监测管控，形成 3000 万吨二氧化碳当量减排能力。规划部署八方面重点任务：控制重点领域 CO₂ 排放、加强非 CO₂ 管控、加强全国碳市场建设、建立健全碳足迹管理体系、提升气候风险应对能力、强化适应气候变化行动、提升治理能力、积极参与和引领全球气候治理。"},
+        {t:"《全国碳排放权交易市场2025、2026年度发电行业以及2026年度钢铁、水泥、铝冶炼行业配额总量和分配方案》（2026-09-03 印发）",
+         x:"全国碳市场扩围后的关键配额分配文件，明确 2025、2026 年度发电行业及 2026 年度钢铁、水泥、铝冶炼行业的配额总量与分配方案，标志碳市场覆盖行业进一步扩大、有偿分配与行业调控逐步深化（与模块 04 市场数据联动）。"},
+        {t:"《碳排放计量能力建设指导目录（2026版）》（市场监管总局办公厅、国家发展改革委办公厅、生态环境部办公厅，2026-08-20）",
+         x:"指导重点行业企业提升碳排放计量能力，为碳核算数据质量与 MRV 体系提供计量基础支撑，呼应“碳排放双控”下对精准计量的要求。"},
+        {t:"生态环境法典施行与碳市场法治完善（2026-08）",
+         x:"生态环境法典填补碳市场领域长期缺乏上位法的空白：明确国务院生态环境主管部门会同有关部门制定年度碳排放配额总量和分配方案；省级生态环境主管部门核查并制定温室气体重点排放单位名录；对未报送排放数据或未按时足额清缴配额的单位依法处罚。2026 年 8 月《国务院关于修改和废止部分行政法规的决定》修改《碳排放权交易管理暂行条例》等 12 部法规，确保制度体系逻辑统一、规则协调。"}
       ],
       quiz:[
         {id:"m01q1", type:"choice", q:"「双碳」具体指？", options:["碳达峰与碳中和","碳交易与碳税","碳足迹与碳汇","碳捕集与封存"], answer:0, explain:"双碳即「碳达峰、碳中和」的简称。"},
@@ -653,22 +720,13 @@ const DATA = {
     /* ============ 03 CCER自愿减排方法学 ============ */
     { id:"m03", no:"03", name:"CCER 自愿减排方法学", icon:"🌲",
       desc:"CCER 方法学体系与项目开发依据 ｜ 对应知识库「03 CCER自愿减排方法学」：26 项资料 · 8/19 更新",
-      knowledge:[
-        {t:"方法学体系与领域划分",
+      knowledge:[{t:"方法学体系与领域划分",
          x:"CCER 方法学按领域划分：能源产业、建筑业、农业、林业和其他碳汇、燃料（固体、石油和天然气）逸散性排放、卤烃与六氟化硫生产使用逸出性排放、交通运输业和能源需求等。知识库收录的正式发布方法学包括：造林碳汇（CCER-14-001-V01）、规模化猪场粪污沼气回收利用工程（CCER-15-001-V01）、农业废弃物集中处理工程（CCER-15-002-V01）、淤地坝碳汇（CCER-14-005-V01）、煤矿低浓度瓦斯和风排瓦斯利用（CCER-10-001-V01）、中深层地热能井下换热供暖（CCER-01-003-V01）、公路隧道照明系统节能（CCER-07-001-V01）等；<br>另收录少量征求意见稿（如更新造林碳汇、纯农林生物质并网发电 / 热电联产等）；截至 2026 年 9 月，生态环境部已正式发布的方法学达 18 项，详见本模块「方法学速览」。"},
-        {t:"造林碳汇方法学（CCER-14-001-V01）要点",
-         x:"造林碳汇项目通过增加森林面积和森林生态系统碳储量实现二氧化碳清除。适用条件：<br>① 适用于乔木、竹子和灌木造林（防护林、特种用途林、用材林等），不包括经济林造林、非林地上的通道绿化、城镇村及工矿用地绿化；<br>② 项目土地在项目开始前至少三年为不符合森林定义的土地。知识库另收录该方法学修订征求意见稿及编制说明——本次修订以降低实施难度、增强可操作性为导向。"},
-        {t:"农业与沼气类方法学",
-         x:"规模化猪场粪污沼气回收利用工程（CCER-15-001-V01）、农业废弃物集中处理工程（CCER-15-002-V01）：利用厌氧消化反应器处理粪污/秸秆等农业废弃物，避免贮存环境中的甲烷（CH₄）排放；回收的甲烷用于发电、供沼气、生产生物天然气，替代化石燃料减少 CO₂ 排放，实现减污降碳协同增效。"},
-        {t:"煤矿瓦斯利用方法学（CCER-10-001-V01）",
-         x:"甲烷体积浓度低于 8% 的煤矿低浓度瓦斯和风排瓦斯利用项目：将煤矿瓦斯进行分解销毁，并利用分解产生的热能发电、供热，避免甲烷直接排放，同时避免区域电网发电与既有供热设施的温室气体排放。煤矿瓦斯利用是煤炭甲烷减排的主要途径。"},
-        {t:"建筑、交通与地热供暖类方法学",
-         x:"① 既有公共建筑围护结构与供暖通风空调系统能效提升（征求意见稿）：建筑绿色低碳转型的有效手段，减少既有公建能耗与 CO₂ 排放；<br>② 公路隧道照明系统节能（CCER-07-001-V01）：采用高光效灯具与智能照明控制系统减少照明电耗；<br>③ 中深层地热能井下换热供暖（CCER-01-003-V01）与水热型供暖（征求意见稿）：以地热能替代传统化石能源供暖。"},
-        {t:"项目设计与实施依据",
-         x:"《温室气体自愿减排项目设计与实施指南》（2023 年 11 月）：规范 CCER 项目设计、审定、登记与减排量核算、核查、减排量登记的实施流程，是方法学之外项目开发的另一份关键文件。"},
-        {t:"CCER 项目开发全流程（十个环节）",
+{t:"CCER 项目开发全流程（十个环节）",
          x:`<div class="kt">全国温室气体自愿减排项目开发遵循《温室气体自愿减排交易管理办法（试行）》与《温室气体自愿减排项目设计与实施指南》（国家气候战略中心，2023 年 11 月）确立的流程，可归纳为十个环节。<br>项目与减排量须同时满足 <b>真实性、额外性、唯一性、保守性</b> 四项基本要求：真实性即减排量真实存在且准确可靠；额外性即项目实施有助于克服内部收益率、融资或关键技术障碍；唯一性即未参与其他温室气体减排交易机制、不存在重复认定或重复计算；<br>保守性即在难以精准判断时采用保守方式取值，确保减排量不被高估。</div>\n<div class="flow-tl">\n  <div class="flow-step"><div class="flow-dot">1</div><div class="flow-body"><div class="flow-t">项目评估</div><div class="flow-who">👤 项目业主 / 咨询机构</div><div class="flow-d">对照生态环境部已发布的方法学判断项目是否属于支持领域，初判<b>真实性</b>与<b>唯一性</b>（未参与其他减排机制）、判断额外性论证路径，粗算减排量规模并测算开发成本与收益。<br></div><div class="flow-out"><b>输出 / 交付物：</b>项目可行性判断与开发决策</div></div></div>\n  <div class="flow-step"><div class="flow-dot">2</div><div class="flow-body"><div class="flow-t">收集资料</div><div class="flow-who">👤 项目业主</div><div class="flow-d">收集项目立项与批复、土地/林权权属证明、环评与竣工验收、能源与物料台账、计量器具检定证书、减排量唯一性声明等支撑材料。<br>项目设计文件所涉数据和信息的原始记录、管理台账须在该项目最后一期减排量登记后<b>至少保存 10 年</b>。</div><div class="flow-out"><b>输出 / 交付物：</b>项目资料清单与底稿台账</div></div></div>\n  <div class="flow-step"><div class="flow-dot">3</div><div class="flow-body"><div class="flow-t">编写 PDD</div><div class="flow-who">👤 项目业主 / 咨询机构</div><div class="flow-d">按《设计与实施指南》附 3（避免、减少排放类项目）或附 4（林业和其他碳汇类型）模板编制<b>项目设计文件（PDD）</b>，说明项目边界、计入期、基准线情景识别、额外性论证（免予论证或按「额外性论证工具」一般论证）、减排量核算方法与监测计划。<br></div><div class="flow-out"><b>输出 / 交付物：</b>项目设计文件（PDD）</div></div></div>\n  <div class="flow-step"><div class="flow-dot">4</div><div class="flow-body"><div class="flow-t">项目公示</div><div class="flow-who">👤 项目业主（注册登记系统）</div><div class="flow-d">通过全国温室气体自愿减排注册登记系统公示项目设计文件，<b>公示期 20 个工作日</b>，并同步公示所委托的审定与核查机构名称；<br>公示期间公众可通过系统提出意见，项目业主须逐条回应。</div><div class="flow-out"><b>输出 / 交付物：</b>公示凭证与公众意见处理说明</div></div></div>\n  <div class="flow-step"><div class="flow-dot">5</div><div class="flow-body"><div class="flow-t">项目审定</div><div class="flow-who">👤 审定与核查机构</div><div class="flow-d">机构按《审定与减排量核查实施规则》对法律法规符合性、方法学支持领域、方法学选用得当性、真实性/唯一性/额外性、可持续发展影响等事项进行审定，出具<b>项目审定报告</b>并上传系统向社会公开。<br>自公示之日起至出具报告<b>原则上不超过 100 天</b>。</div><div class="flow-out"><b>输出 / 交付物：</b>项目审定报告（含肯定/否定结论）</div></div></div>\n  <div class="flow-step"><div class="flow-dot">6</div><div class="flow-body"><div class="flow-t">项目登记</div><div class="flow-who">👤 注册登记机构（国家气候战略中心）</div><div class="flow-d">项目业主提交项目申请表、PDD、项目审定报告及承诺书；<br>注册登记机构审核材料的<b>完整性与规范性</b>，自收到申请材料之日起 <b>15 个工作日内</b>完成登记，并向社会公开项目登记情况及全部材料。</div><div class="flow-out"><b>输出 / 交付物：</b>项目登记（取得项目登记编号）</div></div></div>\n  <div class="flow-step"><div class="flow-dot">7</div><div class="flow-body"><div class="flow-t">项目监测</div><div class="flow-who">👤 项目业主</div><div class="flow-d">按 PDD 确定的监测计划持续监测项目边界、活动数据与关键参数；<br>可自行监测或委托专业调查机构，须建立可信透明的内部管理制度与质量保障体系，指定专人负责数据记录与<b>交叉核对</b>。</div><div class="flow-out"><b>输出 / 交付物：</b>监测记录、数据台账与质控记录</div></div></div>\n  <div class="flow-step"><div class="flow-dot">8</div><div class="flow-body"><div class="flow-t">减排量核算</div><div class="flow-who">👤 项目业主</div><div class="flow-d">按方法学编制<b>减排量核算报告</b>。<br>减排量须产生于 2020 年 9 月 22 日之后，且每期申请登记的减排量产生时间应在申请登记之日前 <b>5 年以内</b>，可分期申请。</div><div class="flow-out"><b>输出 / 交付物：</b>减排量核算报告</div></div></div>\n  <div class="flow-step"><div class="flow-dot">9</div><div class="flow-body"><div class="flow-t">减排量核查</div><div class="flow-who">👤 审定与核查机构</div><div class="flow-d">机构核查核算报告的合规性、真实性与准确性并出具<b>减排量核查报告</b>；<br>核算报告同样须公示 <b>20 个工作日</b>。<b>项目业主不得委托负责该项目审定的机构开展同一项目的减排量核查</b>。</div><div class="flow-out"><b>输出 / 交付物：</b>减排量核查报告</div></div></div>\n  <div class="flow-step"><div class="flow-dot">10</div><div class="flow-body"><div class="flow-t">减排量登记</div><div class="flow-who">👤 注册登记机构</div><div class="flow-d">注册登记机构审核通过后登记<b>核证自愿减排量（CCER）</b>。<br>登记后的 CCER 可在交易系统以挂牌协议、大宗协议或单向竞价方式交易，也可用于全国碳市场配额清缴抵销（须符合抵销比例要求）或自愿注销。</div><div class="flow-out"><b>输出 / 交付物：</b>CCER 登记（可交易 / 可抵销 / 可注销）</div></div></div>\n</div>`},
-        {t:"项目开发引用的方法学与政策文件",
+{t:"项目设计与实施依据",
+         x:"《温室气体自愿减排项目设计与实施指南》（2023 年 11 月）：规范 CCER 项目设计、审定、登记与减排量核算、核查、减排量登记的实施流程，是方法学之外项目开发的另一份关键文件。"},
+{t:"项目开发引用的方法学与政策文件",
          x:`<div class="tbl-wrap"><table class="cmp-tbl"><thead><tr><th>文件名称</th><th>发布主体</th><th>发布 / 施行时间</th><th>在开发中作用</th></tr></thead><tbody>
 <tr><td class="td-std">《温室气体自愿减排交易管理办法（试行）》（生态环境部、市场监管总局令第 31 号）</td><td>生态环境部、国家市场监督管理总局</td><td>2023-10-19</td><td>基本法规。<br>规定项目登记、减排量核查与登记、交易结算流程及各方权责；明确公示 20 个工作日、登记审核 15 个工作日等时限</td></tr>
 <tr><td class="td-std">《温室气体自愿减排项目设计与实施指南》</td><td>国家应对气候变化战略研究和国际合作中心（注册登记机构）</td><td>2023 年 11 月</td><td>规定术语定义、基本原则与九环节设计与实施流程；<br>附 PDD 模板、减排量核算报告模板与「温室气体自愿减排项目额外性论证工具（1.0 版）」</td></tr>
@@ -679,11 +737,18 @@ const DATA = {
 <tr><td class="td-std">各项《温室气体自愿减排项目方法学》（CCER-XX-XXX-V01）</td><td>生态环境部办公厅（环办气候函）</td><td>2023-10 起分批发布</td><td>项目设计、实施、审定与减排量核算、核查的主要技术依据：规定适用条件、计入期、减排量核算方法、监测方法与审定核查要点</td></tr>
 <tr><td class="td-std">《全国碳排放权交易市场重点排放单位使用 CCER 抵销配额清缴操作指南》</td><td>全国碳市场相关机构</td><td>2025-11</td><td>控排企业使用 CCER 抵销配额清缴的操作规程与流程</td></tr>
 </tbody></table></div>`},
-        {t:"审定与核查机构（第一、二批资质）",
+{t:"审定与核查机构（第一、二批资质）",
          x:`<div class="kt">CCER 项目审定与减排量核查须委托<b>经国家认监委批准、且批准范围涵盖该项目所属行业领域</b>的第三方机构。<b>第一批</b>（国家认监委公告 2024 年第 11 号，2024-06-11 发布）：能源产业（可再生 / 不可再生）领域 4 家——中国质量认证中心有限公司（CNCA-R-2002-001）、中国船级社质量认证有限公司（CNCA-R-2002-005）、广州赛宝认证中心服务有限公司（CNCA-R-2002-012）、中环联合（北京）认证中心有限公司（CNCA-R-2002-105）；<br>林业和其他碳汇类型领域在以上 4 家之外增加中国林业科学研究院林业科技信息研究所（CNCA-R-2024-1364）。</div>
 <div class="kt"><b>第二批</b>（国家认监委公告 2025 年第 21 号，2025-10-10 发布）：能源产业（可再生 / 不可再生资源）新增方圆标志认证集团有限公司（CNCA-R-2002-002）、北京鉴衡认证中心有限公司（CNCA-R-2003-091）；<br>燃料（固体、石油和天然气）的逸散性排放领域包括中国质量认证中心、方圆标志、中国船级社、广州赛宝、华夏认证中心有限公司（CNCA-R-2002-021）、中环联合、北京鉴衡；交通运输业、能源需求领域包括中国质量认证中心、方圆标志、中国船级社、广州赛宝、中环联合。<br></div>
 <div class="kt">提示：上述两批资质尚未覆盖建筑业（领域 06）、卤烃与六氟化硫的生产和使用（领域 11）、农业（领域 15）等 2025 年后新纳入的方法学领域。实际委托前，须在注册登记系统与国家认监委最新公告中核对机构已获批准的行业领域，并确认其与项目审定的回避要求（同一机构不得既做审定又做该项目的减排量核查）。<br></div>`},
-      ],
+{t:"造林碳汇方法学（CCER-14-001-V01）要点",
+         x:"造林碳汇项目通过增加森林面积和森林生态系统碳储量实现二氧化碳清除。适用条件：<br>① 适用于乔木、竹子和灌木造林（防护林、特种用途林、用材林等），不包括经济林造林、非林地上的通道绿化、城镇村及工矿用地绿化；<br>② 项目土地在项目开始前至少三年为不符合森林定义的土地。知识库另收录该方法学修订征求意见稿及编制说明——本次修订以降低实施难度、增强可操作性为导向。"},
+{t:"农业与沼气类方法学",
+         x:"规模化猪场粪污沼气回收利用工程（CCER-15-001-V01）、农业废弃物集中处理工程（CCER-15-002-V01）：利用厌氧消化反应器处理粪污/秸秆等农业废弃物，避免贮存环境中的甲烷（CH₄）排放；回收的甲烷用于发电、供沼气、生产生物天然气，替代化石燃料减少 CO₂ 排放，实现减污降碳协同增效。"},
+{t:"煤矿瓦斯利用方法学（CCER-10-001-V01）",
+         x:"甲烷体积浓度低于 8% 的煤矿低浓度瓦斯和风排瓦斯利用项目：将煤矿瓦斯进行分解销毁，并利用分解产生的热能发电、供热，避免甲烷直接排放，同时避免区域电网发电与既有供热设施的温室气体排放。煤矿瓦斯利用是煤炭甲烷减排的主要途径。"},
+{t:"建筑、交通与地热供暖类方法学",
+         x:"① 既有公共建筑围护结构与供暖通风空调系统能效提升（征求意见稿）：建筑绿色低碳转型的有效手段，减少既有公建能耗与 CO₂ 排放；<br>② 公路隧道照明系统节能（CCER-07-001-V01）：采用高光效灯具与智能照明控制系统减少照明电耗；<br>③ 中深层地热能井下换热供暖（CCER-01-003-V01）与水热型供暖（征求意见稿）：以地热能替代传统化石能源供暖。"}],
       cases:[
         {t:"案例 · 造林碳汇方法学修订（编制说明）",
          x:"生态环境部联合国家林草局对《造林碳汇方法学（CCER-14-001-V01）》开展后评估与修订：赴典型国有林区和集体林区调研，广泛座谈和问卷调查，针对地方行业主管部门、项目业主、审定与核查机构等在运用方法学中遇到的实际问题修改形成修订征求意见稿，在坚持科学性的基础上以降低实施难度、增强可操作性为导向。"},
@@ -1283,7 +1348,7 @@ const DATA = {
       ]
     },
     /* ============ 板块三：能源绿色低碳转型 ============ */
-    { id:"s3", no:"3", name:"能源绿色低碳转型", icon:"⚡",
+    { id:"m31", no:"01", name:"能源绿色低碳转型", icon:"⚡",
       desc:"新能源开发、新型储能、新型电力系统与氢能全产业链 —— 能源生产与消费革命的主战场",
       knowledge:[
         {t:"一、新能源开发（风、光、生物质、地热）",
@@ -1311,7 +1376,7 @@ const DATA = {
     },
 
     /* ============ 板块四：工业与产业绿色升级 ============ */
-    { id:"s4", no:"4", name:"工业与产业绿色升级", icon:"🏭",
+    { id:"m41", no:"01", name:"工业与产业绿色升级", icon:"🏭",
       desc:"重点行业节能降碳改造、绿色制造体系、工业流程再造与循环经济 —— 工业是碳排放的最大来源领域",
       knowledge:[
         {t:"一、重点行业节能降碳改造（钢铁、有色、石化、建材）",
@@ -1339,7 +1404,7 @@ const DATA = {
     },
 
     /* ============ 板块五：低碳技术与科技创新 ============ */
-    { id:"s5", no:"5", name:"低碳技术与科技创新", icon:"🔬",
+    { id:"m51", no:"01", name:"低碳技术与科技创新", icon:"🔬",
       desc:"CCUS、负排放技术与数字化碳管理 —— 支撑难减排行业深度脱碳的「技术兜底」",
       knowledge:[
         {t:"一、CCUS（碳捕集、利用与封存）",
@@ -1364,7 +1429,7 @@ const DATA = {
     },
 
     /* ============ 板块六：生态碳汇与基于自然的解决方案 ============ */
-    { id:"s6", no:"6", name:"生态碳汇与基于自然的解决方案", icon:"🌳",
+    { id:"m61", no:"01", name:"生态碳汇与基于自然的解决方案", icon:"🌳",
       desc:"林业碳汇开发经营、海洋蓝碳、生态系统保护修复与增汇 —— 「吸」的主线与生态产品价值实现",
       knowledge:[
         {t:"一、林业碳汇开发与经营",
@@ -1389,7 +1454,7 @@ const DATA = {
     },
 
     /* ============ 板块七：绿色金融与投资 ============ */
-    { id:"s7", no:"7", name:"绿色金融与投资", icon:"💰",
+    { id:"m71", no:"01", name:"绿色金融与投资", icon:"💰",
       desc:"转型金融与绿色信贷、碳中和债券与基金、气候投融资试点 —— 为双碳配置「真金白银」",
       knowledge:[
         {t:"一、转型金融与绿色信贷",
@@ -1413,6 +1478,30 @@ const DATA = {
         {id:"s7q4", type:"choice", q:"气候投融资试点的公布部门是？", options:["生态环境部等九部门","财政部单独","证监会单独","发改委单独"], answer:0, explain:"2022 年 8 月生态环境部等九部门联合公布 23 个气候投融资试点。"}
       ]
     },
+
+    /* ============ 05 碳普惠 ============ */
+    { id:"m09", no:"05", name:"碳普惠", icon:"🌐",
+      desc:"公众与小微企业的低碳参与机制：互联网平台模式、地方核证减排量机制与场景减排量核算方法 ｜ 对应知识库「05 碳普惠」",
+      knowledge:[
+        {t:"一、碳普惠的定位", x:"碳普惠是一种面向公众和小微企业的正向激励机制：将绿色出行、节电、无纸化办公等分散的低碳行为量化为碳减排量或积分，再通过兑换、抵扣或纳入碳市场抵销等方式形成闭环。它把「宏观双碳目标」与「微观个人行为」连接起来，是全社会参与减排的入口。"},
+        {t:"二、互联网平台模式", x:"以「碳阻迹」「蚂蚁森林」为代表的互联网平台，通过 App 内行为追踪（步行、地铁、线上办理等）自动核算减排量并发放虚拟 / 实体权益（如蚂蚁森林的真实植树）。其优势是用户基数大、触达成本低；关键在核算口径透明、权益可兑现，避免「漂绿」质疑。"},
+        {t:"三、地方核证减排量机制", x:"北京「绿色生活季」、广东「碳普惠」等由地方政府或交易所背书的机制，将个人 / 小微减排量核证为可交易的减排量（如广东 PHCER 已纳入当地碳市场抵销）。这类机制的权威性与可抵销性是核心差异点。"},
+        {t:"四、场景减排量核算方法", x:"碳普惠的底座是「场景减排量核算算法」：对每个低碳场景（骑行替代开车、节电、无纸化办公）设定基线情景与减排因子，按活动数据（里程、度数、次数）计算减排量。核算须遵循保守、可核查原则，并与主流碳核算口径（如 GHG Protocol）逻辑一致。"}
+      ],
+      cases:[
+        {t:"案例 · 蚂蚁森林：行为量化 + 真实生态兑现", x:"用户在支付宝内的低碳行为（步行、地铁出行、线上缴费等）被折算为「绿色能量」，积累后由蚂蚁森林在荒漠地区种下真实树木。其价值在于把抽象的减排量变成可见、可参与的生态成果，形成强正反馈。"},
+        {t:"案例 · 广东碳普惠（PHCER）", x:"广东省建立碳普惠核证减排量机制，将分布式光伏、林业碳汇、公众低碳行为等核证为 PHCER，并允许用于抵消纳入碳市场企业的部分配额。这是「地方核证 + 碳市场抵销」结合的范本。"},
+        {t:"案例 · 北京绿色生活季 / MaaS 绿色出行", x:"北京通过「绿色生活季」与 MaaS（出行即服务）平台，将公交、骑行、步行等绿色出行行为量化为碳减排量与权益，推动市民低碳出行，是超大城市碳普惠运营的样本。"}
+      ],
+      tools:[ {type:"qa", label:"💡 智能问答"} ],
+      quiz:[
+        {id:"m09q1", type:"choice", q:"碳普惠主要面向的对象是？", options:["公众和小微企业","仅大型排放企业","仅政府机关","仅金融机构"], answer:0, explain:"碳普惠是一种正向激励机制，面向公众和小微企业，将其分散的低碳行为量化为减排量或积分。"},
+        {id:"m09q2", type:"choice", q:"下列哪种属于「互联网平台模式」的碳普惠实践？", options:["蚂蚁森林","全国碳市场配额交易","CCER 造林碳汇项目","EU ETS"], answer:0, explain:"蚂蚁森林通过 App 内行为追踪核算减排量并发放权益，是典型互联网平台模式；其余为强制 / 自愿碳市场范畴。"},
+        {id:"m09q3", type:"judge", q:"广东 PHCER 等地方核证减排量可纳入当地碳市场用于抵消部分配额。", options:["正确","错误"], answer:0, explain:"广东碳普惠核证减排量（PHCER）已可用于抵消纳入碳市场企业的部分配额，是「地方核证 + 碳市场抵销」结合的样本。"},
+        {id:"m09q4", type:"choice", q:"碳普惠场景减排量核算的关键是？", options:["设定基线情景与减排因子并按活动数据计算","直接估算一个固定值","以企业营收衡量","以员工人数衡量"], answer:0, explain:"每个低碳场景须设定基线情景与减排因子，按活动数据（里程、度数等）计算减排量，并遵循保守、可核查原则。"}
+      ]
+    },
+
   ],
 
   /* ---------- 模块三：情景模拟 ---------- */
@@ -1732,42 +1821,79 @@ function renderFactorTable(){
    状态与持久化
    ========================================================================= */
 /* =========================================================================
-   新框架：八大板块导航（原 9 个模块作为子模块完整保留）
+   新框架：十大分类导航（原专题作为子模块完整保留）
    ========================================================================= */
 const SECTIONS = [
-  {id:"s1", no:"1", name:"顶层设计与政策法规", icon:"🏛️",
-   desc:"「1+N」政策体系解读、地方碳达峰实施方案、行业专项规划 —— 双碳工作的顶层制度框架",
+  {id:"c01", no:"01", name:"顶层政策", icon:"🏛️",
+   desc:"双碳工作的「指挥棒」，包含国家层面的纲领性文件 —— 解决「方向往哪走、底线是什么」",
    children:["m00","m01"],
    extra:[
-     {t:"「1+N」政策体系", x:"<p style=\"margin:0\"><b>「1」</b>是顶层设计：2021 年 10 月《中共中央 国务院关于完整准确全面贯彻新发展理念做好碳达峰碳中和工作的意见》与国务院《2030 年前碳达峰行动方案》，后者部署「碳达峰十大行动」。<br></p><p style='margin:10px 0 0'><b>「N」</b>是分领域分行业实施方案：能源、工业、交通运输、城乡建设、农业农村五大领域，加上科技支撑、财政金融、统计核算、生态碳汇等支撑方案。</p><p style='margin:10px 0 0'><b>体系特点：</b>目标约束 + 分区分类 + 全国一盘棋，形成「顶层设计—领域方案—支撑保障」的完整闭环。"},
-     {t:"地方碳达峰实施方案", x:"各省（自治区、直辖市）均已出台本地区碳达峰实施方案，明确目标时间表、路线图与重点任务，多为「能源结构、产业升级、城乡建设、交通运输、循环经济、碳汇能力」六大板块。区域差异明显：资源型地区侧重产业结构调整，东部负荷中心侧重能效与绿电消纳，新能源富集区侧重基地建设与外送通道。企业应用：落地项目须对齐所在地方案的准入清单与激励政策。"},
-     {t:"行业专项规划", x:"工业领域有《工业领域碳达峰实施方案》及钢铁、建材、石化化工等重点行业配套方案；交通运输、城乡建设（建筑）领域亦各自印发实施方案。行业方案通常规定「十四五/十五五」两阶段的能效标杆产能占比、电气化率、绿色低碳燃料替代等量化指标，是企业编制双碳规划时对标的上位文件。"}
+     {t:"核心文件（必存）", x:"《关于完整准确全面贯彻新发展理念做好碳达峰碳中和工作的意见》（「1+N」政策体系中的「1」）<br>《2030年前碳达峰行动方案》（「N」中的首要方案）<br>国家发改委、能源局发布的《「十四五」现代能源体系规划》"},
+     {t:"重点关注", x:"各省市的碳达峰实施方案（如《北京市碳达峰实施方案》）<br>重点行业（钢铁、有色、石化、建材）的碳达峰实施方案"}
    ]},
-  {id:"s2", no:"2", name:"碳管理与市场机制", icon:"⚙️",
-   desc:"碳排放核算与报告（MRV）、碳交易市场、CCER 自愿减排项目开发、ESG 与气候信息披露、国际碳关税（CBAM）应对",
-   children:["m02","m03","m04","m05","m07"],
+  {id:"c02", no:"02", name:"碳排放核算与标准", icon:"📐",
+   desc:"解决「碳是多少」的问题，是量化基础",
+   children:["m02"],
    extra:[
-     {t:"碳管理闭环：从数据到资产", x:"组织碳管理闭环五步：<br>① 摸清家底——按 GB/T 32150 等标准完成温室气体核算与报告（MRV）；<br>② 合规披露——按交易所指引/ESG 标准公开信息；<br>③ 市场履约——配额清缴与配额交易；<br>④ 自愿减排——开发或购买 CCER 抵销部分排放；<br>⑤ 国际衔接——应对 CBAM 等跨境碳规则。五个环节共用同一套「活动数据+排放因子」数据底座——这就是核算标准成为一切碳工作起点的原因。"},
-     {t:"五大子模块导读", x:"02 碳排放核算与标准——核算方法学与标准体系（含 19 项标准要点速查思维导图）；03 CCER——项目开发十环节流程图与 18 项已发布方法学；04 碳交易市场——全国与试点碳市场真实交易数据量化分析（可导出 CSV/Excel）；05 ESG——11 项主流披露标准清单、对比雷达图与真实企业报告案例；07 国际碳机制与 CBAM——欧盟碳关税申报流程与应对策略。"}
+     {t:"核心标准", x:"国标 (GB/T)：《温室气体排放核算与报告要求》系列标准（发电、钢铁、化工等 24 个行业）<br>ISO 标准：ISO 14064（组织层面）、ISO 14067（产品碳足迹）<br>PAS 2050：商品和服务在生命周期内的温室气体排放评价规范"},
+     {t:"实用工具 / 指南", x:"各省市发布的《温室气体排放清单编制指南》<br>常见化石燃料 / 电力的碳排放因子库（如生态环境部发布的最新电网排放因子）"}
    ]},
-  {id:"s3", no:"3", name:"能源绿色低碳转型", icon:"⚡",
-   desc:"新能源开发、新型储能、新型电力系统与氢能全产业链 —— 能源生产与消费革命的主战场", children:[]},
-  {id:"s4", no:"4", name:"工业与产业绿色升级", icon:"🏭",
-   desc:"重点行业节能降碳改造、绿色制造体系、工业流程再造与循环经济 —— 工业是碳排放最大来源领域", children:[]},
-  {id:"s5", no:"5", name:"低碳技术与科技创新", icon:"🔬",
-   desc:"CCUS、负排放技术与数字化碳管理 —— 难减排行业深度脱碳的技术兜底", children:[]},
-  {id:"s6", no:"6", name:"生态碳汇与基于自然的解决方案", icon:"🌳",
-   desc:"林业碳汇开发经营、海洋蓝碳、生态系统保护修复与增汇 —— 「吸」的主线与生态产品价值实现", children:[]},
-  {id:"s7", no:"7", name:"绿色金融与投资", icon:"💰",
-   desc:"转型金融与绿色信贷、碳中和债券与基金、气候投融资试点 —— 为双碳配置「真金白银」", children:[]},
-  {id:"s8", no:"8", name:"社会行动与能力建设", icon:"👥",
-   desc:"零碳/近零能耗建筑、绿色交通与物流、碳管理人才培训、全民低碳生活（含零碳园区专题）",
+  {id:"c03", no:"03", name:"CCER自愿减排方法学", icon:"🌲",
+   desc:"解决「如何产生可交易的减排量」的问题，涉及项目开发",
+   children:["m03","m61"],
+   extra:[
+     {t:"最新方法学（2023年重启后发布）", x:"造林碳汇<br>红树林营造<br>公路隧道照明系统节能<br>海上风电<br>分布式光伏发电<br>光热发电<br>甲烷利用（landfill gas、农业甲烷等）"},
+     {t:"旧版参考（历史项目）", x:"备案过的 170 多个旧方法学（用于理解逻辑，但新项目需按新版走）"},
+     {t:"流程文件", x:"《温室气体自愿减排交易管理办法（试行）》"}
+   ]},
+  {id:"c04", no:"04", name:"碳交易市场", icon:"💹",
+   desc:"解决「碳如何定价和流通」的问题",
+   children:["m04"],
+   extra:[
+     {t:"全国碳市场", x:"《碳排放权交易管理暂行条例》<br>全国碳市场履约周期、配额分配方案（发电行业为重点）<br>碳价走势分析周报 / 月报"},
+     {t:"地方试点市场", x:"北京、上海、广东、深圳、天津、湖北、重庆、福建等试点的交易规则差异"},
+     {t:"欧盟碳市场 (EU ETS)", x:"作为全球标杆，其价格机制和改革方向（Fit for 55）值得长期跟踪"}
+   ]},
+  {id:"c05", no:"05", name:"碳普惠", icon:"🌐",
+   desc:"解决「公众和小微企业如何参与」的问题",
+   children:["m09"],
+   extra:[
+     {t:"典型案例", x:"「碳阻迹」「蚂蚁森林」等互联网平台模式<br>北京「绿色生活季」、广东「碳普惠」核证减排量机制"},
+     {t:"方法论", x:"场景减排量核算方法（如骑行、节电、无纸化办公的减排算法）"}
+   ]},
+  {id:"c06", no:"06", name:"ESG与信息披露", icon:"📊",
+   desc:"企业非财务绩效的核心，资本市场的通行证",
+   children:["m05"],
+   extra:[
+     {t:"披露准则（最重要）", x:"ISSB 准则：IFRS S1 和 S2（国际可持续准则理事会发布的全球基准）<br>国内指引：沪深北交易所发布的《上市公司可持续发展报告指引（试行）》<br>GRI 标准：全球报告倡议组织标准（应用最广）"},
+     {t:"评级体系", x:"MSCI ESG 评级、S&P Global CSA、中证 ESG 评价体系"}
+   ]},
+  {id:"c07", no:"07", name:"国际碳机制与CBAM", icon:"🌍",
+   desc:"应对国际贸易壁垒和全球气候治理",
+   children:["m07"],
+   extra:[
+     {t:"CBAM（欧盟碳边境调节机制）", x:"CBAM 法规全文及过渡期填报指南<br>涵盖行业：钢铁、铝、水泥、化肥、电力、氢<br>隐含碳排放计算细则"},
+     {t:"其他机制", x:"《巴黎协定》第 6 条（国际碳市场交易规则）<br>美国清洁竞争法案 (CCA) —— 潜在的美国版碳关税"}
+   ]},
+  {id:"c08", no:"08", name:"零碳园区/零碳建筑", icon:"🏞️",
+   desc:"双碳落地的具体物理载体",
    children:["m08"],
    extra:[
-     {t:"零碳 / 近零能耗建筑", x:"梯度体系：超低能耗建筑 → 近零能耗建筑 → 零碳建筑（GB/T 51350《近零能耗建筑技术标准》定义前两者）。强制性底线是 GB 55015-2021《建筑节能与可再生能源利用通用规范》。<br>技术抓手：高性能围护结构（保温、门窗）、高效机电（热泵、新风热回收）、可再生能源（BIPV 光伏建筑一体化）、以及「光储直柔」配电新形态。运行阶段碳排放主要来自采暖、空调、照明与设备用能——设计阶段锁定负荷，运行阶段靠智慧运维。"},
-     {t:"绿色交通与物流", x:"我国新能源汽车年产销已突破千万辆，电动化从乘用车向重卡、公交、物流车延伸。结构性减排三条线：<br>① 交通工具电动化/氢燃料化；<br>② 运输结构调整——「公转铁、公转水」与多式联运，大宗货物长距离运输优先铁路水路；<br>③ 运营优化——绿色货运配送示范、共同配送、逆向物流。对企业的意义：范围三（运输环节）减排与员工通勤碳普惠都落在这里。"},
-     {t:"碳资产管理师 / 碳排放管理师培训", x:"2021 年「碳排放管理员」被正式纳入《国家职业分类大典》，成为国家认可的新职业，覆盖碳排放监测、统计核算、核查、交易与咨询等工种。能力建设路径建议：先掌握核算与标准（板块 2 之 02）→ 再学市场与交易（04）→ 项目开发（03）→ 资产管理与金融（7）。平台配套：本平台各板块均设随堂小测，跨板块综合检验见「考核认证」页。"},
-     {t:"全民低碳生活倡导", x:"碳普惠机制把个人低碳行为（绿色出行、光盘、垃圾分类、线上办理）量化为积分并可兑换权益，典型实践包括北京 MaaS 绿色出行、广东碳普惠（其 PHCER 已纳入当地碳市场抵销机制）与蚂蚁森林。「反食品浪费法」与限塑等制度把生活减碳上升为法定义务。个人侧三大杠杆：绿色出行、节约用能（空调 26℃、随手断电）、绿色消费（选购高能效与低碳产品）。"}
+     {t:"评价标准", x:"《零碳建筑技术标准》<br>《绿色工业园区评价要求》<br>LEED v4.1 / WELL 认证标准 / 中国绿色建筑三星标准"},
+     {t:"解决方案案例", x:"源网荷储一体化方案<br>被动式超低能耗建筑设计图集"}
+   ]},
+  {id:"c09", no:"09", name:"能源转型与低碳技术", icon:"⚡",
+   desc:"实现目标的硬科技支撑",
+   children:["m31","m41","m51"],
+   extra:[
+     {t:"关键技术目录", x:"《绿色低碳先进技术示范工程实施方案》<br>CCUS（碳捕集、利用与封存）技术全链条解析<br>新型储能技术（液流电池、压缩空气储能等）<br>氢能产业链（制氢、储运、燃料电池）<br>生物质能利用"}
+   ]},
+  {id:"c10", no:"10", name:"绿色金融", icon:"💰",
+   desc:"为双碳项目提供资金支持",
+   children:["m71"],
+   extra:[
+     {t:"政策目录", x:"《绿色债券支持项目目录（2021年版）》<br>《银行业保险业绿色金融指引》"},
+     {t:"金融产品", x:"碳中和债、蓝色债券、转型债券发行案例<br>碳期货、碳期权、碳质押融资产品介绍<br>气候投融资试点项目名单"}
    ]}
 ];
 
@@ -1778,49 +1904,61 @@ function secOf(id){
   return sc?sc.id:"cover";
 }
 
-/* 板块落地页（有子模块或板块要点的板块：s1 / s2 / s8） */
+/* 板块内卡片序号：按所在 section 的 children 顺序返回 01 / 02 …（每板块独立从 01 起算） */
+function displayNo(id){
+  for(const s of SECTIONS){
+    if(s.id===id) return null;
+    const i = s.children ? s.children.indexOf(id) : -1;
+    if(i>=0) return (i+1<10 ? "0"+(i+1) : ""+(i+1));
+  }
+  return null;
+}
+
+/* 分类落地页（c01-c10，均含子模块或要点） */
 function renderSectionLanding(sec){
-  let h=`<div class="module-title"><div class="ic">${sec.icon}</div><h2>板块${sec.no} · ${sec.name}</h2></div>
+  let h=`<div class="module-title"><div class="ic">${sec.icon}</div><h2>分类${+sec.no} · ${sec.name}</h2></div>
   <div class="module-desc">${sec.desc}</div>`;
   if(sec.children && sec.children.length){
     h+=`<div class="grid g4" style="margin-bottom:6px">`+sec.children.map(function(cid){
       const mm=DATA.modules.find(x=>x.id===cid); if(!mm) return "";
       return `<div class="card kcard" style="border-top-color:var(--green);cursor:pointer" onclick="go('${mm.id}')">
-        <h3 style="align-items:flex-start"><span style="font-size:22px;line-height:1;flex:0 0 auto">${mm.icon}</span><span style="font-size:16px">${mm.no} ${mm.name}</span></h3>
+        <h3 style="align-items:flex-start"><span style="font-size:22px;line-height:1;flex:0 0 auto">${mm.icon}</span><span style="font-size:16px">${displayNo(mm.id)||mm.no} ${mm.name}</span>${noteBadgeHTML(mm.id)}</h3>
         <div class="sum">${sumHTML(mm.desc)}</div>
       </div>`;}).join("")+`</div>`;
   }
   if(sec.extra && sec.extra.length){
-    h+=`<h3 style="margin:20px 0 10px;color:var(--green-d)">📌 板块要点速览（点击展开）</h3>`;
+    h+=`<h3 style="margin:20px 0 10px;color:var(--green-d)">📌 分类要点速览（点击展开）</h3>`;
     h+=sec.extra.map(function(t){
       return `<details class="card" style="padding:14px 18px;margin-bottom:10px">
         <summary style="cursor:pointer;font-weight:700;color:var(--green-d)">${t.t}</summary>
         <div style="margin-top:8px;font-size:13.5px;line-height:1.85;color:var(--text)">${t.x}</div></details>`;
     }).join("");
   }
-  if(sec.id==="s6"){
+  if(sec.id==="c03"){
     h+=`<div class="card" style="padding:14px 18px;margin-top:14px"><b style="color:var(--blue)">🔗 深度关联：</b>
       造林碳汇（14-001）、红树林营造（14-002）、滨海盐沼（14-003）、海草床（14-004）等方法的
-      合格性、额外性与计量要求，请前往 <button class="io-btn ghost" style="padding:5px 12px;font-size:12.5px" onclick="go('m03')">板块二 · 03 CCER 方法学速览</button> 查看。<br></div>`;
+      合格性、额外性与计量要求，请前往 <button class="io-btn ghost" style="padding:5px 12px;font-size:12.5px" onclick="go('m03')">分类3 · 03 CCER 方法学速览</button> 查看。<br></div>`;
   }
   return h;
 }
 
-const MODULE_ORDER = ["cover","s1","m00","m01","s2","m02","m03","m04","m05","m07","s3","s4","s5","s6","s7","s8","m08","exam"];
+const MODULE_ORDER = ["cover","c01","m00","m01","c02","m02","c03","m03","m61","c04","m04","c05","m09","c06","m05","c07","m07","c08","m08","c09","m31","m41","m51","c10","m71","exam"];
 const STORE_KEY = "carbon_platform_v2";
 
 const State = {
   currentModule: "cover",
   viewed: {},        // 已学习内容 id 集合（用于进度）
   wrong: [],         // 错题 id 集合
-  scores: {}         // 测验成绩 {quizId: correct}
+  scores: {},        // 测验成绩 {quizId: correct}
+  notes: {},         // 按模块 id 存放笔记：{ modId: [ {text, ts, edited} ] }
+  userPolicies: []   // 用户补充的政策：{ title, org, date, body, ts }
 };
 
 function loadState(){
   try{ const s = JSON.parse(localStorage.getItem(STORE_KEY)); if(s){ Object.assign(State, s); } }catch(e){}
 }
 function saveState(){
-  try{ localStorage.setItem(STORE_KEY, JSON.stringify({currentModule:State.currentModule,viewed:State.viewed,wrong:State.wrong,scores:State.scores})); }catch(e){}
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify({currentModule:State.currentModule,viewed:State.viewed,wrong:State.wrong,scores:State.scores,notes:State.notes,userPolicies:State.userPolicies})); }catch(e){}
 }
 function markViewed(id){ State.viewed[id]=1; saveState(); updateProgress(); }
 
@@ -2118,6 +2256,164 @@ function step(d){
 }
 
 /* =========================================================================
+   笔记功能（按模块记录，localStorage 持久化，不随数据导出）
+   ========================================================================= */
+function noteCount(modId){ return ((State.notes && State.notes[modId])||[]).length; }
+function noteBadgeHTML(modId){
+  const n=noteCount(modId);
+  return n? `<span class="note-badge" title="已有 ${n} 条笔记">📝 ${n}</span>` : "";
+}
+function openNotes(modId){ modId ? openModuleNotes(modId) : openAllNotes(); }
+function openModuleNotes(modId){
+  const m=DATA.modules.find(x=>x.id===modId); if(!m) return;
+  if(!State.notes) State.notes={}; if(!State.notes[modId]) State.notes[modId]=[];
+  const body=`<p class="io-tip">模块「${escHTML(m.no+" "+m.name)}」的笔记保存在本机浏览器（localStorage），不会随数据导出。可随时补充、编辑、删除。</p>
+  <div class="nt-form">
+    <textarea id="ntInput" class="nt-ta" placeholder="写下你对本模块的想法、疑问或补充…（支持多行）"></textarea>
+    <div class="io-row" style="margin-top:8px">
+      <button class="io-btn" onclick="saveNote('${modId}')">保存笔记</button>
+      <button class="io-btn ghost" onclick="openModuleNotes('${modId}')">刷新</button>
+    </div>
+  </div>
+  <div class="nt-list" id="ntList">${renderNoteItems(modId,State.notes[modId])}</div>`;
+  ioPanel("📝 笔记 · "+m.no+" "+m.name, body);
+  setTimeout(()=>{ const t=document.getElementById("ntInput"); if(t) t.focus(); },60);
+}
+function renderNoteItems(modId,list){
+  if(!list||!list.length) return '<p class="hint" style="margin-top:10px">还没有笔记，写下第一条吧。</p>';
+  return list.map((nt,i)=>{
+    const dt=new Date(nt.ts||Date.now());
+    const ds=dt.getFullYear()+"-"+(dt.getMonth()+1).toString().padStart(2,"0")+"-"+dt.getDate().toString().padStart(2,"0")+" "+dt.getHours().toString().padStart(2,"0")+":"+dt.getMinutes().toString().padStart(2,"0");
+    return `<div class="nt-item">
+      <div class="nt-meta">${ds}${nt.edited?" · 已编辑":""}</div>
+      <div class="nt-text">${escHTML(nt.text)}</div>
+      <div class="nt-ops">
+        <button class="nt-mini" onclick="editNote('${modId}',${i})">编辑</button>
+        <button class="nt-mini ghost" onclick="delNote('${modId}',${i})">删除</button>
+      </div></div>`;
+  }).join("");
+}
+function saveNote(modId){
+  const t=document.getElementById("ntInput"); if(!t) return;
+  const v=t.value.trim(); if(!v){ toast("请输入笔记内容"); return; }
+  if(!State.notes) State.notes={}; if(!State.notes[modId]) State.notes[modId]=[];
+  State.notes[modId].push({text:v,ts:Date.now()});
+  saveState(); t.value="";
+  const list=document.getElementById("ntList");
+  if(list) list.innerHTML=renderNoteItems(modId,State.notes[modId]);
+  toast("已保存笔记");
+}
+function editNote(modId,i){
+  const arr=State.notes[modId]; if(!arr||!arr[i]) return;
+  const nv=prompt("编辑笔记：",arr[i].text);
+  if(nv===null) return;
+  arr[i]={text:nv.trim()||arr[i].text,ts:arr[i].ts,edited:true};
+  saveState();
+  const list=document.getElementById("ntList");
+  if(list) list.innerHTML=renderNoteItems(modId,arr);
+  toast("已更新笔记");
+}
+function delNote(modId,i){
+  const arr=State.notes[modId]; if(!arr) return;
+  arr.splice(i,1);
+  if(!arr.length) delete State.notes[modId];
+  saveState();
+  const list=document.getElementById("ntList");
+  if(list) list.innerHTML=renderNoteItems(modId,arr||[]);
+  toast("已删除笔记");
+}
+function openAllNotes(){
+  let total=0, html="";
+  DATA.modules.forEach(m=>{
+    const arr=(State.notes&&State.notes[m.id])||[];
+    if(arr.length){
+      total+=arr.length;
+      html+=`<div class="nt-mod"><div class="nt-mod-t" onclick="go('${m.id}')">${escHTML(m.no+" "+m.name)} <span class="note-badge">${arr.length}</span></div>`;
+      html+=arr.map((nt,i)=>`<div class="nt-item"><div class="nt-meta">${nt.ts?new Date(nt.ts).toLocaleString():""}</div><div class="nt-text">${escHTML(nt.text)}</div>
+        <div class="nt-ops"><button class="nt-mini" onclick="editNote('${m.id}',${i})">编辑</button><button class="nt-mini ghost" onclick="delNote('${m.id}',${i})">删除</button></div></div>`).join("");
+      html+=`</div>`;
+    }
+  });
+  if(!total) html='<p class="hint">还没有任何笔记。进入任意模块，点「📝 笔记」即可记录。</p>';
+  ioPanel("📝 我的笔记（共 "+total+" 条）", html);
+}
+
+/* =========================================================================
+   政策法规：更新政策 / 检索补充（m01 专属）
+   ========================================================================= */
+function openPolicyHub(){
+  const body=`<p class="io-tip">点「一键检索」会在新标签页打开权威来源，自行查阅并复制最新政策要点；或直接用下方表单把政策补充进「01 双碳政策」模块（保存在本机，不随数据导出）。</p>
+  <div class="ph-chips">
+    <a class="ph-chip" href="https://www.gov.cn/zhengce/index.htm" target="_blank" rel="noopener">🏛 中国政府网 · 政策</a>
+    <a class="ph-chip" href="https://www.mee.gov.cn/zcwj/" target="_blank" rel="noopener">🌿 生态环境部 · 政策文件</a>
+    <a class="ph-chip" href="https://www.cets.org.cn/" target="_blank" rel="noopener">📈 全国碳市场信息网</a>
+    <a class="ph-chip" href="https://www.gov.cn/zhengce/xxgkzl.htm" target="_blank" rel="noopener">📑 国务院政策文件库</a>
+    <a class="ph-chip" href="https://www.baidu.com/s?wd=%E5%8F%8C%E7%A2%B3%20%E6%9C%80%E6%96%B0%E6%94%BF%E7%AD%96%202026" target="_blank" rel="noopener">🔍 搜索：双碳 最新政策 2026</a>
+  </div>
+  <div class="ph-form">
+    <div class="ph-field"><label>政策标题 *</label><input id="ppTitle" placeholder="如：《国家应对气候变化“十五五”规划》"></div>
+    <div class="ph-row">
+      <div class="ph-field"><label>发布主体</label><input id="ppOrg" placeholder="如：生态环境部等"></div>
+      <div class="ph-field"><label>发布 / 施行日期</label><input id="ppDate" placeholder="如：2026-07-29"></div>
+    </div>
+    <div class="ph-field"><label>要点 / 内容 *</label><textarea id="ppBody" placeholder="粘贴或摘录政策核心内容、与你工作的关联等…"></textarea></div>
+    <div class="io-row" style="margin-top:8px">
+      <button class="io-btn" onclick="addUserPolicy()">补充到政策模块</button>
+    </div>
+  </div>
+  <div class="nt-list" id="ppList">${renderUserPolicies()}</div>`;
+  ioPanel("🔄 更新政策 · 检索与补充", body);
+}
+function policyMeta(p){
+  let s="";
+  if(p.org) s+="发布主体："+escHTML(p.org)+"　";
+  if(p.date) s+="日期："+escHTML(p.date)+"　";
+  if(s) s='<div style="color:var(--muted);font-size:13px;margin-bottom:6px">'+s+'</div>';
+  return s;
+}
+function renderUserPolicies(){
+  const ups=(State.userPolicies)||[];
+  if(!ups.length) return '<p class="hint" style="margin-top:12px">尚无补充政策。</p>';
+  return ups.map((p,i)=>`<div class="nt-item">
+    <div class="nt-meta">你补充的政策${p.date?" · "+escHTML(p.date):""}</div>
+    <div class="nt-text"><b>${escHTML(p.title)}</b><br>${policyMeta(p)}${escHTML(p.body).replace(/\n/g,"<br>")}</div>
+    <div class="nt-ops"><button class="nt-mini ghost" onclick="delUserPolicy(${i})">删除</button></div>
+  </div>`).join("");
+}
+function addUserPolicy(){
+  const t=document.getElementById("ppTitle"), o=document.getElementById("ppOrg"), d=document.getElementById("ppDate"), b=document.getElementById("ppBody");
+  if(!t||!b) return;
+  const title=t.value.trim(), body=b.value.trim();
+  if(!title||!body){ toast("请填写政策标题与内容"); return; }
+  if(!State.userPolicies) State.userPolicies=[];
+  State.userPolicies.push({title:title,org:o.value.trim(),date:d.value.trim(),body:body,ts:Date.now()});
+  saveState();
+  toast("已补充到政策模块");
+  t.value=""; o.value=""; d.value=""; b.value="";
+  const list=document.getElementById("ppList");
+  if(list) list.innerHTML=renderUserPolicies();
+  if(State.currentModule==="m01"){ try{ switchModStage(0); }catch(e){} }
+}
+function delUserPolicy(i){
+  if(!State.userPolicies) return;
+  State.userPolicies.splice(i,1);
+  saveState();
+  const list=document.getElementById("ppList");
+  if(list) list.innerHTML=renderUserPolicies();
+  if(State.currentModule==="m01"){ try{ switchModStage(0); }catch(e){} }
+  toast("已删除补充政策");
+}
+function mergedKnowledge(m){
+  let k=(m.knowledge||[]).slice();
+  if(m.id==="m01" && State.userPolicies && State.userPolicies.length){
+    State.userPolicies.forEach(p=>{
+      k.push({t:p.title+"（用户补充）", x:policyMeta(p)+escHTML(p.body).replace(/\n/g,"<br>")});
+    });
+  }
+  return k;
+}
+
+/* =========================================================================
    封面
    ========================================================================= */
 /* 卡片摘要换行：取破折号/竖线前的主句 → 按顿号分条 → 超长条再按逗号控行 */
@@ -2137,18 +2433,29 @@ function sumHTML(d){
 function coverHTML(){
   return `<div class="grid g4" style="margin-top:10px">
     ${SECTIONS.map(sc=>`<div class="card kcard" style="border-top-color:var(--blue);cursor:pointer" onclick="go('${sc.id}')">
-      <h3 style="align-items:flex-start"><span style="font-size:22px;line-height:1;flex:0 0 auto">${sc.icon}</span><span>板块${sc.no} · ${sc.name}</span></h3>
+      <h3 style="align-items:flex-start"><span style="font-size:22px;line-height:1;flex:0 0 auto">${sc.icon}</span><span>板块${+sc.no} · ${sc.name}</span></h3>
       <div class="sum">${sumHTML(sc.desc)}</div>
     </div>`).join("")}
     <div class="card kcard" style="border-top-color:var(--green);cursor:pointer" onclick="go('exam')">
       <h3 style="align-items:flex-start"><span style="font-size:22px;line-height:1;flex:0 0 auto">🏅</span><span>考核认证</span></h3>
       <div class="sum">跨板块阶段性综合测试<br>错题集中练习</div>
     </div></div>
-  <p class="hint" style="text-align:center;margin-top:18px">学习路径：板块 1 → 2 为「制度与市场」主线，3 → 7 为「领域与技术」主线，8 为社会行动落地 ｜ 键盘 ← → 可按顺序翻页 ｜ 点击卡片进入对应板块</p>`;
+  <p class="hint" style="text-align:center;margin-top:18px">学习路径：01 顶层政策 → 02 核算标准 → 03/04 碳市场主线 → 05 碳普惠 → 06/07 披露与国际 → 08/09/10 落地与技术金融 ｜ 键盘 ← → 可按顺序翻页 ｜ 点击卡片进入对应分类</p>`;
 }
 function goByTitle(t){
   const m=DATA.modules.find(x=>x.name===t); go(m?m.id:"cover");
 }
+/* 封面「关系网络图」按钮：全屏弹层展示 carbon-mindmap.html（保留平台所有功能） */
+function openMindmap(){
+  const f=document.getElementById("mindmapFrame");
+  if(!f.getAttribute("src")) f.setAttribute("src","carbon-mindmap.html");
+  document.getElementById("mindmapModal").classList.add("open");
+}
+function closeMindmap(){
+  document.getElementById("mindmapModal").classList.remove("open");
+  const f=document.getElementById("mindmapFrame"); if(f) f.removeAttribute("src");
+}
+function openMindmapNew(){ window.open("carbon-mindmap.html","_blank"); }
 
 /* =========================================================================
    八大学习模块渲染（结构依据「momo的双碳知识库」01-08）
@@ -2191,6 +2498,10 @@ function renderModule(id){
   const m=DATA.modules[curMod];
   let h=`<div class="module-title"><div class="ic">${m.icon}</div><h2>${m.no} ${m.name}</h2></div>
   <div class="module-desc">${m.desc}</div>
+  <div class="module-actions">
+    <button class="btn sm" onclick="openNotes('${m.id}')">📝 笔记${noteCount(m.id)?' ('+noteCount(m.id)+')':''}</button>
+    ${m.id==="m01"?'<button class="btn sm ghost" onclick="openPolicyHub()">🔄 更新政策 / 检索补充</button>':''}
+  </div>
   <div class="card"><div class="stage-tabs" id="modStageTabs">`;
   stageList(m).forEach((s,i)=>{ h+=`<button data-s="${s.k}" class="${i===0?'active':''}" onclick="switchModStage(${s.k})">${s.label}</button>`; });
   h+=`</div><div id="stageContent"></div></div>`;
@@ -2201,7 +2512,8 @@ function switchModStage(k){
   document.querySelectorAll("#modStageTabs button").forEach(b=>b.classList.toggle("active",+b.dataset.s===k));
   let h="";
   if(k===0){
-    h='<div class="panel">'+m.knowledge.map(x=>`<h4>${x.t}</h4><div class="kt">${x.x}</div>`).join("")+'</div>';
+    const klist=mergedKnowledge(m);
+    h='<div class="panel">'+klist.map(x=>`<h4>${x.t}</h4><div class="kt">${x.x}</div>`).join("")+'</div>';
     if(m.terms && m.terms.length){
       h+='<div class="panel"><h4>🔑 关键术语速查</h4>'+
          m.terms.map((t,i)=>`<div class="term-item" onclick="toggleTerm(${i})">
@@ -3408,9 +3720,16 @@ function showHelp(){
   toast("← → 翻页 ｜ 点击卡片展开 ｜ 封面可导入/导出数据");
 }
 const RENDER={};
-RENDER["s1"]=()=>renderSectionLanding(SECTIONS[0]);
-RENDER["s2"]=()=>renderSectionLanding(SECTIONS[1]);
-RENDER["s8"]=()=>renderSectionLanding(SECTIONS[7]);
+RENDER["c01"]=()=>renderSectionLanding(SECTIONS[0]);
+RENDER["c02"]=()=>renderSectionLanding(SECTIONS[1]);
+RENDER["c03"]=()=>renderSectionLanding(SECTIONS[2]);
+RENDER["c04"]=()=>renderSectionLanding(SECTIONS[3]);
+RENDER["c05"]=()=>renderSectionLanding(SECTIONS[4]);
+RENDER["c06"]=()=>renderSectionLanding(SECTIONS[5]);
+RENDER["c07"]=()=>renderSectionLanding(SECTIONS[6]);
+RENDER["c08"]=()=>renderSectionLanding(SECTIONS[7]);
+RENDER["c09"]=()=>renderSectionLanding(SECTIONS[8]);
+RENDER["c10"]=()=>renderSectionLanding(SECTIONS[9]);
 DATA.modules.forEach(m=>{ RENDER[m.id]=()=>renderModule(m.id); });
 /* 「考核认证」独立页：阶段性综合测试 + 错题本 */
 function renderExamPage(){
