@@ -497,6 +497,7 @@
   .mq-mod-h{display:flex;align-items:center;gap:10px;cursor:pointer;padding:13px 16px;font-weight:800;font-size:15px;color:var(--green-d);user-select:none;list-style:none}
   .mq-mod-h::-webkit-details-marker{display:none}
   .mq-mod-h .mq-cnt{color:var(--muted);font-weight:500;font-size:12px}
+  .mq-mod-h .mq-board{display:inline-block;background:var(--green);color:#fff;border-radius:6px;padding:1px 7px;font-size:12px;font-weight:700;letter-spacing:.5px}
   .mq-mod-h .mq-arrow{margin-left:auto;color:var(--blue);font-size:12px;transition:transform .2s;font-weight:700}
   .mq-mod[open] .mq-arrow{transform:rotate(90deg)}
   .mq-mod-body{padding:4px 16px 16px}
@@ -3714,11 +3715,20 @@ function switchAssess(s){
 
 function renderModuleQuiz(){
   const box=document.getElementById("assessContent"); if(!box) return;
-  let h='<p class=\"hint\" style=\"margin-bottom:12px\">以下为各板块的随堂小测，按原所属板块罗列。选择答案后即时判分；答错的题自动进入「错题本」，可反复练习。点击板块标题即可展开 / 收起。</p>';
-  DATA.modules.forEach(m=>{
+  // 按平台「板块-细分领域」序号（SECTIONS 顺序）重排，避免乱序
+  const ordered=[];
+  SECTIONS.forEach(sc=>{
+    (sc.children||[]).forEach((cid,idx)=>{
+      const m=DATA.modules.find(x=>x.id===cid);
+      if(m) ordered.push({sc:sc, m:m, sub:(idx+1<10?"0"+(idx+1):(""+(idx+1))), seq:sc.no+"-"+(idx+1<10?"0"+(idx+1):(""+(idx+1)))});
+    });
+  });
+  let h='<p class=\"hint\" style=\"margin-bottom:12px\">以下随堂小测按平台「板块-细分领域」序号排列（如 <b>01-01</b> = 顶层政策·第 1 个细分领域）。点击板块标题即可展开 / 收起，选择答案后即时判分；答错的题自动进入「错题本」。</p>';
+  ordered.forEach(o=>{
+    const m=o.m, sc=o.sc;
     if(!m.quiz||!m.quiz.length) return;
     h+='<details class=\"mq-mod\">';
-    h+='<summary class=\"mq-mod-h\">'+m.icon+' '+m.no+' '+m.name+' <span class=\"mq-cnt\">('+m.quiz.length+' 题)</span><span class=\"mq-arrow\">▶</span></summary>';
+    h+='<summary class=\"mq-mod-h\">'+m.icon+' <span class=\"mq-board\">'+sc.name+'</span> · '+o.seq+' '+m.name+' <span class=\"mq-cnt\">('+m.quiz.length+' 题)</span><span class=\"mq-arrow\">▶</span></summary>';
     h+='<div class=\"mq-mod-body\">'+m.quiz.map(q=>quizHTML(q)).join("")+'</div>';
     h+='</details>';
   });
