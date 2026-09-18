@@ -492,15 +492,20 @@
   @media(max-width:600px){ .ph-row{flex-direction:column;gap:10px} }
   /* 隐藏页面最下方说明文字（按需求） */
   footer{display:none}
-  /* 分科随堂小测：板块默认折叠，点击标题展开 */
-  .mq-mod{border:1px solid var(--line);border-radius:12px;background:#fff;margin:12px 0;overflow:hidden}
-  .mq-mod-h{display:flex;align-items:center;gap:10px;cursor:pointer;padding:13px 16px;font-weight:800;font-size:15px;color:var(--green-d);user-select:none;list-style:none}
-  .mq-mod-h::-webkit-details-marker{display:none}
-  .mq-mod-h .mq-cnt{color:var(--muted);font-weight:500;font-size:12px}
-  .mq-mod-h .mq-board{display:inline-block;background:var(--green);color:#fff;border-radius:6px;padding:1px 7px;font-size:12px;font-weight:700;letter-spacing:.5px}
-  .mq-mod-h .mq-arrow{margin-left:auto;color:var(--blue);font-size:12px;transition:transform .2s;font-weight:700}
-  .mq-mod[open] .mq-arrow{transform:rotate(90deg)}
-  .mq-mod-body{padding:4px 16px 16px}
+  /* 分科随堂小测：两级折叠（板块 → 细分领域），默认折叠 */
+  .mq-board{border:1px solid var(--line);border-radius:12px;background:#fff;margin:12px 0;overflow:hidden}
+  .mq-board-h{display:flex;align-items:center;gap:10px;cursor:pointer;padding:14px 16px;font-weight:800;font-size:16px;color:var(--green-d);user-select:none;list-style:none;background:linear-gradient(90deg,#f1f8f3,#fff)}
+  .mq-board-h::-webkit-details-marker{display:none}
+  .mq-board-h .mq-arrow{margin-left:auto;color:var(--blue);font-size:13px;transition:transform .2s;font-weight:700}
+  .mq-board[open]>.mq-board-h .mq-arrow{transform:rotate(90deg)}
+  .mq-board-body{padding:6px 14px 14px}
+  .mq-sub{border:1px solid var(--line);border-radius:10px;background:#fafbfc;margin:10px 0;overflow:hidden}
+  .mq-sub-h{display:flex;align-items:center;gap:10px;cursor:pointer;padding:11px 14px;font-weight:700;font-size:14px;color:#34495e;user-select:none;list-style:none}
+  .mq-sub-h::-webkit-details-marker{display:none}
+  .mq-sub-h .mq-cnt{color:var(--muted);font-weight:500;font-size:12px}
+  .mq-sub-h .mq-arrow{margin-left:auto;color:var(--blue);font-size:12px;transition:transform .2s;font-weight:700}
+  .mq-sub[open]>.mq-sub-h .mq-arrow{transform:rotate(90deg)}
+  .mq-sub-body{padding:4px 14px 12px}
 </style>
 </head>
 <body data-page-node-id="08aMkBC1SEBHhpJBWWAvBN">
@@ -3715,22 +3720,24 @@ function switchAssess(s){
 
 function renderModuleQuiz(){
   const box=document.getElementById("assessContent"); if(!box) return;
-  // 按平台「板块-细分领域」序号（SECTIONS 顺序）重排，避免乱序
-  const ordered=[];
+  // 两级折叠：板块(SECTIONS 顺序) → 细分领域(板块内 children 顺序)，均默认折叠
+  let bIdx=0;
+  let h='<p class=\"hint\" style=\"margin-bottom:12px\">以下随堂小测按平台「板块 → 细分领域」两级排列。点击「板块」展开其下细分领域，再点击「细分领域」展开题目；选择答案后即时判分，答错的题自动进入「错题本」。</p>';
   SECTIONS.forEach(sc=>{
-    (sc.children||[]).forEach((cid,idx)=>{
-      const m=DATA.modules.find(x=>x.id===cid);
-      if(m) ordered.push({sc:sc, m:m, sub:(idx+1<10?"0"+(idx+1):(""+(idx+1))), seq:sc.no+"-"+(idx+1<10?"0"+(idx+1):(""+(idx+1)))});
+    const kids=(sc.children||[]).map(cid=>DATA.modules.find(x=>x.id===cid)).filter(m=>m&&m.quiz&&m.quiz.length);
+    if(!kids.length) return;
+    bIdx++;
+    h+='<details class=\"mq-board\">';
+    h+='<summary class=\"mq-board-h\">'+sc.icon+' 板块'+bIdx+' · '+sc.name+' <span class=\"mq-arrow\">▶</span></summary>';
+    h+='<div class=\"mq-board-body\">';
+    kids.forEach((m,idx)=>{
+      const sIdx=idx+1;
+      h+='<details class=\"mq-sub\">';
+      h+='<summary class=\"mq-sub-h\">细分领域'+sIdx+' · '+m.name+' <span class=\"mq-cnt\">('+m.quiz.length+' 题)</span><span class=\"mq-arrow\">▶</span></summary>';
+      h+='<div class=\"mq-sub-body\">'+m.quiz.map(q=>quizHTML(q)).join("")+'</div>';
+      h+='</details>';
     });
-  });
-  let h='<p class=\"hint\" style=\"margin-bottom:12px\">以下随堂小测按平台「板块-细分领域」序号排列（如 <b>01-01</b> = 顶层政策·第 1 个细分领域）。点击板块标题即可展开 / 收起，选择答案后即时判分；答错的题自动进入「错题本」。</p>';
-  ordered.forEach(o=>{
-    const m=o.m, sc=o.sc;
-    if(!m.quiz||!m.quiz.length) return;
-    h+='<details class=\"mq-mod\">';
-    h+='<summary class=\"mq-mod-h\">'+m.icon+' <span class=\"mq-board\">'+sc.name+'</span> · '+o.seq+' '+m.name+' <span class=\"mq-cnt\">('+m.quiz.length+' 题)</span><span class=\"mq-arrow\">▶</span></summary>';
-    h+='<div class=\"mq-mod-body\">'+m.quiz.map(q=>quizHTML(q)).join("")+'</div>';
-    h+='</details>';
+    h+='</div></details>';
   });
   box.innerHTML=h;
   DATA.modules.forEach(m=>{ (m.quiz||[]).forEach(q=>{ if(State.scores[q.id]!==undefined) restoreQuizState(q); }); });
