@@ -153,6 +153,28 @@
   .qa-input input{flex:1;padding:11px 14px;border:1px solid var(--line);border-radius:10px}
   .qa-answer{background:#f6faf8;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:14px;margin-top:10px}
 
+  /* ===== 政策库（层级 + 可搜索，m01 专属） ===== */
+  .pl-toolbar{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .pl-search{flex:1;min-width:240px;padding:11px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px;background:#fff;transition:.18s}
+  .pl-search:focus{outline:none;border-color:var(--green-l);box-shadow:0 0 0 3px rgba(14,159,110,.12)}
+  .pl-count{font-size:13px;color:var(--muted);white-space:nowrap}
+  .pl-count b{color:var(--green-d)}
+  .pl-group{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:12px;overflow:hidden}
+  .pl-group>summary,.pl-prov>summary{list-style:none;cursor:pointer;padding:13px 18px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--green-d);background:#f6faf8;transition:.15s}
+  .pl-group>summary::-webkit-details-marker,.pl-prov>summary::-webkit-details-marker{display:none}
+  .pl-group>summary::before,.pl-prov>summary::before{content:"▸";font-size:12px;color:var(--muted);transition:.2s}
+  .pl-group[open]>summary::before,.pl-prov[open]>summary::before{content:"▾"}
+  .pl-prov>summary{background:#fff;color:#374151;font-weight:600;padding-left:46px;border-top:1px solid var(--line)}
+  .pl-badge{margin-left:auto;font-size:12px;font-weight:700;color:var(--green-d);background:#e6f6ef;padding:1px 10px;border-radius:999px}
+  .pl-docs{padding:6px 14px 14px}
+  .pl-doc{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;padding:13px 15px;margin:10px 0;background:#fff;transition:.15s}
+  .pl-doc:hover{box-shadow:0 6px 18px rgba(13,80,70,.1);transform:translateY(-1px)}
+  .pl-doc h4{font-size:15px;margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .pl-doc h4 a{color:var(--blue);font-weight:700;font-size:13px}
+  .pl-doc .meta{font-size:12.5px;color:var(--muted);margin-bottom:6px}
+  .pl-doc .meta .sep{margin:0 6px;opacity:.5}
+  .pl-doc .sum{font-size:13.5px;line-height:1.8;color:#374151}
+
   /* Stats */
   .stat{text-align:center;padding:18px 10px}
   .stat .n{font-size:30px;font-weight:800;color:var(--green-d)}
@@ -576,7 +598,7 @@ const DATA = {
 
     /* ============ 01 双碳政策 ============ */
     { id:"m01", no:"01", name:"双碳政策", icon:"📜",
-      desc:"国家双碳领域纲领性文件与权威解读 ｜ 对应知识库「01 双碳政策」：8 项资料 · 2026-09 更新（含十五五规划等最新政策，可点「🔄 更新政策」持续补充）",
+      desc:"国家双碳领域纲领性文件与权威解读 ｜ 对应知识库「01 双碳政策」：国家层面共 23 项（顶层 15 + 生态环境部发布 8）· 2026-09 更新（含十五五规划等最新政策，可点「🔄 更新政策」持续补充）；模块内「政策库 · 可搜索」阶段覆盖国家层面 23 项 + 全国 33 省/市/兵团地方政策（2026-09 新增 23 项地方碳市场专项政策，试点区域已标注（试点区域）），支持层级展开与关键词检索",
       knowledge:[
         {t:"《关于推进绿色低碳转型加强全国碳市场建设的意见》（中办、国办，2025年5月印发）",
          x:"明确加快全国碳市场建设的总体要求、功能定位、中长期路线图，确立了碳市场作为控制温室气体排放政策工具的基本定位，提出建设「更加有效、更有活力、更具国际影响力」的全国碳市场。文件指出：我国已建立重点排放单位履行强制减排责任的全国碳排放权交易市场和激励社会自主减排的全国温室气体自愿减排交易市场，形成「强制 + 自愿」双轮驱动格局。"},
@@ -2414,6 +2436,203 @@ function mergedKnowledge(m){
 }
 
 /* =========================================================================
+   政策库（层级 + 可搜索）—— 双碳政策模块（m01）专属
+   国家层面取自 m01.knowledge；地方层面取自 LOCAL_POLICIES（全国 33 省/市/兵团）
+   层级：地区 → 省份 → 政策文档；顶部实时搜索框，覆盖省份/文件名/发布主体/关键词
+   ========================================================================= */
+const LOCAL_POLICIES = [
+  /* 华北地区 */
+  {region:"华北地区",province:"北京市",title:"《北京市碳达峰实施方案》",org:"北京市人民政府",docNo:"",date:"2022-10",url:"https://www.beijing.gov.cn/zhengce/zhengcefagui/202210/t20221014_2836026.html",summary:"首都碳达峰碳中和工作的顶层设计，明确能源、建筑、交通、产业等重点领域减排路径与可再生能源替代目标，突出城市更新与绿色低碳转型。"},
+  {region:"华北地区",province:"天津市",title:"《天津市碳达峰实施方案》",org:"天津市人民政府",docNo:"津政发〔2022〕18号",date:"2022-09",url:"https://www.ndrc.gov.cn/fggz/hjyzy/tdftzh/202209/t20220928_1337494.html",summary:"本市碳达峰实施方案，部署能源、工业、建筑、交通等重点领域达峰行动，强化京津冀协同减排（官网全文由国家发改委转载）。"},
+  {region:"华北地区",province:"河北省",title:"河北省《关于完整准确全面贯彻新发展理念认真做好碳达峰碳中和工作的实施意见》",org:"河北省委、省政府",docNo:"",date:"2022",url:"https://hbdrc.hebei.gov.cn/cy_new/zcfg/cyfzb/202312/t20231204_106893.html",summary:"省级双碳顶层文件，落实国家“1+N”政策体系，明确全省碳达峰碳中和总体要求、主要目标与重点任务。"},
+  {region:"华北地区",province:"山西省",title:"《山西省碳达峰实施方案》",org:"山西省人民政府",docNo:"",date:"2022-11",url:"https://www.shanxi.gov.cn/zcwjk/szfwj/202411/t20241126_9707843.shtml",summary:"能源大省转型方案，聚焦煤炭清洁高效利用、新能源替代与高耗能行业节能降碳，推动能源结构优化。"},
+  {region:"华北地区",province:"内蒙古自治区",title:"《内蒙古自治区碳达峰实施方案》",org:"内蒙古自治区人民政府",docNo:"",date:"2022-11",url:"http://gxt.nmg.gov.cn/zwgk/fdzdgknr/zcwj_public/202211/t20221119_2174978.html",summary:"立足能源与生态优势，统筹能源保供与低碳转型，推进新能源全产业链发展与草原碳汇建设。"},
+  /* 东北地区 */
+  {region:"东北地区",province:"辽宁省",title:"《辽宁省碳达峰实施方案》",org:"辽宁省人民政府",docNo:"",date:"2022-12",url:"https://www.ln.gov.cn/web/zwgkx/zfwj/szfwj/2022n/2023042510154064611/",summary:"老工业基地绿色振兴方案，推动钢铁、石化等重工业节能降碳与清洁能源替代。"},
+  {region:"东北地区",province:"吉林省",title:"《吉林省碳达峰实施方案》",org:"吉林省人民政府",docNo:"",date:"2022",url:"https://www.jl.gov.cn/gb/2022/zb_202021/gcgd",summary:"依托清洁能源与生态优势，推进产业结构绿色升级与“陆上风光三峡”等新能源工程。"},
+  {region:"东北地区",province:"黑龙江省",title:"《黑龙江省碳达峰实施方案》",org:"黑龙江省人民政府",docNo:"",date:"2022-09",url:"https://www.hlj.gov.cn/hlj/c115535/202209/c00_31402752.shtml",summary:"统筹能源安全与低碳转型，推动煤炭清洁利用、农林生物质能与生态碳汇建设（省政府新闻发布页）。"},
+  /* 华东地区 */
+  {region:"华东地区",province:"上海市",title:"《上海市碳达峰实施方案》",org:"上海市人民政府",docNo:"",date:"2022-10",url:"https://www.shanghai.gov.cn/gwk/search/content/75468067a4a848139d2a2eed16ce9e11",summary:"超大城市碳达峰方案，强调能源、产业、建筑交通、循环经济与社会治理协同，建设绿色低碳都市。"},
+  {region:"华东地区",province:"江苏省",title:"江苏省《关于完整准确全面贯彻新发展理念做好碳达峰碳中和工作的实施意见》",org:"江苏省委、省政府",docNo:"",date:"2022-01",url:"https://www.jiangsu.gov.cn/art/2022/1/30/art_90945_11293649.html",summary:"省级双碳顶层文件，落实国家“1+N”政策体系，明确全省碳达峰碳中和总体要求、主要目标与重点任务。"},
+  {region:"华东地区",province:"浙江省",title:"浙江省《关于完整准确全面贯彻新发展理念做好碳达峰碳中和工作的实施意见》",org:"浙江省委、省政府",docNo:"",date:"2022-02",url:"https://www.zj.gov.cn/art/2022/2/23/art_1229621870_59671727.html",summary:"省级双碳顶层文件，突出数字化赋能与绿色低碳转型，部署能源、工业、建筑、交通等领域达峰行动。"},
+  {region:"华东地区",province:"安徽省",title:"《安徽省碳达峰实施方案》",org:"安徽省人民政府",docNo:"",date:"2022",url:"https://www.ah.gov.cn/zwyw/jryw/554193601.html",summary:"承接长三角一体化绿色要求，推动制造业绿色升级、新能源产业与生态碳汇协同发展。"},
+  {region:"华东地区",province:"福建省",title:"福建省《关于完整准确全面贯彻新发展理念做好碳达峰碳中和工作的实施意见》",org:"福建省委、省政府",docNo:"",date:"2022-09",url:"https://fgw.fujian.gov.cn/ztzl/tjzfznzb/zcwj/fj/202209/t20220922_5997610.htm",summary:"省级双碳顶层文件，发挥山海生态与清洁能源优势，统筹经济社会绿色转型。"},
+  {region:"华东地区",province:"江西省",title:"《江西省碳达峰实施方案》",org:"江西省人民政府",docNo:"",date:"2022",url:"https://www.jiangxi.gov.cn/jxsrmzf/ndqzd127/pc/content/content_1818666366131974144.html",summary:"围绕生态文明试验区建设，推进产业结构优化、清洁能源替代与林业碳汇提升。"},
+  {region:"华东地区",province:"山东省",title:"《山东省碳达峰实施方案》",org:"山东省人民政府",docNo:"",date:"2023-01",url:"http://m.shandong.gov.cn/art/2023/1/29/art_100623_42074.html",summary:"工业和能源大省转型方案，推动焦化、钢铁、化工等重点行业节能降碳与新能源跃升发展。"},
+  /* 华中地区 */
+  {region:"华中地区",province:"河南省",title:"《河南省碳达峰实施方案》",org:"河南省人民政府",docNo:"",date:"2023-02",url:"https://fgw.henan.gov.cn/2023/02-06/2683896.html",summary:"中部人口大省碳达峰方案，统筹能源结构优化、产业绿色升级与黄河流域生态保护。"},
+  {region:"华中地区",province:"湖北省",title:"《美丽中国先行区建设实施方案》",org:"湖北省人民政府",docNo:"",date:"2026-08",url:"https://www.hubei.gov.cn/zfwj/ezf/202608/t20260828_6003427.shtml",summary:"以美丽中国先行区建设为统领，统筹碳达峰碳中和与生态环境治理，推动绿色低碳高质量发展。"},
+  {region:"华中地区",province:"湖南省",title:"《湖南省碳达峰实施方案》",org:"湖南省人民政府",docNo:"",date:"2022-11",url:"https://www.hunan.gov.cn/hnszf/xxgk/wjk/szfwj/202211/t20221107_29118520.html",summary:"聚焦有色金属、石化化工等重点行业节能降碳，推进能源结构优化与生态碳汇建设。"},
+  /* 华南地区 */
+  {region:"华南地区",province:"广东省",title:"《广东省碳达峰实施方案》",org:"广东省人民政府",docNo:"",date:"2022-12",url:"https://drc.gd.gov.cn/qtwj/content/post_4091495.html",summary:"经济与制造业大省碳达峰方案，突出海上风电、核电等清洁能源与制造业绿色转型。"},
+  {region:"华南地区",province:"广西壮族自治区",title:"《广西壮族自治区碳达峰实施方案》",org:"广西壮族自治区人民政府",docNo:"桂政发〔2022〕37号",date:"2022-12",url:"http://gxzf.gov.cn/zfwj/zxwj/t15690666.shtml",summary:"依托生态与清洁能源优势，推动有色金属、石化等重点行业降碳与绿电消纳。"},
+  {region:"华南地区",province:"海南省",title:"《海南省碳达峰实施方案》",org:"海南省人民政府",docNo:"",date:"2022-08",url:"https://plan.hainan.gov.cn/sfgw/0400/202208/c25f564878e24376b62c9b23eb92d6d6.shtml",summary:"国家生态文明试验区方案，发挥热带生态与清洁能源优势，探索碳中和先行示范。"},
+  {region:"华南地区",province:"深圳市",title:"深圳碳排放权交易试点相关实施方案（国家试点）",org:"深圳市人民政府",docNo:"",date:"2022",url:"https://www.sz.gov.cn/gkmlpt/content/11/11478/post_11478512.html?jump=true",summary:"作为全国碳排放权交易试点城市，深圳在碳市场、碳普惠、近零碳社区与气候投融资方面先行先试。"},
+  /* 西南地区 */
+  {region:"西南地区",province:"重庆市",title:"重庆市《关于完整准确全面贯彻新发展理念做好碳达峰碳中和工作的实施意见》",org:"重庆市委、市政府",docNo:"",date:"2022-07",url:"https://cq.gov.cn/ywdt/jrcq/202207/t20220729_10962482.html",summary:"省级双碳顶层文件，落实国家“1+N”政策体系，部署全市碳达峰碳中和重点任务。"},
+  {region:"西南地区",province:"四川省",title:"《四川省碳达峰实施方案》",org:"四川省人民政府",docNo:"",date:"2023-01",url:"https://www.sc.gov.cn/10462/zfwjts/2023/1/5/39c7928fe869401cb18df118f37abb8c.shtml",summary:"依托水电等清洁能源优势，推动能源结构优化、产业绿色升级与生态碳汇建设。"},
+  {region:"西南地区",province:"贵州省",title:"《贵州省碳达峰实施方案》",org:"贵州省人民政府",docNo:"",date:"2022-11",url:"https://www.guizhou.gov.cn/home/gzyw/202211/t20221122_77165556.html",summary:"发挥水风光清洁能源与生态碳汇优势，推动产业绿色转型与大数据中心低碳发展。"},
+  {region:"西南地区",province:"云南省",title:"《云南省碳达峰实施方案》",org:"云南省人民政府",docNo:"",date:"2023-01",url:"https://ynjn.yn.gov.cn/zcfg/zcwj/202301/t20230106_3244932.html",summary:"依托绿色能源与生态优势，统筹能源结构优化、重点行业降碳与生物多样性保护协同。"},
+  {region:"西南地区",province:"西藏自治区",title:"西藏自治区碳达峰碳中和“1+N”政策体系",org:"西藏自治区",docNo:"",date:"2022-04",url:"https://ee.xizang.gov.cn/xwzx/ztzl/jsgjstwmgd_zysthjbhdcjxs/mtjj/202204/t20220421_294846.html",summary:"围绕国家生态文明高地建设，构建碳达峰碳中和“1+N”政策体系，突出生态碳汇与清洁能源优势（自治区生态环境厅综述）。"},
+  /* 西北地区 */
+  {region:"西北地区",province:"陕西省",title:"《陕西省碳达峰实施方案》",org:"陕西省人民政府",docNo:"",date:"2023-02",url:"https://www.shaanxi.gov.cn/zfxxgk/fdzdgknr/zcwj/nszfwj/szf/202302/t20230217_2275234.html",summary:"能源大省转型方案，推动煤炭清洁利用、能化产业降碳与可再生能源替代。"},
+  {region:"西北地区",province:"甘肃省",title:"《甘肃省碳达峰实施方案》",org:"甘肃省人民政府",docNo:"甘政发〔2022〕40号",date:"2022-12",url:"https://zwfw.gansu.gov.cn/baiyin/tsfw/qyrzyqzq/zczx/zc/art/2023/art_354f332f15924658a796df14d654a6d2.html",summary:"依托风光资源，推动新能源基地建设与产业绿色升级，强化生态碳汇。"},
+  {region:"西北地区",province:"青海省",title:"《青海省碳达峰实施方案》",org:"青海省人民政府",docNo:"青政〔2022〕65号",date:"2022-12",url:"http://www.qinghai.gov.cn/xxgk/xxgk/fd/zfwj/202212/t20221219_191524.html",summary:"打造国家清洁能源产业高地，发挥水风光与生态碳汇优势，探索碳中和先行。"},
+  {region:"西北地区",province:"宁夏回族自治区",title:"《宁夏回族自治区碳达峰实施方案》",org:"宁夏回族自治区人民政府",docNo:"",date:"2022-11",url:"https://fzggw.nx.gov.cn/zcgh/zzqzc/202211/P020221102328747339229.pdf",summary:"能源基地绿色转型方案，推动煤电清洁高效利用与新能源规模化发展。"},
+  {region:"西北地区",province:"新疆维吾尔自治区",title:"《新疆维吾尔自治区碳达峰实施方案》",org:"自治区党委、自治区人民政府",docNo:"新党发〔2022〕13号",date:"2022-10",url:"https://xjdrc.xinjiang.gov.cn/xjfgw/c108390/202310/e6f5420518044f33ba2220c970583930.shtml",summary:"立足能源资源禀赋，统筹能源保供与低碳转型，推进新能源基地与产业绿色发展（自治区发改委答记者问）。"},
+  {region:"西北地区",province:"新疆生产建设兵团",title:"兵团碳达峰相关部署（工业领域碳达峰方案）",org:"新疆生产建设兵团",docNo:"",date:"2024-01",url:"https://www.xjbt.gov.cn/c/2024-01-16/8319941.shtml",    summary:"兵团层面落实碳达峰任务，聚焦工业领域绿色低碳转型与节能降碳（兵团网报道）。"},
+  /* === 新增：地方碳市场相关政策（2026-09 补充）· 试点区域省份在 province 后标注（试点区域），不新建文件夹，沿用现有 7 大地区分组 === */
+  /* 华北地区 · 试点区域 */
+  {region:"华北地区",province:"北京市（试点区域）",title:"《北京市碳排放权交易管理办法》",org:"北京市人民政府",docNo:"京政发〔2024〕6号",date:"2024-03",url:"https://www.beijing.gov.cn/zhengce/zhengcefagui/202403/t20240312_3587396.html",summary:"北京市碳排放权交易试点的基础性地方政府规章，规范配额分配、交易、清缴与监管，巩固全国首批试点碳市场运行（2024年修订发布）。"},
+  {region:"华北地区",province:"北京市（试点区域）",title:"《北京市碳普惠管理办法(试行)》",org:"北京市生态环境局",docNo:"京环发〔2025〕11号",date:"2025-08",url:"https://www.beijing.gov.cn/zhengce/zhengcefagui/202508/t20250825_4182653.html",summary:"建立北京市碳普惠体系，规范碳普惠方法学、减排量核算与消纳，鼓励公众与小微企业绿色低碳行为，衔接碳市场。"},
+  {region:"华北地区",province:"天津市（试点区域）",title:"《天津市碳排放权交易管理暂行办法》",org:"天津市人民政府办公厅",docNo:"津政办规〔2025〕7号",date:"2025-06",url:"https://www.tj.gov.cn/zwgk/szfwj/tjsrmzfbgt/202506/t20250626_6966221.html",summary:"天津市碳排放权交易试点的规范性管理文件，明确配额管理、交易规则、数据质量与履约要求，支撑天津试点碳市场运行。"},
+  /* 华东地区 · 试点区域 + 非试点 */
+  {region:"华东地区",province:"上海市（试点区域）",title:"《上海市碳排放管理办法》",org:"上海市人民政府",docNo:"沪府令 第20号",date:"2025-03",url:"https://shanghai.gov.cn/nw12344/20250314/d7f358a1242d4b7e91884fed6a967d3b.html",summary:"上海市碳排放管理地方政府规章，完善碳排放配额分配、交易、清缴与监管制度，为全国碳市场与上海试点衔接提供法治保障。"},
+  {region:"华东地区",province:"上海市（试点区域）",title:"《上海碳市场全面深化改革行动方案(2026—2030年)》",org:"上海市人民政府办公厅",docNo:"沪府办发〔2025〕16号",date:"2025-07",url:"https://shanghai.gov.cn/nw12344/20250814/53e2be9dc09a47c6988e86cc88cfe7b9.html",summary:"部署上海碳市场提质增效、自愿减排激励与创新能力提升三大行动共16项改革任务，打造具有国际影响力的碳交易、碳金融、碳定价和碳创新中心。"},
+  {region:"华东地区",province:"浙江省",title:"《浙江省全国碳市场企业提质增效实施方案》",org:"浙江省生态环境厅",docNo:"",date:"2026-07",url:"https://sthjt.zj.gov.cn/col/col1229116580/art/2026/art_0fe76b6a829343d08e96adc650480611.html",summary:"以“三优化一提升”为着力点，对纳入全国碳市场的浙江企业实施绩效分级管理与“一企一策”降碳改造，到2030年推动降碳项目500个以上、削减碳排放1600万吨以上。"},
+  {region:"华东地区",province:"浙江省",title:"《浙江省推动碳排放双控工作若干举措》",org:"浙江省人民政府办公厅",docNo:"浙政办发〔2025〕4号",date:"2025-01",url:"https://www.zj.gov.cn/art/2025/2/27/art_1229017139_2546446.html",summary:"构建能耗双控向碳排放双控全面转型新机制，部署非化石能源、重点行业改造、碳预算管理等19条举措，2025年3月1日起施行。"},
+  {region:"华东地区",province:"江苏省",title:"《盐城市国家碳达峰试点建设推进方案》",org:"盐城市人民政府办公室",docNo:"",date:"2025-05",url:"https://www.yancheng.gov.cn/art/2025/5/23/art_23770_4325949.html",summary:"国家碳达峰试点城市（盐城）建设推进方案，发挥可再生能源与绿色低碳产业优势，探索沿海城市碳达峰路径。"},
+  {region:"华东地区",province:"江西省",title:"省生态环境厅2025年9月例行新闻发布会（参与全国碳市场建设情况）",org:"江西省生态环境厅",docNo:"",date:"2025-09",url:"https://sthjt.jiangxi.gov.cn/jxssthjt/col/col42462/content/content_1980081875587633152.html",summary:"通报江西参与全国碳市场建设进展：覆盖发电、钢铁、水泥三行业90家企业，四个履约周期累计配额盈余1953万吨，造林碳汇项目数量全国第一。"},
+  /* 华中地区 · 试点区域 */
+  {region:"华中地区",province:"湖北省（试点区域）",title:"《湖北省碳排放权交易管理暂行办法》",org:"湖北省人民政府",docNo:"省政府令第430号",date:"2024-01",url:"https://www.gov.cn/zhengce/202401/content_6926217.htm",summary:"湖北省碳排放权交易试点管理暂行办法，规范配额管理、交易运行、核查监管与履约清缴，依托中碳登国家级平台巩固试点优势。"},
+  {region:"华中地区",province:"湖北省（试点区域）",title:"《湖北碳排放权交易试点市场扩容工作方案》",org:"湖北省生态环境厅",docNo:"鄂环发〔2025〕14号",date:"2025-09",url:"https://sthjt.hubei.gov.cn/fbjd/zc/zcwj/sthjt/ehf/202509/t20250922_5776455.shtml",summary:"扩大湖北区域碳市场覆盖范围，培育壮大交易主体、优化配额分配，巩固湖北试点碳市场在全国的领先地位。"},
+  {region:"华中地区",province:"湖北省（试点区域）",title:"《湖北建设全国碳金融中心实施方案》",org:"湖北省人民政府办公厅",docNo:"鄂政办发〔2024〕49号",date:"2024-11",url:"https://jrb.hubei.gov.cn/jrrz/lsjr/zcwj/202502/t20250217_5544371.shtml",summary:"依托中碳登国家级平台与湖北试点先行优势，推进全国碳金融中心建设，与全国碳市场中心互为支撑，提出六方面23条举措。"},
+  {region:"华中地区",province:"湖北省（试点区域）",title:"《湖北省碳市场建设促进条例(草案送审稿)》",org:"湖北省司法厅",docNo:"",date:"2026-04",url:"https://sft.hubei.gov.cn/zfxxgk/fdzdgknr/qtzdgknr/jcygk/202604/t20260430_5926985.shtml",summary:"将湖北碳市场试点经验上升为地方性法规的立法草案，从碳交易管理、多元化服务、绿色低碳转型、保障与监督等方面作出规定（2026年7月提请省人大常委会审议）。"},
+  /* 华南地区 · 试点区域 */
+  {region:"华南地区",province:"广东省（试点区域）",title:"《广东省碳排放管理试行办法》",org:"广东省人民政府",docNo:"粤府令第197号",date:"2020",url:"https://www.gd.gov.cn/zwgk/wjk/zcfgk/content/post_2524340.html",summary:"广东省碳排放管理基础性地方政府规章（2014年发布、2020年修订），确立碳排放信息报告、核查与配额交易管理制度，支撑广东试点碳市场。"},
+  {region:"华南地区",province:"深圳市（试点区域）",title:"《深圳市碳排放权交易管理办法(2024修正)》",org:"深圳市人民政府",docNo:"市政府令第361号",date:"2024",url:"https://www.sz.gov.cn/attachment/1/1617/1617758/11341211.pdf",summary:"深圳经济特区碳排放权交易管理办法（2024年修正），完善配额分配、交易、清缴与碳普惠机制，全国首个碳排放权交易试点城市持续先行先试。"},
+  /* 西南地区 · 试点区域 + 非试点 */
+  {region:"西南地区",province:"重庆市（试点区域）",title:"《重庆市碳排放权交易管理办法(试行)》",org:"重庆市人民政府",docNo:"渝府发〔2023〕6号",date:"2023-02",url:"https://www.cq.gov.cn/zwgk/zfxxgkml/zfgb/2023/d4q_402524/202302/t20230228_11680944.html",summary:"重庆市碳排放权交易试点的管理办法，规范配额总量、分配、交易、清缴与监管，巩固西部碳排放权交易试点运行。"},
+  {region:"西南地区",province:"四川省",title:"《四川省固定资产投资项目节能审查和碳排放评价实施办法》",org:"四川省人民政府办公厅",docNo:"",date:"2026-04",url:"https://www.sc.gov.cn/scszfgb/1402/2642/2646/202604/MIT114315.shtml",summary:"将碳排放评价纳入固定资产投资项目审批环节，严把源头降碳关，推动能耗双控向碳排放双控转变。"},
+  {region:"西南地区",province:"四川省",title:"《四川省发电、水泥、钢铁、铝冶炼行业碳市场能力提升实施方案》",org:"四川省生态环境厅等五部门",docNo:"",date:"2025-12",url:"https://www.shifang.gov.cn/gk/zwgk/zfwj/xtbmwj/3011721.htm",summary:"针对全国碳市场扩围行业，提升四川省发电、水泥、钢铁、铝冶炼企业碳排放管理与履约能力，推动减污降碳协同。"},
+  {region:"西南地区",province:"西藏自治区",title:"中共西藏自治区委员会关于制定“十五五”规划建议（含有序参与全国碳市场配额交易）",org:"中共西藏自治区委员会",docNo:"",date:"2025-11",url:"https://www.xzdw.gov.cn/xwzx/qnyw/202512/t20251213_632116.html",summary:"西藏“十五五”规划建议提出有序参与全国碳排放权交易市场配额交易，依托清洁能源与生态碳汇优势服务国家双碳目标。"},
+  /* 东北地区 · 非试点 */
+  {region:"东北地区",province:"吉林省",title:"《吉林省建立碳足迹管理体系实施方案》",org:"吉林省生态环境厅等",docNo:"吉环发〔2025〕13号",date:"2025",url:"https://xxgk.jl.gov.cn/zcbm/fgw_98007/xxgkmlqy/202608/t20260812_9680573.html",summary:"建立吉林省产品碳足迹管理体系，健全核算标准、背景数据库与标识认证，服务绿色低碳转型与产品绿色出海。"},
+  /* 西北地区 · 非试点 */
+  {region:"西北地区",province:"甘肃省",title:"省生态环境厅2025年第8次新闻发布会（全国碳市场扩围）",org:"甘肃省生态环境厅",docNo:"",date:"2025-08",url:"https://sthj.gansu.gov.cn/sthj/c114876/202508/174196625.shtml",summary:"介绍甘肃参与全国碳市场扩围工作，涵盖钢铁、水泥、铝冶炼等行业纳入、数据质量管理和配额清缴安排。"},
+  {region:"西北地区",province:"青海省",title:"《青海省推进绿色低碳转型加快融入全国碳市场建设实施方案》",org:"青海省人民政府办公厅",docNo:"青政办〔2025〕22号",date:"2025-11",url:"https://sthjt.qinghai.gov.cn/zwgk/xxgkml/ydqhbh_311/qhskzwsqtpfmbzr/202512/t20251204_131067.html",summary:"发挥青海清洁能源与生态碳汇优势，推进绿色低碳转型、积极参与全国碳市场建设，强化数据质量与履约能力。"},
+  {region:"西北地区",province:"新疆维吾尔自治区",title:"新疆积极参与全国碳市场建设（天山南北“碳”新路）",org:"新疆维吾尔自治区生态环境厅",docNo:"",date:"2026-03",url:"https://brj.gov.cn/zwgk/003001/003001011/20260325/a723fdd1-42d5-42d7-8b73-bfa54e3436ee.html",summary:"综述新疆参与全国碳市场建设进展：2025年公布钢铁、水泥、铝冶炼行业59家履约企业，2026年共151家重点排放单位纳入管控，发电行业累计成交额70余亿元。"}
+];
+
+/* 国家层面政策：与 ima「momo 的双碳知识库」→「01 顶层政策」→「1-国家层面」(15) + 「2-生态环境部发布」(8) 同步，共 23 条。
+   注：ima 以解析后的网页/PDF 正文存储，未暴露官方原文 URL，故 url 留空（与现有 8 条国家层面记录一致）。 */
+const NATIONAL_POLICIES_TOP = [
+  {region:"国家层面",province:"国务院/中办国办",title:"《商务部关于拓展绿色贸易的实施意见》",org:"商务部",docNo:"商贸发〔2025〕216号",date:"2025-10-30",url:"",summary:"经国务院同意，提出积极拓展绿色贸易、促进贸易优化升级，助力实现碳达峰碳中和目标与加快建设贸易强国，部署绿色贸易促进体系。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《关于开展重点行业节能降碳改造攻坚三年行动的通知》",org:"国家发展改革委等5部门",docNo:"发改环资〔2026〕698号",date:"2026-05-18",url:"",summary:"部署重点行业节能降碳改造攻坚三年行动，推动钢铁、石化、建材等高耗能行业设备更新与工艺升级，支撑“十五五”节能降碳目标。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《国务院关于印发〈“十五五”碳达峰行动方案〉的通知》",org:"国务院",docNo:"国发〔2026〕22号",date:"2026-07-05",url:"",summary:"“十五五”实现碳达峰的关键期攻坚期顶层设计，明确到2030年单位GDP二氧化碳排放较2025年降低17%、非化石能源消费占比达25%等目标，部署能源、产业、建筑、交通等领域行动。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《碳达峰碳中和综合评价考核办法》",org:"中共中央办公厅、国务院办公厅",docNo:"",date:"2026-04-23",url:"",summary:"建立碳达峰碳中和综合评价考核制度，压实地方责任，强化评价考核结果运用与激励约束机制。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《关于更高水平更高质量做好节能降碳工作的意见》",org:"中共中央办公厅、国务院办公厅",docNo:"",date:"2026-04-11",url:"",summary:"对节能降碳工作提出更高水平、更高质量要求，强化能耗双控向碳排放双控转变与重点领域协同减排。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《关于全面推进美丽中国建设的意见》",org:"中共中央、国务院",docNo:"",date:"2024-01-11",url:"",summary:"美丽中国建设的纲领性文件，将碳达峰碳中和纳入生态文明建设整体布局，明确阶段性目标与重大任务。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《加快构建碳排放双控制度体系工作方案》",org:"国务院办公厅",docNo:"国办发〔2024〕39号",date:"2024-07-30",url:"",summary:"建立能耗双控向碳排放双控全面转型新机制，加快构建碳排放总量和强度双控制度体系。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《碳排放权交易管理暂行条例》",org:"国务院",docNo:"中华人民共和国国务院令 第775号",date:"2024-01-25",url:"",summary:"我国碳排放权交易领域首部行政法规，为全国碳市场运行提供法治保障，规范配额分配、交易、清缴与监管。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《2030年前碳达峰行动方案》",org:"国务院",docNo:"国发〔2021〕23号",date:"2021-10-24",url:"",summary:"碳达峰碳中和“1+N”政策体系中“N”之首，明确2030年前碳达峰总体目标、重点任务与十大行动。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《关于完整准确全面贯彻新发展理念做好碳达峰碳中和工作的意见》",org:"中共中央、国务院",docNo:"",date:"2021-09-22",url:"",summary:"碳达峰碳中和“1+N”政策体系的顶层设计（“1”），明确总体要求、主要目标与重大方针政策。"},
+  {region:"国家层面",province:"全国人大",title:"《中华人民共和国生态环境法典》",org:"全国人民代表大会",docNo:"",date:"2026-03-13",url:"",summary:"我国首部生态环境领域综合性法典，将碳达峰碳中和、应对气候变化要求纳入法治框架，2026-03-13发布。"},
+  {region:"国家层面",province:"生态环境部",title:"开启中国碳市场建设新征程，激发全社会绿色低碳转型内生动力（碳市场建设解读①）",org:"生态环境部",docNo:"",date:"2025-08",url:"",summary:"对《关于推进绿色低碳转型加强全国碳市场建设的意见》的解读，阐释碳市场作为控制温室气体排放政策工具的基本定位与建设方向。"},
+  {region:"国家层面",province:"国务院新闻办公室",title:"《碳达峰碳中和的中国行动》白皮书",org:"国务院新闻办公室",docNo:"",date:"2025-11",url:"",summary:"系统阐述我国推进碳达峰碳中和的总体情况、能源转型成效与重点领域低碳进展，2025年11月发布。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《2024—2025年节能降碳行动方案》",org:"国务院",docNo:"国发〔2024〕12号",date:"2024-05-23",url:"",summary:"“十四五”后两年节能降碳专项行动纲领，部署重点领域节能降碳任务，支撑完成“十四五”约束性指标。"},
+  {region:"国家层面",province:"国务院/中办国办",title:"《关于推进绿色低碳转型加强全国碳市场建设的意见》",org:"中共中央办公厅、国务院办公厅",docNo:"",date:"2025-05-24",url:"",summary:"明确加快全国碳市场建设的总体要求、功能定位与中长期路线图，提出建设“更加有效、更有活力、更具国际影响力”的全国碳市场。"}
+];
+const NATIONAL_POLICIES_MEE = [
+  {region:"生态环境部发布",province:"生态环境部",title:"《国家应对气候变化“十五五”规划》",org:"生态环境部、外交部、国家发展改革委等",docNo:"",date:"2026-07-24",url:"",summary:"应对气候变化国家战略规划，明确到2030年完成国家自主贡献、建成全国温室气体自愿减排交易市场与产品碳足迹管理体系等目标，部署减缓、适应与全球治理任务。"},
+  {region:"生态环境部发布",province:"生态环境部",title:"《关于做好2026年全国碳排放权交易市场有关工作的通知》",org:"生态环境部",docNo:"",date:"2026-02-09",url:"",summary:"统筹2026年全国碳市场管理，明确发电、钢铁、水泥、铝冶炼行业重点排放单位名录、数据质量与配额分配清缴等要求。"},
+  {region:"生态环境部发布",province:"生态环境部",title:"《关于做好2025年全国碳排放权交易市场有关工作的通知》",org:"生态环境部",docNo:"",date:"2025-04-15",url:"",summary:"统筹2025年全国碳市场管理，落实《碳排放权交易管理暂行条例》与扩围行业工作方案，部署名录、数据质量与配额清缴要求。"},
+  {region:"生态环境部发布",province:"生态环境部",title:"《碳排放权结算管理规则（试行）》",org:"生态环境部",docNo:"公告附件",date:"2021-05-17",url:"",summary:"规范全国碳排放权交易的结算活动，明确注册登记机构统一结算、资金管理与结算风险防范等要求。"},
+  {region:"生态环境部发布",province:"生态环境部",title:"《碳排放权交易管理规则（试行）》",org:"生态环境部",docNo:"公告附件",date:"2021-05-17",url:"",summary:"规范全国碳排放权交易及相关服务业务，明确交易主体、交易方式、风险管理与机构职责。"},
+  {region:"生态环境部发布",province:"生态环境部",title:"《碳排放权登记管理规则（试行）》",org:"生态环境部",docNo:"公告附件",date:"2021-05-17",url:"",summary:"规范全国碳排放权登记活动，明确注册登记机构通过注册登记系统对碳排放权持有、变更、清缴、注销实施集中统一登记。"},
+  {region:"生态环境部发布",province:"生态环境部",title:"《关于发布〈碳排放权登记管理规则（试行）〉〈碳排放权交易管理规则（试行）〉和〈碳排放权结算管理规则（试行）〉的公告》",org:"生态环境部",docNo:"",date:"2021-05-17",url:"",summary:"发布全国碳市场登记、交易、结算三项试行规则，规范各参与方行为，保护碳交易市场秩序（含湖北/上海机构过渡安排）。"},
+  {region:"生态环境部发布",province:"生态环境部",title:"《碳排放权交易管理办法（试行）》",org:"生态环境部",docNo:"部令 第19号",date:"2020-12-31",url:"",summary:"全国碳排放权交易市场的根本性规章，落实建设全国碳市场决策部署，规范登记、交易、核查与履约等全流程（2021-02-01施行）。"}
+];
+
+const PL_REGION_ORDER = ["华北地区","东北地区","华东地区","华中地区","华南地区","西南地区","西北地区"];
+
+function escAttr(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function plStripTags(h){ return String(h==null?"":h).replace(/<[^>]+>/g,""); }
+
+function plDocCard(d){
+  /* 摘要统一取 summary；兼容旧 body 字段（用户补充政策），两者皆无时回退空串，避免拼出 "undefined" */
+  const sum = (d.summary!=null && d.summary!=="" ) ? d.summary : String(d.body==null?"":d.body);
+  const kw = escAttr((d.title+" "+(d.org||"")+" "+(d.region||"")+" "+(d.province||"")+" "+(d.docNo||"")+" "+plStripTags(sum)).toLowerCase());
+  const link = d.url ? ' <a href="'+escAttr(d.url)+'" target="_blank" rel="noopener" title="查看官方原文">🔗 官方原文</a>' : '';
+  const metaParts = [d.org,d.docNo,d.date].filter(Boolean);
+  const meta = metaParts.length ? '<div class="meta">'+metaParts.map(escHTML).join('<span class="sep">·</span>')+'</div>' : '';
+  return '<div class="pl-doc" data-kw="'+kw+'">'
+    + '<h4>'+escHTML(d.title)+link+'</h4>'
+    + meta
+    + '<div class="sum">'+sum+'</div>'
+    + '</div>';
+}
+
+function renderPolicyLibrary(){
+  const userP = (State.userPolicies||[]).map(p=>({
+    title:p.title+"（我的补充）", org:p.org||"", docNo:"", date:p.date||"", url:"", region:"我的补充", province:"",
+    summary:policyMeta(p)+escHTML(p.body||"").replace(/\n/g,"<br>")
+  }));
+
+  const localByRegion={};
+  LOCAL_POLICIES.forEach(p=>{ (localByRegion[p.region]=localByRegion[p.region]||[]).push(p); });
+  const groups=[{name:"国家层面",docs:NATIONAL_POLICIES_TOP},{name:"生态环境部发布",docs:NATIONAL_POLICIES_MEE}];
+  PL_REGION_ORDER.forEach(r=>{ if(localByRegion[r]&&localByRegion[r].length) groups.push({name:r,docs:localByRegion[r]}); });
+  if(userP.length) groups.push({name:"我的补充",docs:userP});
+
+  const total = groups.reduce((a,g)=>a+g.docs.length,0);
+
+  let h='<div class="pl-toolbar">'
+    + '<input class="pl-search" id="plSearch" placeholder="🔍 搜索政策：省份 / 文件名 / 发布主体 / 关键词…" oninput="filterPolicyLib(this.value.trim().toLowerCase())">'
+    + '<div class="pl-count" id="plCount">共 <b>'+total+'</b> 条政策</div></div>';
+  h+='<div id="plTree">';
+  groups.forEach(g=>{
+    const openAttr = (g.name==="国家层面" || g.name==="生态环境部发布") ? " open" : "";
+    h+='<details class="pl-group"'+openAttr+'><summary>'+(g.name==="国家层面"?"🏛":(g.name==="生态环境部发布"?"🌿":"🗺"))+' '+escHTML(g.name)+'<span class="pl-badge">'+g.docs.length+'</span></summary>';
+    if(g.name==="国家层面" || g.name==="生态环境部发布" || g.name==="我的补充"){
+      h+='<div class="pl-docs">'+g.docs.map(plDocCard).join("")+'</div>';
+    } else {
+      const byProv={};
+      g.docs.forEach(d=>{ (byProv[d.province]=byProv[d.province]||[]).push(d); });
+      h+='<div class="pl-docs">';
+      Object.keys(byProv).forEach(pk=>{
+        h+='<details class="pl-prov"><summary>'+escHTML(pk)+'<span class="pl-badge">'+byProv[pk].length+'</span></summary>';
+        h+='<div class="pl-docs">'+byProv[pk].map(plDocCard).join("")+'</div></details>';
+      });
+      h+='</div>';
+    }
+    h+='</details>';
+  });
+  h+='</div>';
+  return '<div class="panel" style="padding-top:4px">'+h+'</div>';
+}
+
+function filterPolicyLib(q){
+  const wrap=document.getElementById("plTree");
+  if(!wrap) return;
+  const cnt=document.getElementById("plCount");
+  if(!q){
+    wrap.querySelectorAll(".pl-doc").forEach(d=>{ d.style.display=""; d._hit=true; });
+    wrap.querySelectorAll(".pl-prov").forEach(n=>{ n.style.display=""; n.open=false; });
+    const gs=wrap.querySelectorAll(".pl-group");
+    if(gs[0]) gs[0].open=true;
+    for(let i=1;i<gs.length;i++) gs[i].open=false;
+    const total=wrap.querySelectorAll(".pl-doc").length;
+    if(cnt) cnt.innerHTML="共 <b>"+total+"</b> 条政策";
+    return;
+  }
+  let vis=0;
+  wrap.querySelectorAll(".pl-doc").forEach(d=>{
+    const hit=(d.dataset.kw||"").indexOf(q)>=0;
+    d._hit=hit; d.style.display=hit?"":"none"; if(hit) vis++;
+  });
+  wrap.querySelectorAll(".pl-prov").forEach(n=>{
+    const any=[...n.querySelectorAll(".pl-doc")].some(d=>d._hit);
+    n.style.display=any?"":"none"; n.open=any;
+  });
+  wrap.querySelectorAll(".pl-group").forEach(n=>{
+    const any=[...n.querySelectorAll(".pl-doc")].some(d=>d._hit);
+    n.style.display=any?"":"none"; n.open=any;
+  });
+  if(cnt) cnt.innerHTML="命中 <b>"+vis+"</b> 条";
+}
+
+/* =========================================================================
    封面
    ========================================================================= */
 /* 卡片摘要换行：取破折号/竖线前的主句 → 按顿号分条 → 超长条再按逗号控行 */
@@ -2490,6 +2709,7 @@ function stageList(m){
   const seq = ORDERS[m.id] || [0,7,8,1,6,2,3,4,5,9];
   const out=[];
   seq.forEach(function(k){ const d=DEF[k]; if(d && d.on) out.push({k:d.k,label:d.label}); });
+  if(m.id==="m01"){ return [{k:0,label:"知识点讲解"},{k:11,label:"政策库 · 可搜索"},{k:9,label:"随堂小测"}]; }
   return out;
 }
 function renderModule(id){
@@ -2540,6 +2760,8 @@ function switchModStage(k){
     h=flowHTML(m); markViewed(m.id+"_flw");
   }else if(k===5){
     h=toolsHTML(m); markViewed(m.id+"_t");
+  }else if(k===11){
+    h=renderPolicyLibrary(); markViewed(m.id+"_pl");
   }else{
     h='<div class="panel" style="padding-top:6px"><p style="color:var(--muted)">选择答案后即时判分；答错的题自动进入错题本（顶部导航「考核认证」→ 错题本），可反复练习直至掌握。</p>'+
       m.quiz.map(q=>quizHTML(q)).join("")+'</div>';
