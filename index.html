@@ -492,6 +492,14 @@
   @media(max-width:600px){ .ph-row{flex-direction:column;gap:10px} }
   /* 隐藏页面最下方说明文字（按需求） */
   footer{display:none}
+  /* 分科随堂小测：板块默认折叠，点击标题展开 */
+  .mq-mod{border:1px solid var(--line);border-radius:12px;background:#fff;margin:12px 0;overflow:hidden}
+  .mq-mod-h{display:flex;align-items:center;gap:10px;cursor:pointer;padding:13px 16px;font-weight:800;font-size:15px;color:var(--green-d);user-select:none;list-style:none}
+  .mq-mod-h::-webkit-details-marker{display:none}
+  .mq-mod-h .mq-cnt{color:var(--muted);font-weight:500;font-size:12px}
+  .mq-mod-h .mq-arrow{margin-left:auto;color:var(--blue);font-size:12px;transition:transform .2s;font-weight:700}
+  .mq-mod[open] .mq-arrow{transform:rotate(90deg)}
+  .mq-mod-body{padding:4px 16px 16px}
 </style>
 </head>
 <body data-page-node-id="08aMkBC1SEBHhpJBWWAvBN">
@@ -3706,11 +3714,13 @@ function switchAssess(s){
 
 function renderModuleQuiz(){
   const box=document.getElementById("assessContent"); if(!box) return;
-  let h='<p class=\"hint\" style=\"margin-bottom:12px\">以下为各板块的随堂小测，按原所属板块罗列。选择答案后即时判分；答错的题自动进入「错题本」，可反复练习。</p>';
+  let h='<p class=\"hint\" style=\"margin-bottom:12px\">以下为各板块的随堂小测，按原所属板块罗列。选择答案后即时判分；答错的题自动进入「错题本」，可反复练习。点击板块标题即可展开 / 收起。</p>';
   DATA.modules.forEach(m=>{
     if(!m.quiz||!m.quiz.length) return;
-    h+='<div style=\"margin:16px 0 4px;font-weight:800;font-size:15px;color:var(--green-d)\">'+m.icon+' '+m.no+' '+m.name+' <span style=\"color:var(--muted);font-weight:500;font-size:12px\">· '+m.quiz.length+' 题</span></div>';
-    h+=m.quiz.map(q=>quizHTML(q)).join("");
+    h+='<details class=\"mq-mod\">';
+    h+='<summary class=\"mq-mod-h\">'+m.icon+' '+m.no+' '+m.name+' <span class=\"mq-cnt\">('+m.quiz.length+' 题)</span><span class=\"mq-arrow\">▶</span></summary>';
+    h+='<div class=\"mq-mod-body\">'+m.quiz.map(q=>quizHTML(q)).join("")+'</div>';
+    h+='</details>';
   });
   box.innerHTML=h;
   DATA.modules.forEach(m=>{ (m.quiz||[]).forEach(q=>{ if(State.scores[q.id]!==undefined) restoreQuizState(q); }); });
