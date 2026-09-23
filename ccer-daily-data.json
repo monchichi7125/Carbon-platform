@@ -1,0 +1,4489 @@
+{
+ "source": "全国温室气体自愿减排交易系统 (ccer.com.cn)",
+ "listUrl": "https://www.ccer.com.cn/wcm/ccer/data/2502lshq.json",
+ "updatedAt": "2026-09-23 01:50:54",
+ "unit": {
+  "volume": "吨",
+  "turnover": "元",
+  "avgPrice": "元/吨"
+ },
+ "count": 380,
+ "daily": [
+  {
+   "date": "2024-01-22",
+   "volume": 300,
+   "turnover": 27600,
+   "avgPrice": 92,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 375315,
+     "turnover": 23835280
+    }
+   }
+  },
+  {
+   "date": "2025-03-07",
+   "volume": 748800,
+   "turnover": 60241797.62,
+   "avgPrice": 80.4511,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 748800,
+     "turnover": 60241797.62
+    }
+   }
+  },
+  {
+   "date": "2025-03-10",
+   "volume": 148136,
+   "turnover": 15903820.12,
+   "avgPrice": 107.3596,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 148136,
+     "turnover": 15903820.12
+    }
+   }
+  },
+  {
+   "date": "2025-03-11",
+   "volume": 100,
+   "turnover": 10600,
+   "avgPrice": 106,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 10600
+    }
+   }
+  },
+  {
+   "date": "2025-03-12",
+   "volume": 8518,
+   "turnover": 819485.8,
+   "avgPrice": 96.2064,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 8518,
+     "turnover": 819485.8
+    }
+   }
+  },
+  {
+   "date": "2025-03-13",
+   "volume": 5460,
+   "turnover": 397542.6,
+   "avgPrice": 72.81,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 5460,
+     "turnover": 397542.6
+    }
+   }
+  },
+  {
+   "date": "2025-03-14",
+   "volume": 26836,
+   "turnover": 2485834.56,
+   "avgPrice": 92.6306,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 26836,
+     "turnover": 2485834.56
+    }
+   }
+  },
+  {
+   "date": "2025-03-17",
+   "volume": 14260,
+   "turnover": 1449280.2,
+   "avgPrice": 101.6326,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 14260,
+     "turnover": 1449280.2
+    }
+   }
+  },
+  {
+   "date": "2025-03-18",
+   "volume": 2014,
+   "turnover": 213444.52,
+   "avgPrice": 105.9804,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2014,
+     "turnover": 213444.52
+    }
+   }
+  },
+  {
+   "date": "2025-03-19",
+   "volume": 600,
+   "turnover": 55200,
+   "avgPrice": 92,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 600,
+     "turnover": 55200
+    }
+   }
+  },
+  {
+   "date": "2025-03-20",
+   "volume": 2130,
+   "turnover": 218408.4,
+   "avgPrice": 102.5392,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2130,
+     "turnover": 218408.4
+    }
+   }
+  },
+  {
+   "date": "2025-03-21",
+   "volume": 500,
+   "turnover": 42749,
+   "avgPrice": 85.498,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 500,
+     "turnover": 42749
+    }
+   }
+  },
+  {
+   "date": "2025-03-24",
+   "volume": 300,
+   "turnover": 27120,
+   "avgPrice": 90.4,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 300,
+     "turnover": 27120
+    }
+   }
+  },
+  {
+   "date": "2025-03-25",
+   "volume": 100,
+   "turnover": 9550,
+   "avgPrice": 95.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 9550
+    }
+   }
+  },
+  {
+   "date": "2025-03-26",
+   "volume": 101,
+   "turnover": 9558,
+   "avgPrice": 94.6337,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 101,
+     "turnover": 9558
+    }
+   }
+  },
+  {
+   "date": "2025-03-27",
+   "volume": 2210,
+   "turnover": 226414.9,
+   "avgPrice": 102.4502,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2210,
+     "turnover": 226414.9
+    }
+   }
+  },
+  {
+   "date": "2025-03-28",
+   "volume": 45100,
+   "turnover": 4271265,
+   "avgPrice": 94.7065,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 45100,
+     "turnover": 4271265
+    }
+   }
+  },
+  {
+   "date": "2025-03-31",
+   "volume": 10000,
+   "turnover": 936700,
+   "avgPrice": 93.67,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10000,
+     "turnover": 936700
+    }
+   }
+  },
+  {
+   "date": "2025-04-01",
+   "volume": 9,
+   "turnover": 900.9,
+   "avgPrice": 100.1,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 9,
+     "turnover": 900.9
+    }
+   }
+  },
+  {
+   "date": "2025-04-02",
+   "volume": 40,
+   "turnover": 3920,
+   "avgPrice": 98,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 40,
+     "turnover": 3920
+    }
+   }
+  },
+  {
+   "date": "2025-04-03",
+   "volume": 100,
+   "turnover": 9300,
+   "avgPrice": 93,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 9300
+    }
+   }
+  },
+  {
+   "date": "2025-04-07",
+   "volume": 2,
+   "turnover": 187.34,
+   "avgPrice": 93.67,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2,
+     "turnover": 187.34
+    }
+   }
+  },
+  {
+   "date": "2025-04-08",
+   "volume": 60100,
+   "turnover": 6039367,
+   "avgPrice": 100.4886,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 60100,
+     "turnover": 6039367
+    }
+   }
+  },
+  {
+   "date": "2025-04-09",
+   "volume": 202,
+   "turnover": 19155.12,
+   "avgPrice": 94.8273,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 202,
+     "turnover": 19155.12
+    }
+   }
+  },
+  {
+   "date": "2025-04-10",
+   "volume": 20272,
+   "turnover": 1915712.1,
+   "avgPrice": 94.5004,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20272,
+     "turnover": 1915712.1
+    }
+   }
+  },
+  {
+   "date": "2025-04-11",
+   "volume": 100,
+   "turnover": 9390,
+   "avgPrice": 93.9,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 9390
+    }
+   }
+  },
+  {
+   "date": "2025-04-14",
+   "volume": 65303,
+   "turnover": 6543442.29,
+   "avgPrice": 100.2013,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 65303,
+     "turnover": 6543442.29
+    }
+   }
+  },
+  {
+   "date": "2025-04-15",
+   "volume": 100,
+   "turnover": 9387,
+   "avgPrice": 93.87,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 9387
+    }
+   }
+  },
+  {
+   "date": "2025-04-16",
+   "volume": 100,
+   "turnover": 9380,
+   "avgPrice": 93.8,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 9380
+    }
+   }
+  },
+  {
+   "date": "2025-04-17",
+   "volume": 100,
+   "turnover": 9360,
+   "avgPrice": 93.6,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 9360
+    }
+   }
+  },
+  {
+   "date": "2025-04-18",
+   "volume": 1,
+   "turnover": 101.22,
+   "avgPrice": 101.22,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1,
+     "turnover": 101.22
+    }
+   }
+  },
+  {
+   "date": "2025-04-21",
+   "volume": 40100,
+   "turnover": 4029500,
+   "avgPrice": 100.4863,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 40100,
+     "turnover": 4029500
+    }
+   }
+  },
+  {
+   "date": "2025-04-22",
+   "volume": 3,
+   "turnover": 294,
+   "avgPrice": 98,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3,
+     "turnover": 294
+    }
+   }
+  },
+  {
+   "date": "2025-04-23",
+   "volume": 1015,
+   "turnover": 96425,
+   "avgPrice": 95,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1015,
+     "turnover": 96425
+    }
+   }
+  },
+  {
+   "date": "2025-04-24",
+   "volume": 100,
+   "turnover": 9400,
+   "avgPrice": 94,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 9400
+    }
+   }
+  },
+  {
+   "date": "2025-04-25",
+   "volume": 40002,
+   "turnover": 4020172.6,
+   "avgPrice": 100.4993,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 40002,
+     "turnover": 4020172.6
+    }
+   }
+  },
+  {
+   "date": "2025-04-28",
+   "volume": 71632,
+   "turnover": 6765080.5,
+   "avgPrice": 94.4422,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 71632,
+     "turnover": 6765080.5
+    }
+   }
+  },
+  {
+   "date": "2025-04-29",
+   "volume": 20,
+   "turnover": 1900,
+   "avgPrice": 95,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20,
+     "turnover": 1900
+    }
+   }
+  },
+  {
+   "date": "2025-04-30",
+   "volume": 26,
+   "turnover": 2499.5,
+   "avgPrice": 96.1346,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 26,
+     "turnover": 2499.5
+    }
+   }
+  },
+  {
+   "date": "2025-05-06",
+   "volume": 10,
+   "turnover": 950,
+   "avgPrice": 95,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10,
+     "turnover": 950
+    }
+   }
+  },
+  {
+   "date": "2025-05-07",
+   "volume": 10,
+   "turnover": 950,
+   "avgPrice": 95,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10,
+     "turnover": 950
+    }
+   }
+  },
+  {
+   "date": "2025-05-08",
+   "volume": 20030,
+   "turnover": 1822970,
+   "avgPrice": 91.012,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20030,
+     "turnover": 1822970
+    }
+   }
+  },
+  {
+   "date": "2025-05-09",
+   "volume": 40000,
+   "turnover": 3600000,
+   "avgPrice": 90,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 40000,
+     "turnover": 3600000
+    }
+   }
+  },
+  {
+   "date": "2025-05-12",
+   "volume": 100,
+   "turnover": 9200,
+   "avgPrice": 92,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 9200
+    }
+   }
+  },
+  {
+   "date": "2025-05-13",
+   "volume": 24,
+   "turnover": 2208,
+   "avgPrice": 92,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 24,
+     "turnover": 2208
+    }
+   }
+  },
+  {
+   "date": "2025-05-14",
+   "volume": 1101,
+   "turnover": 99095.5,
+   "avgPrice": 90.005,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1101,
+     "turnover": 99095.5
+    }
+   }
+  },
+  {
+   "date": "2025-05-15",
+   "volume": 2300,
+   "turnover": 200057,
+   "avgPrice": 86.9813,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2300,
+     "turnover": 200057
+    }
+   }
+  },
+  {
+   "date": "2025-05-16",
+   "volume": 4201,
+   "turnover": 361209,
+   "avgPrice": 85.9817,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 4201,
+     "turnover": 361209
+    }
+   }
+  },
+  {
+   "date": "2025-05-19",
+   "volume": 100,
+   "turnover": 8800,
+   "avgPrice": 88,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 8800
+    }
+   }
+  },
+  {
+   "date": "2025-05-20",
+   "volume": 1000,
+   "turnover": 84000,
+   "avgPrice": 84,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1000,
+     "turnover": 84000
+    }
+   }
+  },
+  {
+   "date": "2025-05-21",
+   "volume": 100,
+   "turnover": 8800,
+   "avgPrice": 88,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 8800
+    }
+   }
+  },
+  {
+   "date": "2025-05-22",
+   "volume": 300,
+   "turnover": 26007,
+   "avgPrice": 86.69,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 300,
+     "turnover": 26007
+    }
+   }
+  },
+  {
+   "date": "2025-05-23",
+   "volume": 35039,
+   "turnover": 3153559,
+   "avgPrice": 90.0014,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 35039,
+     "turnover": 3153559
+    }
+   }
+  },
+  {
+   "date": "2025-05-26",
+   "volume": 35000,
+   "turnover": 3099950,
+   "avgPrice": 88.57,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 35000,
+     "turnover": 3099950
+    }
+   }
+  },
+  {
+   "date": "2025-05-27",
+   "volume": 30000,
+   "turnover": 2550000,
+   "avgPrice": 85,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 30000,
+     "turnover": 2550000
+    }
+   }
+  },
+  {
+   "date": "2025-05-28",
+   "volume": 10000,
+   "turnover": 870000,
+   "avgPrice": 87,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10000,
+     "turnover": 870000
+    }
+   }
+  },
+  {
+   "date": "2025-05-29",
+   "volume": 130,
+   "turnover": 11120,
+   "avgPrice": 85.5385,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 130,
+     "turnover": 11120
+    }
+   }
+  },
+  {
+   "date": "2025-05-30",
+   "volume": 10000,
+   "turnover": 855000,
+   "avgPrice": 85.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10000,
+     "turnover": 855000
+    }
+   }
+  },
+  {
+   "date": "2025-06-03",
+   "volume": 100,
+   "turnover": 8800,
+   "avgPrice": 88,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 8800
+    }
+   }
+  },
+  {
+   "date": "2025-06-04",
+   "volume": 100,
+   "turnover": 8600,
+   "avgPrice": 86,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 8600
+    }
+   }
+  },
+  {
+   "date": "2025-06-05",
+   "volume": 1000,
+   "turnover": 85000,
+   "avgPrice": 85,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1000,
+     "turnover": 85000
+    }
+   }
+  },
+  {
+   "date": "2025-06-06",
+   "volume": 100,
+   "turnover": 8500,
+   "avgPrice": 85,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 8500
+    }
+   }
+  },
+  {
+   "date": "2025-06-09",
+   "volume": 101030,
+   "turnover": 8747158,
+   "avgPrice": 86.5798,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 101030,
+     "turnover": 8747158
+    }
+   }
+  },
+  {
+   "date": "2025-06-10",
+   "volume": 20001,
+   "turnover": 1760088.5,
+   "avgPrice": 88,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20001,
+     "turnover": 1760088.5
+    }
+   }
+  },
+  {
+   "date": "2025-06-11",
+   "volume": 8050,
+   "turnover": 644400,
+   "avgPrice": 80.0497,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 8050,
+     "turnover": 644400
+    }
+   }
+  },
+  {
+   "date": "2025-06-12",
+   "volume": 77932,
+   "turnover": 6801917.16,
+   "avgPrice": 87.2802,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 77932,
+     "turnover": 6801917.16
+    }
+   }
+  },
+  {
+   "date": "2025-06-13",
+   "volume": 1112,
+   "turnover": 99324,
+   "avgPrice": 89.3201,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1112,
+     "turnover": 99324
+    }
+   }
+  },
+  {
+   "date": "2025-06-16",
+   "volume": 10,
+   "turnover": 904.5,
+   "avgPrice": 90.45,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10,
+     "turnover": 904.5
+    }
+   }
+  },
+  {
+   "date": "2025-06-17",
+   "volume": 20201,
+   "turnover": 1757863.5,
+   "avgPrice": 87.0186,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20201,
+     "turnover": 1757863.5
+    }
+   }
+  },
+  {
+   "date": "2025-06-18",
+   "volume": 16310,
+   "turnover": 1417577,
+   "avgPrice": 86.9146,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 16310,
+     "turnover": 1417577
+    }
+   }
+  },
+  {
+   "date": "2025-06-19",
+   "volume": 21010,
+   "turnover": 1827925,
+   "avgPrice": 87.0026,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 21010,
+     "turnover": 1827925
+    }
+   }
+  },
+  {
+   "date": "2025-06-20",
+   "volume": 3310,
+   "turnover": 287670,
+   "avgPrice": 86.9094,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3310,
+     "turnover": 287670
+    }
+   }
+  },
+  {
+   "date": "2025-06-23",
+   "volume": 211,
+   "turnover": 17893.01,
+   "avgPrice": 84.801,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 211,
+     "turnover": 17893.01
+    }
+   }
+  },
+  {
+   "date": "2025-06-24",
+   "volume": 620,
+   "turnover": 54720.2,
+   "avgPrice": 88.2584,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 620,
+     "turnover": 54720.2
+    }
+   }
+  },
+  {
+   "date": "2025-06-25",
+   "volume": 10030,
+   "turnover": 872856,
+   "avgPrice": 87.0245,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10030,
+     "turnover": 872856
+    }
+   }
+  },
+  {
+   "date": "2025-06-26",
+   "volume": 10071,
+   "turnover": 876018.5,
+   "avgPrice": 86.9843,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10071,
+     "turnover": 876018.5
+    }
+   }
+  },
+  {
+   "date": "2025-06-27",
+   "volume": 22760,
+   "turnover": 1981580,
+   "avgPrice": 87.0641,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 22760,
+     "turnover": 1981580
+    }
+   }
+  },
+  {
+   "date": "2025-06-30",
+   "volume": 600,
+   "turnover": 53100,
+   "avgPrice": 88.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 600,
+     "turnover": 53100
+    }
+   }
+  },
+  {
+   "date": "2025-07-01",
+   "volume": 601,
+   "turnover": 53180,
+   "avgPrice": 88.4859,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 601,
+     "turnover": 53180
+    }
+   }
+  },
+  {
+   "date": "2025-07-02",
+   "volume": 100602,
+   "turnover": 8753277,
+   "avgPrice": 87.009,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100602,
+     "turnover": 8753277
+    }
+   }
+  },
+  {
+   "date": "2025-07-03",
+   "volume": 600,
+   "turnover": 53100,
+   "avgPrice": 88.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 600,
+     "turnover": 53100
+    }
+   }
+  },
+  {
+   "date": "2025-07-04",
+   "volume": 600,
+   "turnover": 53100,
+   "avgPrice": 88.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 600,
+     "turnover": 53100
+    }
+   }
+  },
+  {
+   "date": "2025-07-07",
+   "volume": 712,
+   "turnover": 62503.3,
+   "avgPrice": 87.7855,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 712,
+     "turnover": 62503.3
+    }
+   }
+  },
+  {
+   "date": "2025-07-08",
+   "volume": 10060,
+   "turnover": 890061.8,
+   "avgPrice": 88.4753,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10060,
+     "turnover": 890061.8
+    }
+   }
+  },
+  {
+   "date": "2025-07-09",
+   "volume": 66484,
+   "turnover": 5850592,
+   "avgPrice": 88,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 66484,
+     "turnover": 5850592
+    }
+   }
+  },
+  {
+   "date": "2025-07-10",
+   "volume": 190,
+   "turnover": 16311.2,
+   "avgPrice": 85.8484,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 190,
+     "turnover": 16311.2
+    }
+   }
+  },
+  {
+   "date": "2025-07-11",
+   "volume": 1400,
+   "turnover": 116859,
+   "avgPrice": 83.4707,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1400,
+     "turnover": 116859
+    }
+   }
+  },
+  {
+   "date": "2025-07-14",
+   "volume": 1501,
+   "turnover": 124651.01,
+   "avgPrice": 83.0453,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1501,
+     "turnover": 124651.01
+    }
+   }
+  },
+  {
+   "date": "2025-07-15",
+   "volume": 2100,
+   "turnover": 173372,
+   "avgPrice": 82.5581,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2100,
+     "turnover": 173372
+    }
+   }
+  },
+  {
+   "date": "2025-07-16",
+   "volume": 100,
+   "turnover": 8650,
+   "avgPrice": 86.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 8650
+    }
+   }
+  },
+  {
+   "date": "2025-07-17",
+   "volume": 20,
+   "turnover": 1640,
+   "avgPrice": 82,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20,
+     "turnover": 1640
+    }
+   }
+  },
+  {
+   "date": "2025-07-18",
+   "volume": 230,
+   "turnover": 18910,
+   "avgPrice": 82.2174,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 230,
+     "turnover": 18910
+    }
+   }
+  },
+  {
+   "date": "2025-07-21",
+   "volume": 4800,
+   "turnover": 399820,
+   "avgPrice": 83.2958,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 4800,
+     "turnover": 399820
+    }
+   }
+  },
+  {
+   "date": "2025-07-22",
+   "volume": 3000,
+   "turnover": 246750,
+   "avgPrice": 82.25,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3000,
+     "turnover": 246750
+    }
+   }
+  },
+  {
+   "date": "2025-07-23",
+   "volume": 2250,
+   "turnover": 183531,
+   "avgPrice": 81.5693,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2250,
+     "turnover": 183531
+    }
+   }
+  },
+  {
+   "date": "2025-07-24",
+   "volume": 1600,
+   "turnover": 131100,
+   "avgPrice": 81.94,
+   "cumVolume": 2390660,
+   "cumTurnover": 201862104.47
+  },
+  {
+   "date": "2025-07-25",
+   "volume": 2580,
+   "turnover": 211475.7,
+   "avgPrice": 81.97,
+   "cumVolume": 2393240,
+   "cumTurnover": 202073580.17
+  },
+  {
+   "date": "2025-07-28",
+   "volume": 5745,
+   "turnover": 472751.5,
+   "avgPrice": 82.29,
+   "cumVolume": 2398985,
+   "cumTurnover": 202546331.67
+  },
+  {
+   "date": "2025-07-29",
+   "volume": 1850,
+   "turnover": 148282,
+   "avgPrice": 80.15,
+   "cumVolume": 2400835,
+   "cumTurnover": 202694613.67
+  },
+  {
+   "date": "2025-07-30",
+   "volume": 58989,
+   "turnover": 5053609.5,
+   "avgPrice": 85.67,
+   "cumVolume": 2459824,
+   "cumTurnover": 207748223.17
+  },
+  {
+   "date": "2025-07-31",
+   "volume": 500,
+   "turnover": 39000,
+   "avgPrice": 78,
+   "cumVolume": 2460324,
+   "cumTurnover": 207787223.17
+  },
+  {
+   "date": "2025-08-01",
+   "volume": 1620,
+   "turnover": 132329.6,
+   "avgPrice": 81.68,
+   "cumVolume": 2461944,
+   "cumTurnover": 207919552.77
+  },
+  {
+   "date": "2025-08-04",
+   "volume": 3190,
+   "turnover": 261254.9,
+   "avgPrice": 81.9,
+   "cumVolume": 2465134,
+   "cumTurnover": 208180807.67
+  },
+  {
+   "date": "2025-08-05",
+   "volume": 1590,
+   "turnover": 125995.8,
+   "avgPrice": 79.2426,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1590,
+     "turnover": 125995.8
+    }
+   }
+  },
+  {
+   "date": "2025-08-06",
+   "volume": 1000,
+   "turnover": 78000,
+   "avgPrice": 78,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1000,
+     "turnover": 78000
+    }
+   }
+  },
+  {
+   "date": "2025-08-07",
+   "volume": 8700,
+   "turnover": 716800,
+   "avgPrice": 82.3908,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 8700,
+     "turnover": 716800
+    }
+   }
+  },
+  {
+   "date": "2025-08-08",
+   "volume": 700,
+   "turnover": 54600,
+   "avgPrice": 78,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 700,
+     "turnover": 54600
+    }
+   }
+  },
+  {
+   "date": "2025-08-11",
+   "volume": 751,
+   "turnover": 59306,
+   "avgPrice": 78.9694,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 751,
+     "turnover": 59306
+    }
+   }
+  },
+  {
+   "date": "2025-08-12",
+   "volume": 2126,
+   "turnover": 175041,
+   "avgPrice": 82.3335,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2126,
+     "turnover": 175041
+    }
+   }
+  },
+  {
+   "date": "2025-08-13",
+   "volume": 810,
+   "turnover": 65006,
+   "avgPrice": 80.2543,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 810,
+     "turnover": 65006
+    }
+   }
+  },
+  {
+   "date": "2025-08-14",
+   "volume": 1650,
+   "turnover": 134700,
+   "avgPrice": 81.6364,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1650,
+     "turnover": 134700
+    }
+   }
+  },
+  {
+   "date": "2025-08-15",
+   "volume": 700,
+   "turnover": 54600,
+   "avgPrice": 78,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 700,
+     "turnover": 54600
+    }
+   }
+  },
+  {
+   "date": "2025-08-18",
+   "volume": 600,
+   "turnover": 46800,
+   "avgPrice": 78,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 600,
+     "turnover": 46800
+    }
+   }
+  },
+  {
+   "date": "2025-08-19",
+   "volume": 2550,
+   "turnover": 210900,
+   "avgPrice": 82.7059,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2550,
+     "turnover": 210900
+    }
+   }
+  },
+  {
+   "date": "2025-08-20",
+   "volume": 3600,
+   "turnover": 292210,
+   "avgPrice": 81.1694,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3600,
+     "turnover": 292210
+    }
+   }
+  },
+  {
+   "date": "2025-08-21",
+   "volume": 2700,
+   "turnover": 222900,
+   "avgPrice": 82.5556,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2700,
+     "turnover": 222900
+    }
+   }
+  },
+  {
+   "date": "2025-08-22",
+   "volume": 1008,
+   "turnover": 77680,
+   "avgPrice": 77.0635,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1008,
+     "turnover": 77680
+    }
+   }
+  },
+  {
+   "date": "2025-08-25",
+   "volume": 2700,
+   "turnover": 221000,
+   "avgPrice": 81.8519,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2700,
+     "turnover": 221000
+    }
+   }
+  },
+  {
+   "date": "2025-08-26",
+   "volume": 3100,
+   "turnover": 254150,
+   "avgPrice": 81.9839,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3100,
+     "turnover": 254150
+    }
+   }
+  },
+  {
+   "date": "2025-08-27",
+   "volume": 2200,
+   "turnover": 176000,
+   "avgPrice": 80,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2200,
+     "turnover": 176000
+    }
+   }
+  },
+  {
+   "date": "2025-08-28",
+   "volume": 2360,
+   "turnover": 191093.6,
+   "avgPrice": 80.9719,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2360,
+     "turnover": 191093.6
+    }
+   }
+  },
+  {
+   "date": "2025-08-29",
+   "volume": 202095,
+   "turnover": 17174010,
+   "avgPrice": 84.9799,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 202095,
+     "turnover": 17174010
+    }
+   }
+  },
+  {
+   "date": "2025-09-01",
+   "volume": 600,
+   "turnover": 47505,
+   "avgPrice": 79.175,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 600,
+     "turnover": 47505
+    }
+   }
+  },
+  {
+   "date": "2025-09-02",
+   "volume": 500,
+   "turnover": 39010,
+   "avgPrice": 78.02,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 500,
+     "turnover": 39010
+    }
+   }
+  },
+  {
+   "date": "2025-09-03",
+   "volume": 8985,
+   "turnover": 718867.5,
+   "avgPrice": 80.0075,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 8985,
+     "turnover": 718867.5
+    }
+   }
+  },
+  {
+   "date": "2025-09-04",
+   "volume": 2600,
+   "turnover": 203530,
+   "avgPrice": 78.2808,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2600,
+     "turnover": 203530
+    }
+   }
+  },
+  {
+   "date": "2025-09-05",
+   "volume": 48930,
+   "turnover": 4046007.84,
+   "avgPrice": 82.6897,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 48930,
+     "turnover": 4046007.84
+    }
+   }
+  },
+  {
+   "date": "2025-09-08",
+   "volume": 16728,
+   "turnover": 1371896.48,
+   "avgPrice": 82.012,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 16728,
+     "turnover": 1371896.48
+    }
+   }
+  },
+  {
+   "date": "2025-09-09",
+   "volume": 14050,
+   "turnover": 1012129,
+   "avgPrice": 72.0377,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 14050,
+     "turnover": 1012129
+    }
+   }
+  },
+  {
+   "date": "2025-09-10",
+   "volume": 5071,
+   "turnover": 374910.5,
+   "avgPrice": 73.9323,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 5071,
+     "turnover": 374910.5
+    }
+   }
+  },
+  {
+   "date": "2025-09-11",
+   "volume": 78951,
+   "turnover": 6294470.1,
+   "avgPrice": 79.7263,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 78951,
+     "turnover": 6294470.1
+    }
+   }
+  },
+  {
+   "date": "2025-09-12",
+   "volume": 11000,
+   "turnover": 803000,
+   "avgPrice": 73,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 11000,
+     "turnover": 803000
+    }
+   }
+  },
+  {
+   "date": "2025-09-15",
+   "volume": 3500,
+   "turnover": 249000,
+   "avgPrice": 71.1429,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3500,
+     "turnover": 249000
+    }
+   }
+  },
+  {
+   "date": "2025-09-16",
+   "volume": 50100,
+   "turnover": 3908100,
+   "avgPrice": 78.006,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 50100,
+     "turnover": 3908100
+    }
+   }
+  },
+  {
+   "date": "2025-09-17",
+   "volume": 6454,
+   "turnover": 496968,
+   "avgPrice": 77.0015,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 6454,
+     "turnover": 496968
+    }
+   }
+  },
+  {
+   "date": "2025-09-18",
+   "volume": 500,
+   "turnover": 39000,
+   "avgPrice": 78,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 500,
+     "turnover": 39000
+    }
+   }
+  },
+  {
+   "date": "2025-09-19",
+   "volume": 2200,
+   "turnover": 167212,
+   "avgPrice": 76.0055,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2200,
+     "turnover": 167212
+    }
+   }
+  },
+  {
+   "date": "2025-09-22",
+   "volume": 29301,
+   "turnover": 2289438,
+   "avgPrice": 78.1351,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 29301,
+     "turnover": 2289438
+    }
+   }
+  },
+  {
+   "date": "2025-09-23",
+   "volume": 1143,
+   "turnover": 93083,
+   "avgPrice": 81.4374,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1143,
+     "turnover": 93083
+    }
+   }
+  },
+  {
+   "date": "2025-09-24",
+   "volume": 33972,
+   "turnover": 3210254,
+   "avgPrice": 94.4971,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 33972,
+     "turnover": 3210254
+    }
+   }
+  },
+  {
+   "date": "2025-09-25",
+   "volume": 139830,
+   "turnover": 10948477,
+   "avgPrice": 78.2985,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 139830,
+     "turnover": 10948477
+    }
+   }
+  },
+  {
+   "date": "2025-09-26",
+   "volume": 4700,
+   "turnover": 338630,
+   "avgPrice": 72.0489,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 4700,
+     "turnover": 338630
+    }
+   }
+  },
+  {
+   "date": "2025-09-29",
+   "volume": 18873,
+   "turnover": 1438740.2,
+   "avgPrice": 76.2327,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 18873,
+     "turnover": 1438740.2
+    }
+   }
+  },
+  {
+   "date": "2025-09-30",
+   "volume": 3000,
+   "turnover": 204000,
+   "avgPrice": 68,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3000,
+     "turnover": 204000
+    }
+   }
+  },
+  {
+   "date": "2025-10-09",
+   "volume": 4000,
+   "turnover": 280080,
+   "avgPrice": 70.02,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 4000,
+     "turnover": 280080
+    }
+   }
+  },
+  {
+   "date": "2025-10-10",
+   "volume": 1400,
+   "turnover": 95364,
+   "avgPrice": 68.1171,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1400,
+     "turnover": 95364
+    }
+   }
+  },
+  {
+   "date": "2025-10-13",
+   "volume": 655,
+   "turnover": 45685.25,
+   "avgPrice": 69.7485,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 655,
+     "turnover": 45685.25
+    }
+   }
+  },
+  {
+   "date": "2025-10-14",
+   "volume": 5000,
+   "turnover": 321000,
+   "avgPrice": 64.2,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 5000,
+     "turnover": 321000
+    }
+   }
+  },
+  {
+   "date": "2025-10-15",
+   "volume": 2200,
+   "turnover": 155697.5,
+   "avgPrice": 70.7716,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2200,
+     "turnover": 155697.5
+    }
+   }
+  },
+  {
+   "date": "2025-10-16",
+   "volume": 584,
+   "turnover": 39680,
+   "avgPrice": 67.9452,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 584,
+     "turnover": 39680
+    }
+   }
+  },
+  {
+   "date": "2025-10-17",
+   "volume": 300,
+   "turnover": 18903,
+   "avgPrice": 63.01,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 300,
+     "turnover": 18903
+    }
+   }
+  },
+  {
+   "date": "2025-10-20",
+   "volume": 1010,
+   "turnover": 62150,
+   "avgPrice": 61.5347,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1010,
+     "turnover": 62150
+    }
+   }
+  },
+  {
+   "date": "2025-10-21",
+   "volume": 13020,
+   "turnover": 749936.3,
+   "avgPrice": 57.5988,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 13020,
+     "turnover": 749936.3
+    }
+   }
+  },
+  {
+   "date": "2025-10-22",
+   "volume": 8874,
+   "turnover": 477000.5,
+   "avgPrice": 53.7526,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 8874,
+     "turnover": 477000.5
+    }
+   }
+  },
+  {
+   "date": "2025-10-23",
+   "volume": 11368,
+   "turnover": 592275.86,
+   "avgPrice": 52.1003,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 11368,
+     "turnover": 592275.86
+    }
+   }
+  },
+  {
+   "date": "2025-10-24",
+   "volume": 120,
+   "turnover": 6100.2,
+   "avgPrice": 50.835,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 120,
+     "turnover": 6100.2
+    }
+   }
+  },
+  {
+   "date": "2025-10-27",
+   "volume": 3100,
+   "turnover": 157980,
+   "avgPrice": 50.9613,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3100,
+     "turnover": 157980
+    }
+   }
+  },
+  {
+   "date": "2025-10-28",
+   "volume": 10800,
+   "turnover": 550550,
+   "avgPrice": 50.9769,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10800,
+     "turnover": 550550
+    }
+   }
+  },
+  {
+   "date": "2025-10-29",
+   "volume": 1000,
+   "turnover": 50960,
+   "avgPrice": 50.96,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1000,
+     "turnover": 50960
+    }
+   }
+  },
+  {
+   "date": "2025-10-30",
+   "volume": 701000,
+   "turnover": 36118000,
+   "avgPrice": 51.5235,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 701000,
+     "turnover": 36118000
+    }
+   }
+  },
+  {
+   "date": "2025-10-31",
+   "volume": 91,
+   "turnover": 4692.55,
+   "avgPrice": 51.5665,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 91,
+     "turnover": 4692.55
+    }
+   }
+  },
+  {
+   "date": "2025-11-03",
+   "volume": 3390,
+   "turnover": 195973.3,
+   "avgPrice": 57.8092,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3390,
+     "turnover": 195973.3
+    }
+   }
+  },
+  {
+   "date": "2025-11-04",
+   "volume": 127513,
+   "turnover": 8243770,
+   "avgPrice": 64.6504,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 127513,
+     "turnover": 8243770
+    }
+   }
+  },
+  {
+   "date": "2025-11-05",
+   "volume": 300,
+   "turnover": 15750,
+   "avgPrice": 52.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 300,
+     "turnover": 15750
+    }
+   }
+  },
+  {
+   "date": "2025-11-06",
+   "volume": 33677,
+   "turnover": 2020578,
+   "avgPrice": 59.9988,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 33677,
+     "turnover": 2020578
+    }
+   }
+  },
+  {
+   "date": "2025-11-07",
+   "volume": 67838,
+   "turnover": 4064280,
+   "avgPrice": 59.9116,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 67838,
+     "turnover": 4064280
+    }
+   }
+  },
+  {
+   "date": "2025-11-10",
+   "volume": 200,
+   "turnover": 10900,
+   "avgPrice": 54.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 200,
+     "turnover": 10900
+    }
+   }
+  },
+  {
+   "date": "2025-11-11",
+   "volume": 20050,
+   "turnover": 1422825,
+   "avgPrice": 70.9638,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20050,
+     "turnover": 1422825
+    }
+   }
+  },
+  {
+   "date": "2025-11-12",
+   "volume": 269000,
+   "turnover": 16094240,
+   "avgPrice": 59.8299,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 269000,
+     "turnover": 16094240
+    }
+   }
+  },
+  {
+   "date": "2025-11-13",
+   "volume": 11000,
+   "turnover": 649450,
+   "avgPrice": 59.0409,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 11000,
+     "turnover": 649450
+    }
+   }
+  },
+  {
+   "date": "2025-11-14",
+   "volume": 21590,
+   "turnover": 1488658.4,
+   "avgPrice": 68.9513,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 21590,
+     "turnover": 1488658.4
+    }
+   }
+  },
+  {
+   "date": "2025-11-17",
+   "volume": 3001,
+   "turnover": 171410,
+   "avgPrice": 57.1176,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3001,
+     "turnover": 171410
+    }
+   }
+  },
+  {
+   "date": "2025-11-18",
+   "volume": 50500,
+   "turnover": 3581250,
+   "avgPrice": 70.9158,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 50500,
+     "turnover": 3581250
+    }
+   }
+  },
+  {
+   "date": "2025-11-19",
+   "volume": 20014,
+   "turnover": 1440988.5,
+   "avgPrice": 71.999,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20014,
+     "turnover": 1440988.5
+    }
+   }
+  },
+  {
+   "date": "2025-11-20",
+   "volume": 6280,
+   "turnover": 459600,
+   "avgPrice": 73.1847,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 6280,
+     "turnover": 459600
+    }
+   }
+  },
+  {
+   "date": "2025-11-21",
+   "volume": 200,
+   "turnover": 12880,
+   "avgPrice": 64.4,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 200,
+     "turnover": 12880
+    }
+   }
+  },
+  {
+   "date": "2025-11-24",
+   "volume": 11402,
+   "turnover": 694964.4,
+   "avgPrice": 60.9511,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 11402,
+     "turnover": 694964.4
+    }
+   }
+  },
+  {
+   "date": "2025-11-25",
+   "volume": 450000,
+   "turnover": 29375000,
+   "avgPrice": 65.2778,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 450000,
+     "turnover": 29375000
+    }
+   }
+  },
+  {
+   "date": "2025-11-26",
+   "volume": 1289861,
+   "turnover": 80589990.34,
+   "avgPrice": 62.4796,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1289861,
+     "turnover": 80589990.34
+    }
+   }
+  },
+  {
+   "date": "2025-11-27",
+   "volume": 1500,
+   "turnover": 90060,
+   "avgPrice": 60.04,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1500,
+     "turnover": 90060
+    }
+   }
+  },
+  {
+   "date": "2025-11-28",
+   "volume": 778,
+   "turnover": 49172,
+   "avgPrice": 63.2031,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 778,
+     "turnover": 49172
+    }
+   }
+  },
+  {
+   "date": "2025-12-01",
+   "volume": 413,
+   "turnover": 31065.37,
+   "avgPrice": 75.2188,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 413,
+     "turnover": 31065.37
+    }
+   }
+  },
+  {
+   "date": "2025-12-02",
+   "volume": 300202,
+   "turnover": 18948386.95,
+   "avgPrice": 63.1188,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 300202,
+     "turnover": 18948386.95
+    }
+   }
+  },
+  {
+   "date": "2025-12-03",
+   "volume": 75944,
+   "turnover": 4644735.04,
+   "avgPrice": 61.16,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 75944,
+     "turnover": 4644735.04
+    }
+   }
+  },
+  {
+   "date": "2025-12-04",
+   "volume": 5001,
+   "turnover": 275067.28,
+   "avgPrice": 55.0025,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 5001,
+     "turnover": 275067.28
+    }
+   }
+  },
+  {
+   "date": "2025-12-05",
+   "volume": 699,
+   "turnover": 60463.5,
+   "avgPrice": 86.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 699,
+     "turnover": 60463.5
+    }
+   }
+  },
+  {
+   "date": "2025-12-08",
+   "volume": 1134196,
+   "turnover": 66480121.54,
+   "avgPrice": 58.6143,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1134196,
+     "turnover": 66480121.54
+    }
+   }
+  },
+  {
+   "date": "2025-12-09",
+   "volume": 300,
+   "turnover": 24000,
+   "avgPrice": 80,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 300,
+     "turnover": 24000
+    }
+   }
+  },
+  {
+   "date": "2025-12-10",
+   "volume": 3110,
+   "turnover": 208505,
+   "avgPrice": 67.0434,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3110,
+     "turnover": 208505
+    }
+   }
+  },
+  {
+   "date": "2025-12-11",
+   "volume": 85100,
+   "turnover": 6398050,
+   "avgPrice": 75.1827,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 85100,
+     "turnover": 6398050
+    }
+   }
+  },
+  {
+   "date": "2025-12-12",
+   "volume": 246147,
+   "turnover": 18587850.15,
+   "avgPrice": 75.5152,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 246147,
+     "turnover": 18587850.15
+    }
+   }
+  },
+  {
+   "date": "2025-12-15",
+   "volume": 23463,
+   "turnover": 1635290,
+   "avgPrice": 69.6965,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 23463,
+     "turnover": 1635290
+    }
+   }
+  },
+  {
+   "date": "2025-12-16",
+   "volume": 163796,
+   "turnover": 11899217.6,
+   "avgPrice": 72.6466,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 163796,
+     "turnover": 11899217.6
+    }
+   }
+  },
+  {
+   "date": "2025-12-17",
+   "volume": 72,
+   "turnover": 5246.5,
+   "avgPrice": 72.8681,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 72,
+     "turnover": 5246.5
+    }
+   }
+  },
+  {
+   "date": "2025-12-18",
+   "volume": 220101,
+   "turnover": 13868886.99,
+   "avgPrice": 63.0115,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 220101,
+     "turnover": 13868886.99
+    }
+   }
+  },
+  {
+   "date": "2025-12-19",
+   "volume": 10000,
+   "turnover": 790000,
+   "avgPrice": 79,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10000,
+     "turnover": 790000
+    }
+   }
+  },
+  {
+   "date": "2025-12-22",
+   "volume": 100,
+   "turnover": 6300,
+   "avgPrice": 63,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 6300
+    }
+   }
+  },
+  {
+   "date": "2025-12-23",
+   "volume": 83958,
+   "turnover": 5363385.84,
+   "avgPrice": 63.8818,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 83958,
+     "turnover": 5363385.84
+    }
+   }
+  },
+  {
+   "date": "2025-12-24",
+   "volume": 100141,
+   "turnover": 8797081.1,
+   "avgPrice": 87.8469,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100141,
+     "turnover": 8797081.1
+    }
+   }
+  },
+  {
+   "date": "2025-12-25",
+   "volume": 20,
+   "turnover": 1573,
+   "avgPrice": 78.65,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20,
+     "turnover": 1573
+    }
+   }
+  },
+  {
+   "date": "2025-12-26",
+   "volume": 418662,
+   "turnover": 33794649.23,
+   "avgPrice": 80.7206,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 418662,
+     "turnover": 33794649.23
+    }
+   }
+  },
+  {
+   "date": "2025-12-29",
+   "volume": 5194,
+   "turnover": 373608,
+   "avgPrice": 71.9307,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 5194,
+     "turnover": 373608
+    }
+   }
+  },
+  {
+   "date": "2025-12-30",
+   "volume": 3131,
+   "turnover": 239524.92,
+   "avgPrice": 76.5011,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3131,
+     "turnover": 239524.92
+    }
+   }
+  },
+  {
+   "date": "2025-12-31",
+   "volume": 1,
+   "turnover": 85,
+   "avgPrice": 85,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1,
+     "turnover": 85
+    }
+   }
+  },
+  {
+   "date": "2026-01-05",
+   "volume": 100001,
+   "turnover": 8150075,
+   "avgPrice": 81.4999,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100001,
+     "turnover": 8150075
+    }
+   }
+  },
+  {
+   "date": "2026-01-06",
+   "volume": 20101,
+   "turnover": 1668334,
+   "avgPrice": 82.9976,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20101,
+     "turnover": 1668334
+    }
+   }
+  },
+  {
+   "date": "2026-01-07",
+   "volume": 15152,
+   "turnover": 1257755.5,
+   "avgPrice": 83.0092,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 15152,
+     "turnover": 1257755.5
+    }
+   }
+  },
+  {
+   "date": "2026-01-08",
+   "volume": 218009,
+   "turnover": 14294707.85,
+   "avgPrice": 65.5693,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 218009,
+     "turnover": 14294707.85
+    }
+   }
+  },
+  {
+   "date": "2026-01-09",
+   "volume": 48030,
+   "turnover": 3153144,
+   "avgPrice": 65.6495,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 48030,
+     "turnover": 3153144
+    }
+   }
+  },
+  {
+   "date": "2026-01-12",
+   "volume": 14590,
+   "turnover": 1042140,
+   "avgPrice": 71.4284,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 14590,
+     "turnover": 1042140
+    }
+   }
+  },
+  {
+   "date": "2026-01-13",
+   "volume": 187000,
+   "turnover": 12757140,
+   "avgPrice": 68.22,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 187000,
+     "turnover": 12757140
+    }
+   }
+  },
+  {
+   "date": "2026-01-14",
+   "volume": 14000,
+   "turnover": 952000,
+   "avgPrice": 68,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 14000,
+     "turnover": 952000
+    }
+   }
+  },
+  {
+   "date": "2026-01-15",
+   "volume": 8005,
+   "turnover": 550322.04,
+   "avgPrice": 68.7473,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 8005,
+     "turnover": 550322.04
+    }
+   }
+  },
+  {
+   "date": "2026-01-16",
+   "volume": 100000,
+   "turnover": 8200000,
+   "avgPrice": 82,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100000,
+     "turnover": 8200000
+    }
+   }
+  },
+  {
+   "date": "2026-01-19",
+   "volume": 33020,
+   "turnover": 2592790,
+   "avgPrice": 78.5218,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 33020,
+     "turnover": 2592790
+    }
+   }
+  },
+  {
+   "date": "2026-01-20",
+   "volume": 890,
+   "turnover": 62898.9,
+   "avgPrice": 70.6729,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 890,
+     "turnover": 62898.9
+    }
+   }
+  },
+  {
+   "date": "2026-01-21",
+   "volume": 100000,
+   "turnover": 8425001,
+   "avgPrice": 84.25,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100000,
+     "turnover": 8425001
+    }
+   }
+  },
+  {
+   "date": "2026-01-22",
+   "volume": 1,
+   "turnover": 80,
+   "avgPrice": 80,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1,
+     "turnover": 80
+    }
+   }
+  },
+  {
+   "date": "2026-01-23",
+   "volume": 118022,
+   "turnover": 9948105,
+   "avgPrice": 84.2903,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 118022,
+     "turnover": 9948105
+    }
+   }
+  },
+  {
+   "date": "2026-01-26",
+   "volume": 50000,
+   "turnover": 4180000,
+   "avgPrice": 83.6,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 50000,
+     "turnover": 4180000
+    }
+   }
+  },
+  {
+   "date": "2026-01-27",
+   "volume": 150,
+   "turnover": 10395,
+   "avgPrice": 69.3,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 150,
+     "turnover": 10395
+    }
+   }
+  },
+  {
+   "date": "2026-01-28",
+   "volume": 150,
+   "turnover": 11250,
+   "avgPrice": 75,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 150,
+     "turnover": 11250
+    }
+   }
+  },
+  {
+   "date": "2026-01-29",
+   "volume": 20010,
+   "turnover": 1650820,
+   "avgPrice": 82.4998,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20010,
+     "turnover": 1650820
+    }
+   }
+  },
+  {
+   "date": "2026-01-30",
+   "volume": 10000,
+   "turnover": 840000,
+   "avgPrice": 84,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10000,
+     "turnover": 840000
+    }
+   }
+  },
+  {
+   "date": "2026-02-02",
+   "volume": 10010,
+   "turnover": 850650.8,
+   "avgPrice": 84.9801,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10010,
+     "turnover": 850650.8
+    }
+   }
+  },
+  {
+   "date": "2026-02-03",
+   "volume": 5000,
+   "turnover": 430000,
+   "avgPrice": 86,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 5000,
+     "turnover": 430000
+    }
+   }
+  },
+  {
+   "date": "2026-02-04",
+   "volume": 200108,
+   "turnover": 17008730,
+   "avgPrice": 84.9978,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 200108,
+     "turnover": 17008730
+    }
+   }
+  },
+  {
+   "date": "2026-02-05",
+   "volume": 10,
+   "turnover": 880,
+   "avgPrice": 88,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10,
+     "turnover": 880
+    }
+   }
+  },
+  {
+   "date": "2026-02-06",
+   "volume": 25456,
+   "turnover": 2176488,
+   "avgPrice": 85.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 25456,
+     "turnover": 2176488
+    }
+   }
+  },
+  {
+   "date": "2026-02-09",
+   "volume": 43010,
+   "turnover": 3736715.9,
+   "avgPrice": 86.8802,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 43010,
+     "turnover": 3736715.9
+    }
+   }
+  },
+  {
+   "date": "2026-02-10",
+   "volume": 10020,
+   "turnover": 881666.5,
+   "avgPrice": 87.9907,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10020,
+     "turnover": 881666.5
+    }
+   }
+  },
+  {
+   "date": "2026-02-11",
+   "volume": 37340,
+   "turnover": 3223377.3,
+   "avgPrice": 86.325,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 37340,
+     "turnover": 3223377.3
+    }
+   }
+  },
+  {
+   "date": "2026-02-12",
+   "volume": 3,
+   "turnover": 261,
+   "avgPrice": 87,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3,
+     "turnover": 261
+    }
+   }
+  },
+  {
+   "date": "2026-02-13",
+   "volume": 15000,
+   "turnover": 1282500,
+   "avgPrice": 85.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 15000,
+     "turnover": 1282500
+    }
+   }
+  },
+  {
+   "date": "2026-02-24",
+   "volume": 10,
+   "turnover": 890,
+   "avgPrice": 89,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10,
+     "turnover": 890
+    }
+   }
+  },
+  {
+   "date": "2026-02-25",
+   "volume": 10,
+   "turnover": 770,
+   "avgPrice": 77,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10,
+     "turnover": 770
+    }
+   }
+  },
+  {
+   "date": "2026-02-26",
+   "volume": 1001,
+   "turnover": 85085.48,
+   "avgPrice": 85.0005,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1001,
+     "turnover": 85085.48
+    }
+   }
+  },
+  {
+   "date": "2026-02-27",
+   "volume": 244,
+   "turnover": 21280.5,
+   "avgPrice": 87.2152,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 244,
+     "turnover": 21280.5
+    }
+   }
+  },
+  {
+   "date": "2026-03-02",
+   "volume": 2002,
+   "turnover": 172172.49,
+   "avgPrice": 86.0002,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 2002,
+     "turnover": 172172.49
+    }
+   }
+  },
+  {
+   "date": "2026-03-03",
+   "volume": 109,
+   "turnover": 9383.5,
+   "avgPrice": 86.0872,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 109,
+     "turnover": 9383.5
+    }
+   }
+  },
+  {
+   "date": "2026-03-04",
+   "volume": 20,
+   "turnover": 1740,
+   "avgPrice": 87,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20,
+     "turnover": 1740
+    }
+   }
+  },
+  {
+   "date": "2026-03-05",
+   "volume": 10000,
+   "turnover": 860000,
+   "avgPrice": 86,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10000,
+     "turnover": 860000
+    }
+   }
+  },
+  {
+   "date": "2026-03-06",
+   "volume": 201,
+   "turnover": 17687,
+   "avgPrice": 87.995,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 201,
+     "turnover": 17687
+    }
+   }
+  },
+  {
+   "date": "2026-03-09",
+   "volume": 13,
+   "turnover": 1150.37,
+   "avgPrice": 88.49,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 13,
+     "turnover": 1150.37
+    }
+   }
+  },
+  {
+   "date": "2026-03-10",
+   "volume": 1722,
+   "turnover": 164967.6,
+   "avgPrice": 95.8,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1722,
+     "turnover": 164967.6
+    }
+   }
+  },
+  {
+   "date": "2026-03-11",
+   "volume": 51285,
+   "turnover": 4388722.5,
+   "avgPrice": 85.5752,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 51285,
+     "turnover": 4388722.5
+    }
+   }
+  },
+  {
+   "date": "2026-03-12",
+   "volume": 12400,
+   "turnover": 1078300,
+   "avgPrice": 86.9597,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 12400,
+     "turnover": 1078300
+    }
+   }
+  },
+  {
+   "date": "2026-03-13",
+   "volume": 80010,
+   "turnover": 6920860,
+   "avgPrice": 86.4999,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 80010,
+     "turnover": 6920860
+    }
+   }
+  },
+  {
+   "date": "2026-03-16",
+   "volume": 10,
+   "turnover": 840,
+   "avgPrice": 84,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10,
+     "turnover": 840
+    }
+   }
+  },
+  {
+   "date": "2026-03-17",
+   "volume": 90,
+   "turnover": 7810,
+   "avgPrice": 86.7778,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 90,
+     "turnover": 7810
+    }
+   }
+  },
+  {
+   "date": "2026-03-18",
+   "volume": 100,
+   "turnover": 8635.8,
+   "avgPrice": 86.358,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100,
+     "turnover": 8635.8
+    }
+   }
+  },
+  {
+   "date": "2026-03-19",
+   "volume": 95,
+   "turnover": 8267.07,
+   "avgPrice": 87.0218,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 95,
+     "turnover": 8267.07
+    }
+   }
+  },
+  {
+   "date": "2026-03-20",
+   "volume": 100983,
+   "turnover": 8588610.8,
+   "avgPrice": 85.0501,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100983,
+     "turnover": 8588610.8
+    }
+   }
+  },
+  {
+   "date": "2026-03-23",
+   "volume": 30000,
+   "turnover": 2850000,
+   "avgPrice": 95,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 30000,
+     "turnover": 2850000
+    }
+   }
+  },
+  {
+   "date": "2026-03-24",
+   "volume": 237487,
+   "turnover": 21070335.5,
+   "avgPrice": 88.7221,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 237487,
+     "turnover": 21070335.5
+    }
+   }
+  },
+  {
+   "date": "2026-03-25",
+   "volume": 20111,
+   "turnover": 1699452,
+   "avgPrice": 84.5036,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20111,
+     "turnover": 1699452
+    }
+   }
+  },
+  {
+   "date": "2026-03-26",
+   "volume": 310,
+   "turnover": 27504.5,
+   "avgPrice": 88.7242,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 310,
+     "turnover": 27504.5
+    }
+   }
+  },
+  {
+   "date": "2026-03-27",
+   "volume": 80100,
+   "turnover": 7219250,
+   "avgPrice": 90.128,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 80100,
+     "turnover": 7219250
+    }
+   }
+  },
+  {
+   "date": "2026-03-30",
+   "volume": 31010,
+   "turnover": 2616865,
+   "avgPrice": 84.3878,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 31010,
+     "turnover": 2616865
+    }
+   }
+  },
+  {
+   "date": "2026-03-31",
+   "volume": 100000,
+   "turnover": 8460000,
+   "avgPrice": 84.6,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 100000,
+     "turnover": 8460000
+    }
+   }
+  },
+  {
+   "date": "2026-04-01",
+   "volume": 0,
+   "turnover": 0,
+   "avgPrice": null
+  },
+  {
+   "date": "2026-04-02",
+   "volume": 20605,
+   "turnover": 1731425,
+   "avgPrice": 84.0294,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20605,
+     "turnover": 1731425
+    }
+   }
+  },
+  {
+   "date": "2026-04-03",
+   "volume": 20008,
+   "turnover": 1674680,
+   "avgPrice": 83.7005,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20008,
+     "turnover": 1674680
+    }
+   }
+  },
+  {
+   "date": "2026-04-07",
+   "volume": 110000,
+   "turnover": 9160000,
+   "avgPrice": 83.2727,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 110000,
+     "turnover": 9160000
+    }
+   }
+  },
+  {
+   "date": "2026-04-08",
+   "volume": 0,
+   "turnover": 0,
+   "avgPrice": null
+  },
+  {
+   "date": "2026-04-09",
+   "volume": 10,
+   "turnover": 820,
+   "avgPrice": 82,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10,
+     "turnover": 820
+    }
+   }
+  },
+  {
+   "date": "2026-04-10",
+   "volume": 20,
+   "turnover": 1700,
+   "avgPrice": 85,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20,
+     "turnover": 1700
+    }
+   }
+  },
+  {
+   "date": "2026-04-13",
+   "volume": 0,
+   "turnover": 0,
+   "avgPrice": null
+  },
+  {
+   "date": "2026-04-14",
+   "volume": 300,
+   "turnover": 25050,
+   "avgPrice": 83.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 300,
+     "turnover": 25050
+    }
+   }
+  },
+  {
+   "date": "2026-04-15",
+   "volume": 70001,
+   "turnover": 5940084.5,
+   "avgPrice": 84.8571,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 70001,
+     "turnover": 5940084.5
+    }
+   }
+  },
+  {
+   "date": "2026-04-16",
+   "volume": 5000,
+   "turnover": 471700,
+   "avgPrice": 94.34,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 5000,
+     "turnover": 471700
+    }
+   }
+  },
+  {
+   "date": "2026-04-17",
+   "volume": 3000,
+   "turnover": 285000,
+   "avgPrice": 95,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3000,
+     "turnover": 285000
+    }
+   }
+  },
+  {
+   "date": "2026-04-20",
+   "volume": 12410,
+   "turnover": 1052418,
+   "avgPrice": 84.804,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 12410,
+     "turnover": 1052418
+    }
+   }
+  },
+  {
+   "date": "2026-04-21",
+   "volume": 392,
+   "turnover": 36666,
+   "avgPrice": 93.5357,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 392,
+     "turnover": 36666
+    }
+   }
+  },
+  {
+   "date": "2026-04-22",
+   "volume": 400,
+   "turnover": 36400,
+   "avgPrice": 91,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 400,
+     "turnover": 36400
+    }
+   }
+  },
+  {
+   "date": "2026-04-23",
+   "volume": 52000,
+   "turnover": 4174000,
+   "avgPrice": 80.2692,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 52000,
+     "turnover": 4174000
+    }
+   }
+  },
+  {
+   "date": "2026-04-24",
+   "volume": 20500,
+   "turnover": 1711000,
+   "avgPrice": 83.4634,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20500,
+     "turnover": 1711000
+    }
+   }
+  },
+  {
+   "date": "2026-04-27",
+   "volume": 0,
+   "turnover": 0,
+   "avgPrice": null
+  },
+  {
+   "date": "2026-04-28",
+   "volume": 127706,
+   "turnover": 11024351.98,
+   "avgPrice": 86.326,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 127706,
+     "turnover": 11024351.98
+    }
+   }
+  },
+  {
+   "date": "2026-04-29",
+   "volume": 48072,
+   "turnover": 4297631,
+   "avgPrice": 89.3999,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 48072,
+     "turnover": 4297631
+    }
+   }
+  },
+  {
+   "date": "2026-04-30",
+   "volume": 118100,
+   "turnover": 9947197,
+   "avgPrice": 84.2269,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 118100,
+     "turnover": 9947197
+    }
+   }
+  },
+  {
+   "date": "2026-05-06",
+   "volume": 200,
+   "turnover": 17100,
+   "avgPrice": 85.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 200,
+     "turnover": 17100
+    }
+   }
+  },
+  {
+   "date": "2026-05-07",
+   "volume": 20100,
+   "turnover": 1703917,
+   "avgPrice": 84.772,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20100,
+     "turnover": 1703917
+    }
+   }
+  },
+  {
+   "date": "2026-05-08",
+   "volume": 1105,
+   "turnover": 99445.3,
+   "avgPrice": 89.9957,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 1105,
+     "turnover": 99445.3
+    }
+   }
+  },
+  {
+   "date": "2026-05-11",
+   "volume": 205562,
+   "turnover": 17079086,
+   "avgPrice": 83.0848,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 205562,
+     "turnover": 17079086
+    }
+   }
+  },
+  {
+   "date": "2026-05-12",
+   "volume": 30000,
+   "turnover": 2505000,
+   "avgPrice": 83.5,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 30000,
+     "turnover": 2505000
+    }
+   }
+  },
+  {
+   "date": "2026-05-13",
+   "volume": 20000,
+   "turnover": 1660000,
+   "avgPrice": 83,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20000,
+     "turnover": 1660000
+    }
+   }
+  },
+  {
+   "date": "2026-05-14",
+   "volume": 56032,
+   "turnover": 4713320,
+   "avgPrice": 84.1184,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 56032,
+     "turnover": 4713320
+    }
+   }
+  },
+  {
+   "date": "2026-05-15",
+   "volume": 150000,
+   "turnover": 12500000,
+   "avgPrice": 83.3333,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 150000,
+     "turnover": 12500000
+    }
+   }
+  },
+  {
+   "date": "2026-05-18",
+   "volume": 23500,
+   "turnover": 2015000,
+   "avgPrice": 85.7447,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 23500,
+     "turnover": 2015000
+    }
+   }
+  },
+  {
+   "date": "2026-05-19",
+   "volume": 10401,
+   "turnover": 894183,
+   "avgPrice": 85.9709,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10401,
+     "turnover": 894183
+    }
+   }
+  },
+  {
+   "date": "2026-05-20",
+   "volume": 808,
+   "turnover": 68680,
+   "avgPrice": 85,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 808,
+     "turnover": 68680
+    }
+   }
+  },
+  {
+   "date": "2026-05-21",
+   "volume": 150000,
+   "turnover": 12600000,
+   "avgPrice": 84,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 150000,
+     "turnover": 12600000
+    }
+   }
+  },
+  {
+   "date": "2026-05-22",
+   "volume": 200,
+   "turnover": 17160,
+   "avgPrice": 85.8,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 200,
+     "turnover": 17160
+    }
+   }
+  },
+  {
+   "date": "2026-05-25",
+   "volume": 250,
+   "turnover": 21450,
+   "avgPrice": 85.8,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 250,
+     "turnover": 21450
+    }
+   }
+  },
+  {
+   "date": "2026-05-26",
+   "volume": 0,
+   "turnover": 0,
+   "avgPrice": null
+  },
+  {
+   "date": "2026-05-27",
+   "volume": 35004,
+   "turnover": 2926232,
+   "avgPrice": 83.5971,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 35004,
+     "turnover": 2926232
+    }
+   }
+  },
+  {
+   "date": "2026-05-28",
+   "volume": 177136,
+   "turnover": 14838812.18,
+   "avgPrice": 83.7707,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 177136,
+     "turnover": 14838812.18
+    }
+   }
+  },
+  {
+   "date": "2026-05-29",
+   "volume": 30042,
+   "turnover": 2509636.27,
+   "avgPrice": 83.5376,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 30042,
+     "turnover": 2509636.27
+    }
+   }
+  },
+  {
+   "date": "2026-06-01",
+   "volume": 145554,
+   "turnover": 12091093.9,
+   "avgPrice": 83.0695,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 145554,
+     "turnover": 12091093.9
+    }
+   }
+  },
+  {
+   "date": "2026-06-02",
+   "volume": 81000,
+   "turnover": 6549000,
+   "avgPrice": 80.8519,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 81000,
+     "turnover": 6549000
+    }
+   }
+  },
+  {
+   "date": "2026-06-03",
+   "volume": 50000,
+   "turnover": 4150000,
+   "avgPrice": 83,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 50000,
+     "turnover": 4150000
+    }
+   }
+  },
+  {
+   "date": "2026-06-04",
+   "volume": 10000,
+   "turnover": 830000,
+   "avgPrice": 83,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10000,
+     "turnover": 830000
+    }
+   }
+  },
+  {
+   "date": "2026-06-05",
+   "volume": 341027,
+   "turnover": 28275535.2,
+   "avgPrice": 82.9129,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 341027,
+     "turnover": 28275535.2
+    }
+   }
+  },
+  {
+   "date": "2026-06-08",
+   "volume": 224348,
+   "turnover": 18579058.5,
+   "avgPrice": 82.8136,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 224348,
+     "turnover": 18579058.5
+    }
+   }
+  },
+  {
+   "date": "2026-06-09",
+   "volume": 40033,
+   "turnover": 3310763,
+   "avgPrice": 82.7008,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 40033,
+     "turnover": 3310763
+    }
+   }
+  },
+  {
+   "date": "2026-06-10",
+   "volume": 51992,
+   "turnover": 4300424,
+   "avgPrice": 82.7132,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 51992,
+     "turnover": 4300424
+    }
+   }
+  },
+  {
+   "date": "2026-06-11",
+   "volume": 259241,
+   "turnover": 21405462,
+   "avgPrice": 82.57,
+   "cumVolume": 14103899,
+   "cumTurnover": 1052486006.53
+  },
+  {
+   "date": "2026-06-12",
+   "volume": 5818,
+   "turnover": 480186.5,
+   "avgPrice": 82.5346,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 5818,
+     "turnover": 480186.5
+    }
+   }
+  },
+  {
+   "date": "2026-06-15",
+   "volume": 326022,
+   "turnover": 27033332,
+   "avgPrice": 82.9187,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 326022,
+     "turnover": 27033332
+    }
+   }
+  },
+  {
+   "date": "2026-06-16",
+   "volume": 458515,
+   "turnover": 37827535.5,
+   "avgPrice": 82.5001,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 458515,
+     "turnover": 37827535.5
+    }
+   }
+  },
+  {
+   "date": "2026-06-17",
+   "volume": 40010,
+   "turnover": 3320835,
+   "avgPrice": 83.0001,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 40010,
+     "turnover": 3320835
+    }
+   }
+  },
+  {
+   "date": "2026-06-18",
+   "volume": 10200,
+   "turnover": 911700,
+   "avgPrice": 89.3824,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10200,
+     "turnover": 911700
+    }
+   }
+  },
+  {
+   "date": "2026-06-22",
+   "volume": 0,
+   "turnover": 0,
+   "avgPrice": null
+  },
+  {
+   "date": "2026-06-23",
+   "volume": 60000,
+   "turnover": 4974000,
+   "avgPrice": 82.9,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 60000,
+     "turnover": 4974000
+    }
+   }
+  },
+  {
+   "date": "2026-06-24",
+   "volume": 49000,
+   "turnover": 4077500,
+   "avgPrice": 83.2143,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 49000,
+     "turnover": 4077500
+    }
+   }
+  },
+  {
+   "date": "2026-06-25",
+   "volume": 10810,
+   "turnover": 904484.4,
+   "avgPrice": 83.6711,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 10810,
+     "turnover": 904484.4
+    }
+   }
+  },
+  {
+   "date": "2026-06-26",
+   "volume": 21212,
+   "turnover": 1766961.5,
+   "avgPrice": 83.3001,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 21212,
+     "turnover": 1766961.5
+    }
+   }
+  },
+  {
+   "date": "2026-06-29",
+   "volume": 20500,
+   "turnover": 1707650,
+   "avgPrice": 83.3,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20500,
+     "turnover": 1707650
+    }
+   }
+  },
+  {
+   "date": "2026-06-30",
+   "volume": 70000,
+   "turnover": 5835500,
+   "avgPrice": 83.3643,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 70000,
+     "turnover": 5835500
+    }
+   }
+  },
+  {
+   "date": "2026-07-01",
+   "volume": 23500,
+   "turnover": 1958700,
+   "avgPrice": 83.3489,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 23500,
+     "turnover": 1958700
+    }
+   }
+  },
+  {
+   "date": "2026-07-02",
+   "volume": 49573,
+   "turnover": 4134620.9,
+   "avgPrice": 83.4047,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 49573,
+     "turnover": 4134620.9
+    }
+   }
+  },
+  {
+   "date": "2026-07-03",
+   "volume": 60021,
+   "turnover": 5015418.3,
+   "avgPrice": 83.5611,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 60021,
+     "turnover": 5015418.3
+    }
+   }
+  },
+  {
+   "date": "2026-07-06",
+   "volume": 42800,
+   "turnover": 3640500,
+   "avgPrice": 85.0584,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 42800,
+     "turnover": 3640500
+    }
+   }
+  },
+  {
+   "date": "2026-07-07",
+   "volume": 322060,
+   "turnover": 25866220,
+   "avgPrice": 80.3149,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 322060,
+     "turnover": 25866220
+    }
+   }
+  },
+  {
+   "date": "2026-07-08",
+   "volume": 7510,
+   "turnover": 649352,
+   "avgPrice": 86.465,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 7510,
+     "turnover": 649352
+    }
+   }
+  },
+  {
+   "date": "2026-07-09",
+   "volume": 510,
+   "turnover": 43370,
+   "avgPrice": 85.0392,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 510,
+     "turnover": 43370
+    }
+   }
+  },
+  {
+   "date": "2026-07-10",
+   "volume": 122000,
+   "turnover": 10232000,
+   "avgPrice": 83.8689,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 122000,
+     "turnover": 10232000
+    }
+   }
+  },
+  {
+   "date": "2026-07-13",
+   "volume": 5022,
+   "turnover": 435914,
+   "avgPrice": 86.8009,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 5022,
+     "turnover": 435914
+    }
+   }
+  },
+  {
+   "date": "2026-07-14",
+   "volume": 358319,
+   "turnover": 29362145,
+   "avgPrice": 81.9441,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 358319,
+     "turnover": 29362145
+    }
+   }
+  },
+  {
+   "date": "2026-07-15",
+   "volume": 25261,
+   "turnover": 2218719.5,
+   "avgPrice": 87.8318,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 25261,
+     "turnover": 2218719.5
+    }
+   }
+  },
+  {
+   "date": "2026-07-16",
+   "volume": 336016,
+   "turnover": 28092920,
+   "avgPrice": 83.6059,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 336016,
+     "turnover": 28092920
+    }
+   }
+  },
+  {
+   "date": "2026-07-17",
+   "volume": 40610,
+   "turnover": 3651290,
+   "avgPrice": 89.9111,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 40610,
+     "turnover": 3651290
+    }
+   }
+  },
+  {
+   "date": "2026-07-20",
+   "volume": 62001,
+   "turnover": 4992190.5,
+   "avgPrice": 80.5179,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 62001,
+     "turnover": 4992190.5
+    }
+   }
+  },
+  {
+   "date": "2026-07-21",
+   "volume": 25001,
+   "turnover": 2243090,
+   "avgPrice": 89.72,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 25001,
+     "turnover": 2243090
+    }
+   }
+  },
+  {
+   "date": "2026-07-22",
+   "volume": 29867,
+   "turnover": 2697303.4,
+   "avgPrice": 90.3105,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 29867,
+     "turnover": 2697303.4
+    }
+   }
+  },
+  {
+   "date": "2026-07-23",
+   "volume": 141001,
+   "turnover": 12753091,
+   "avgPrice": 90.4468,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 141001,
+     "turnover": 12753091
+    }
+   }
+  },
+  {
+   "date": "2026-07-24",
+   "volume": 130435,
+   "turnover": 11497710,
+   "avgPrice": 88.149,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 130435,
+     "turnover": 11497710
+    }
+   }
+  },
+  {
+   "date": "2026-07-27",
+   "volume": 3987,
+   "turnover": 366804,
+   "avgPrice": 92,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 3987,
+     "turnover": 366804
+    }
+   }
+  },
+  {
+   "date": "2026-07-28",
+   "volume": 139643,
+   "turnover": 13033888.6,
+   "avgPrice": 93.3372,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 139643,
+     "turnover": 13033888.6
+    }
+   }
+  },
+  {
+   "date": "2026-07-29",
+   "volume": 233418,
+   "turnover": 20175292,
+   "avgPrice": 86.4342,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 233418,
+     "turnover": 20175292
+    }
+   }
+  },
+  {
+   "date": "2026-07-30",
+   "volume": 145317,
+   "turnover": 13631353.49,
+   "avgPrice": 93.8043,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 145317,
+     "turnover": 13631353.49
+    }
+   }
+  },
+  {
+   "date": "2026-07-31",
+   "volume": 367751,
+   "turnover": 34906700.94,
+   "avgPrice": 94.9194,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 367751,
+     "turnover": 34906700.94
+    }
+   }
+  },
+  {
+   "date": "2026-08-03",
+   "volume": 316872,
+   "turnover": 29210400.53,
+   "avgPrice": 92.1836,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 316872,
+     "turnover": 29210400.53
+    }
+   }
+  },
+  {
+   "date": "2026-08-04",
+   "volume": 571370,
+   "turnover": 53950579,
+   "avgPrice": 94.4232,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 571370,
+     "turnover": 53950579
+    }
+   }
+  },
+  {
+   "date": "2026-08-05",
+   "volume": 289450,
+   "turnover": 27475772,
+   "avgPrice": 94.9241,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 289450,
+     "turnover": 27475772
+    }
+   }
+  },
+  {
+   "date": "2026-08-06",
+   "volume": 332514,
+   "turnover": 31017451.68,
+   "avgPrice": 93.2816,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 332514,
+     "turnover": 31017451.68
+    }
+   }
+  },
+  {
+   "date": "2026-08-07",
+   "volume": 190811,
+   "turnover": 17938011,
+   "avgPrice": 94.0093,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 190811,
+     "turnover": 17938011
+    }
+   }
+  },
+  {
+   "date": "2026-08-10",
+   "volume": 165999,
+   "turnover": 13888903.5,
+   "avgPrice": 83.6686,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 165999,
+     "turnover": 13888903.5
+    }
+   }
+  },
+  {
+   "date": "2026-08-11",
+   "volume": 121108,
+   "turnover": 11591379.97,
+   "avgPrice": 95.7111,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 121108,
+     "turnover": 11591379.97
+    }
+   }
+  },
+  {
+   "date": "2026-08-12",
+   "volume": 166112,
+   "turnover": 15296095.5,
+   "avgPrice": 92.083,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 166112,
+     "turnover": 15296095.5
+    }
+   }
+  },
+  {
+   "date": "2026-08-13",
+   "volume": 122497,
+   "turnover": 11801521.1,
+   "avgPrice": 96.3413,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 122497,
+     "turnover": 11801521.1
+    }
+   }
+  },
+  {
+   "date": "2026-08-14",
+   "volume": 42111,
+   "turnover": 4059541.5,
+   "avgPrice": 96.401,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 42111,
+     "turnover": 4059541.5
+    }
+   }
+  },
+  {
+   "date": "2026-08-17",
+   "volume": 117772,
+   "turnover": 11328586,
+   "avgPrice": 96.1908,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 117772,
+     "turnover": 11328586
+    }
+   }
+  },
+  {
+   "date": "2026-08-18",
+   "volume": 116000,
+   "turnover": 11159000,
+   "avgPrice": 96.1983,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 116000,
+     "turnover": 11159000
+    }
+   }
+  },
+  {
+   "date": "2026-08-19",
+   "volume": 73387,
+   "turnover": 6864898.8,
+   "avgPrice": 93.5438,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 73387,
+     "turnover": 6864898.8
+    }
+   }
+  },
+  {
+   "date": "2026-08-20",
+   "volume": 352877,
+   "turnover": 33462918.5,
+   "avgPrice": 94.8288,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 352877,
+     "turnover": 33462918.5
+    }
+   }
+  },
+  {
+   "date": "2026-08-21",
+   "volume": 184148,
+   "turnover": 17739930,
+   "avgPrice": 96.3352,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 184148,
+     "turnover": 17739930
+    }
+   }
+  },
+  {
+   "date": "2026-08-24",
+   "volume": 131982,
+   "turnover": 12745451.3,
+   "avgPrice": 96.5696,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 131982,
+     "turnover": 12745451.3
+    }
+   }
+  },
+  {
+   "date": "2026-08-25",
+   "volume": 145348,
+   "turnover": 14033423.36,
+   "avgPrice": 96.5505,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 145348,
+     "turnover": 14033423.36
+    }
+   }
+  },
+  {
+   "date": "2026-08-26",
+   "volume": 65887,
+   "turnover": 6386924.05,
+   "avgPrice": 96.9375,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 65887,
+     "turnover": 6386924.05
+    }
+   }
+  },
+  {
+   "date": "2026-08-27",
+   "volume": 100827,
+   "turnover": 9739463.17,
+   "avgPrice": 96.6,
+   "cumVolume": 21454681,
+   "cumTurnover": 1712614536.02
+  },
+  {
+   "date": "2026-08-28",
+   "volume": 231005,
+   "turnover": 21922947.75,
+   "avgPrice": 94.9025,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 231005,
+     "turnover": 21922947.75
+    }
+   }
+  },
+  {
+   "date": "2026-08-31",
+   "volume": 21092,
+   "turnover": 2037868.8,
+   "avgPrice": 96.6181,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 21092,
+     "turnover": 2037868.8
+    }
+   }
+  },
+  {
+   "date": "2026-09-01",
+   "volume": 47030,
+   "turnover": 4524480,
+   "avgPrice": 96.2041,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 47030,
+     "turnover": 4524480
+    }
+   }
+  },
+  {
+   "date": "2026-09-02",
+   "volume": 63565,
+   "turnover": 6127140,
+   "avgPrice": 96.39,
+   "cumVolume": 21817373,
+   "cumTurnover": 1747226972.57
+  },
+  {
+   "date": "2026-09-03",
+   "volume": 228075,
+   "turnover": 20409994.5,
+   "avgPrice": 89.4881,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 228075,
+     "turnover": 20409994.5
+    }
+   }
+  },
+  {
+   "date": "2026-09-04",
+   "volume": 20070,
+   "turnover": 1901614.3,
+   "avgPrice": 94.7491,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20070,
+     "turnover": 1901614.3
+    }
+   }
+  },
+  {
+   "date": "2026-09-07",
+   "volume": 63476,
+   "turnover": 5944694.5,
+   "avgPrice": 93.65,
+   "cumVolume": 22128994,
+   "cumTurnover": 1775483275.87
+  },
+  {
+   "date": "2026-09-08",
+   "volume": 101000,
+   "turnover": 9263500,
+   "avgPrice": 91.7178,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 101000,
+     "turnover": 9263500
+    }
+   }
+  },
+  {
+   "date": "2026-09-09",
+   "volume": 20001,
+   "turnover": 1889094.5,
+   "avgPrice": 94.45,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 20001,
+     "turnover": 1889094.5
+    }
+   }
+  },
+  {
+   "date": "2026-09-10",
+   "volume": 89218,
+   "turnover": 8545707,
+   "avgPrice": 95.7846,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 89218,
+     "turnover": 8545707
+    }
+   }
+  },
+  {
+   "date": "2026-09-11",
+   "volume": 16000,
+   "turnover": 1520000,
+   "avgPrice": 95,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 16000,
+     "turnover": 1520000
+    }
+   }
+  },
+  {
+   "date": "2026-09-14",
+   "volume": 56021,
+   "turnover": 5325995,
+   "avgPrice": 95.0714,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 56021,
+     "turnover": 5325995
+    }
+   }
+  },
+  {
+   "date": "2026-09-15",
+   "volume": 310000,
+   "turnover": 29202000,
+   "avgPrice": 94.2,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 310000,
+     "turnover": 29202000
+    }
+   }
+  },
+  {
+   "date": "2026-09-16",
+   "volume": 52700,
+   "turnover": 5006150,
+   "avgPrice": 94.9934,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 52700,
+     "turnover": 5006150
+    }
+   }
+  },
+  {
+   "date": "2026-09-17",
+   "volume": 22000,
+   "turnover": 2094000,
+   "avgPrice": 95.1818,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 22000,
+     "turnover": 2094000
+    }
+   }
+  },
+  {
+   "date": "2026-09-18",
+   "volume": 313636,
+   "turnover": 28466810.2,
+   "avgPrice": 90.7638,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 313636,
+     "turnover": 28466810.2
+    }
+   }
+  },
+  {
+   "date": "2026-09-21",
+   "volume": 126605,
+   "turnover": 12017087.65,
+   "avgPrice": 94.918,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 126605,
+     "turnover": 12017087.65
+    }
+   }
+  },
+  {
+   "date": "2026-09-22",
+   "volume": 56450,
+   "turnover": 5375730.3,
+   "avgPrice": 95.2299,
+   "byIndustry": {
+    "能源产业(可再生/不可再生资源)": {
+     "volume": 56450,
+     "turnover": 5375730.3
+    }
+   }
+  }
+ ]
+}

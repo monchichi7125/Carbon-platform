@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "description": "CCER 年度汇总（由 ccer-market-data.json 每日明细逐条累加/统计得出，非推估/插值/预测）",
+    "source": "ccer-market-data.json",
+    "method": "Σ成交量=Σvolume；Σ成交额=Σturnover；加权均价=Σturnover÷Σvolume；极值取自交易日 avgPrice；同比为相邻年度加权均价比值",
+    "derived": true,
+    "detailCount": 380,
+    "computedAt": "2026-09-23 06:37:58",
+    "notes": [
+      "以下年份官方数据查询源仅提供 ≤1 条明细，年度汇总仅代表现有明细：2024。"
+    ]
+  },
+  "annual": [
+    {
+      "year": "2024",
+      "recordDays": 1,
+      "tradeDays": 1,
+      "totalVolume": 300,
+      "totalTurnover": 27600,
+      "weightedAvgPrice": 92,
+      "minAvgPrice": 92,
+      "maxAvgPrice": 92,
+      "firstTradeDate": "2024-01-22",
+      "lastTradeDate": "2024-01-22",
+      "firstTradeAvgPrice": 92,
+      "lastTradeAvgPrice": 92
+    },
+    {
+      "year": "2025",
+      "recordDays": 203,
+      "tradeDays": 203,
+      "totalVolume": 8844114,
+      "totalTurnover": 625801436.8,
+      "weightedAvgPrice": 70.76,
+      "minAvgPrice": 50.835,
+      "maxAvgPrice": 107.3596,
+      "firstTradeDate": "2025-03-07",
+      "lastTradeDate": "2025-12-31",
+      "firstTradeAvgPrice": 80.4511,
+      "lastTradeAvgPrice": 85,
+      "avgYoy": -0.2309
+    },
+    {
+      "year": "2026",
+      "recordDays": 176,
+      "tradeDays": 170,
+      "totalVolume": 14073196,
+      "totalTurnover": 1234552633.72,
+      "weightedAvgPrice": 87.72,
+      "minAvgPrice": 65.5693,
+      "maxAvgPrice": 96.9375,
+      "firstTradeDate": "2026-01-05",
+      "lastTradeDate": "2026-09-22",
+      "firstTradeAvgPrice": 81.4999,
+      "lastTradeAvgPrice": 95.2299,
+      "avgYoy": 0.2397
+    }
+  ]
+}
