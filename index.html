@@ -306,6 +306,8 @@
   table.price-tbl tbody tr:nth-child(even):hover{background:#f2f9f6}
   table.price-tbl td.td-std{font-weight:700;color:var(--green-d);white-space:nowrap}
   table.price-tbl td:nth-child(n+4){font-variant-numeric:tabular-nums}
+  /* 备注列加宽（横向换行、最小宽度优先，避免被数字列挤压） */
+  table.price-tbl th.col-note,table.price-tbl td.col-note{width:24%;min-width:220px;white-space:normal;line-height:1.5}
   .src-link{color:var(--blue);text-decoration:none;white-space:nowrap;font-size:12.5px}
   .src-link:hover{text-decoration:underline}
   .pd-na{color:#9aa5b1;font-size:12.5px}
@@ -320,6 +322,33 @@
     table.price-tbl th,table.price-tbl td{padding:7px 8px}
   }
 
+  /* ===== 04 CCER 每日行情子模块 ===== */
+  .ccer-wrap{margin-top:18px;display:flex;flex-direction:column;gap:14px}
+  .ccer-sec-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:4px 0 2px}
+  .ccer-sec-head h3{margin:0;font-size:18px;color:var(--green-d)}
+  .ccer-badge{font-size:12px;font-weight:700;color:#fff;background:var(--green);padding:4px 10px;border-radius:999px;white-space:nowrap}
+  .ccer-isolate{font-size:13.5px;line-height:1.8;color:#7a4b00;background:#fff7e6;border:1px solid #ffe0a3;border-left:4px solid #f99b00;padding:10px 14px;border-radius:0 10px 10px 0}
+  .ccer-isolate b{color:#8a5a00}
+  .ccer-chart{margin-top:6px}
+  .ccer-axis{font-size:11px;fill:#6b7280}
+  .ccer-mode-tag{font-size:12.5px;color:var(--muted);font-weight:600}
+  .ccer-def-block{margin:8px 0 12px}
+  .ccer-def-block b{display:block;margin-bottom:6px;color:var(--green-d)}
+  .ccer-wrap code{background:#eef2f7;padding:1px 5px;border-radius:5px;font-size:12.5px;color:#1f3a5f}
+  /* ===== 04 市场数据子页面导航 ===== */
+  .pd-subnav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0 14px}
+  .pd-subgroup{display:flex;align-items:center;gap:0;flex-wrap:wrap}
+  .pd-sub{padding:9px 18px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--muted);
+    font-size:14px;font-weight:700;cursor:pointer;transition:.15s}
+  .pd-sub:hover{border-color:var(--green-l);color:var(--green-d)}
+  .pd-sub.on{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 2px 8px rgba(14,159,110,.18)}
+  .pd-sub2{display:flex;flex-wrap:wrap;gap:6px;margin-left:8px;padding-left:10px;border-left:2px dashed var(--line)}
+  .pd-sub2-btn{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:#f6f8fb;color:var(--muted);
+    font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+  .pd-sub2-btn:hover{border-color:var(--green-l);color:var(--green-d)}
+  .pd-sub2-btn.active{background:var(--green-l);border-color:var(--green);color:#0b3b2c;font-weight:700}
+  .pd-subintro{font-size:14px;line-height:1.8;color:#1f3a5f;background:#f3f8f5;border:1px solid #d8ece3;border-left:4px solid var(--green);
+    padding:10px 14px;border-radius:0 10px 10px 0;margin-bottom:12px}
   /* ===== 05 ESG 标准与指南专题 ===== */
   .esg-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
   .esg-filter button{padding:6px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer}
@@ -1676,6 +1705,9 @@ const DATA = {
    单位：元/吨；成交量 万吨；成交额 亿元
    均价口径：优先「成交额 ÷ 成交量」加权；无法取得成交量时改用算术平均并注明。
    ========================================================================= */
+/*__CCER_BUILTIN_START__*/
+var CCER_DAILY_DATA = {"meta":{"market":"CCER","marketName":"全国温室气体自愿减排交易市场（核证自愿减排量）","source":"全国温室气体自愿减排交易系统 ccer.com.cn「每日行情 / 数据查询」","sourceUrls":{"listing":"https://www.ccer.com.cn/wcm/ccer/data/2502lshq.json","daily":"https://www.ccer.com.cn/wcm/ccer/data/YYYYMMDD-first.json"},"fieldFormat":{"date":"YYYY-MM-DD 交易日期（主键；数据按日期组织，records 以此键名存放）","volume":"number 当日成交量（吨）；零成交日为 0","turnover":"number 当日成交额（元，2 位小数）","avgPrice":"number|null 当日成交均价（元/吨）= 成交额 ÷ 成交量；零成交日为 null","source":"string 数据来源：day-json=数据查询逐日明细 / detail=每日行情稿"},"updatedAt":"2026-09-23 05:43:26","recordCount":380,"updateMethod":"增量追加：仅新增尚未存在的日期记录，历史记录不改动；累计值由展示层派生"},"records":{"2024-01-22":{"volume":300,"turnover":27600,"avgPrice":92,"source":"day-json"},"2025-03-07":{"volume":748800,"turnover":60241797.62,"avgPrice":80.4511,"source":"day-json"},"2025-03-10":{"volume":148136,"turnover":15903820.12,"avgPrice":107.3596,"source":"day-json"},"2025-03-11":{"volume":100,"turnover":10600,"avgPrice":106,"source":"day-json"},"2025-03-12":{"volume":8518,"turnover":819485.8,"avgPrice":96.2064,"source":"day-json"},"2025-03-13":{"volume":5460,"turnover":397542.6,"avgPrice":72.81,"source":"day-json"},"2025-03-14":{"volume":26836,"turnover":2485834.56,"avgPrice":92.6306,"source":"day-json"},"2025-03-17":{"volume":14260,"turnover":1449280.2,"avgPrice":101.6326,"source":"day-json"},"2025-03-18":{"volume":2014,"turnover":213444.52,"avgPrice":105.9804,"source":"day-json"},"2025-03-19":{"volume":600,"turnover":55200,"avgPrice":92,"source":"day-json"},"2025-03-20":{"volume":2130,"turnover":218408.4,"avgPrice":102.5392,"source":"day-json"},"2025-03-21":{"volume":500,"turnover":42749,"avgPrice":85.498,"source":"day-json"},"2025-03-24":{"volume":300,"turnover":27120,"avgPrice":90.4,"source":"day-json"},"2025-03-25":{"volume":100,"turnover":9550,"avgPrice":95.5,"source":"day-json"},"2025-03-26":{"volume":101,"turnover":9558,"avgPrice":94.6337,"source":"day-json"},"2025-03-27":{"volume":2210,"turnover":226414.9,"avgPrice":102.4502,"source":"day-json"},"2025-03-28":{"volume":45100,"turnover":4271265,"avgPrice":94.7065,"source":"day-json"},"2025-03-31":{"volume":10000,"turnover":936700,"avgPrice":93.67,"source":"day-json"},"2025-04-01":{"volume":9,"turnover":900.9,"avgPrice":100.1,"source":"day-json"},"2025-04-02":{"volume":40,"turnover":3920,"avgPrice":98,"source":"day-json"},"2025-04-03":{"volume":100,"turnover":9300,"avgPrice":93,"source":"day-json"},"2025-04-07":{"volume":2,"turnover":187.34,"avgPrice":93.67,"source":"day-json"},"2025-04-08":{"volume":60100,"turnover":6039367,"avgPrice":100.4886,"source":"day-json"},"2025-04-09":{"volume":202,"turnover":19155.12,"avgPrice":94.8273,"source":"day-json"},"2025-04-10":{"volume":20272,"turnover":1915712.1,"avgPrice":94.5004,"source":"day-json"},"2025-04-11":{"volume":100,"turnover":9390,"avgPrice":93.9,"source":"day-json"},"2025-04-14":{"volume":65303,"turnover":6543442.29,"avgPrice":100.2013,"source":"day-json"},"2025-04-15":{"volume":100,"turnover":9387,"avgPrice":93.87,"source":"day-json"},"2025-04-16":{"volume":100,"turnover":9380,"avgPrice":93.8,"source":"day-json"},"2025-04-17":{"volume":100,"turnover":9360,"avgPrice":93.6,"source":"day-json"},"2025-04-18":{"volume":1,"turnover":101.22,"avgPrice":101.22,"source":"day-json"},"2025-04-21":{"volume":40100,"turnover":4029500,"avgPrice":100.4863,"source":"day-json"},"2025-04-22":{"volume":3,"turnover":294,"avgPrice":98,"source":"day-json"},"2025-04-23":{"volume":1015,"turnover":96425,"avgPrice":95,"source":"day-json"},"2025-04-24":{"volume":100,"turnover":9400,"avgPrice":94,"source":"day-json"},"2025-04-25":{"volume":40002,"turnover":4020172.6,"avgPrice":100.4993,"source":"day-json"},"2025-04-28":{"volume":71632,"turnover":6765080.5,"avgPrice":94.4422,"source":"day-json"},"2025-04-29":{"volume":20,"turnover":1900,"avgPrice":95,"source":"day-json"},"2025-04-30":{"volume":26,"turnover":2499.5,"avgPrice":96.1346,"source":"day-json"},"2025-05-06":{"volume":10,"turnover":950,"avgPrice":95,"source":"day-json"},"2025-05-07":{"volume":10,"turnover":950,"avgPrice":95,"source":"day-json"},"2025-05-08":{"volume":20030,"turnover":1822970,"avgPrice":91.012,"source":"day-json"},"2025-05-09":{"volume":40000,"turnover":3600000,"avgPrice":90,"source":"day-json"},"2025-05-12":{"volume":100,"turnover":9200,"avgPrice":92,"source":"day-json"},"2025-05-13":{"volume":24,"turnover":2208,"avgPrice":92,"source":"day-json"},"2025-05-14":{"volume":1101,"turnover":99095.5,"avgPrice":90.005,"source":"day-json"},"2025-05-15":{"volume":2300,"turnover":200057,"avgPrice":86.9813,"source":"day-json"},"2025-05-16":{"volume":4201,"turnover":361209,"avgPrice":85.9817,"source":"day-json"},"2025-05-19":{"volume":100,"turnover":8800,"avgPrice":88,"source":"day-json"},"2025-05-20":{"volume":1000,"turnover":84000,"avgPrice":84,"source":"day-json"},"2025-05-21":{"volume":100,"turnover":8800,"avgPrice":88,"source":"day-json"},"2025-05-22":{"volume":300,"turnover":26007,"avgPrice":86.69,"source":"day-json"},"2025-05-23":{"volume":35039,"turnover":3153559,"avgPrice":90.0014,"source":"day-json"},"2025-05-26":{"volume":35000,"turnover":3099950,"avgPrice":88.57,"source":"day-json"},"2025-05-27":{"volume":30000,"turnover":2550000,"avgPrice":85,"source":"day-json"},"2025-05-28":{"volume":10000,"turnover":870000,"avgPrice":87,"source":"day-json"},"2025-05-29":{"volume":130,"turnover":11120,"avgPrice":85.5385,"source":"day-json"},"2025-05-30":{"volume":10000,"turnover":855000,"avgPrice":85.5,"source":"day-json"},"2025-06-03":{"volume":100,"turnover":8800,"avgPrice":88,"source":"day-json"},"2025-06-04":{"volume":100,"turnover":8600,"avgPrice":86,"source":"day-json"},"2025-06-05":{"volume":1000,"turnover":85000,"avgPrice":85,"source":"day-json"},"2025-06-06":{"volume":100,"turnover":8500,"avgPrice":85,"source":"day-json"},"2025-06-09":{"volume":101030,"turnover":8747158,"avgPrice":86.5798,"source":"day-json"},"2025-06-10":{"volume":20001,"turnover":1760088.5,"avgPrice":88,"source":"day-json"},"2025-06-11":{"volume":8050,"turnover":644400,"avgPrice":80.0497,"source":"day-json"},"2025-06-12":{"volume":77932,"turnover":6801917.16,"avgPrice":87.2802,"source":"day-json"},"2025-06-13":{"volume":1112,"turnover":99324,"avgPrice":89.3201,"source":"day-json"},"2025-06-16":{"volume":10,"turnover":904.5,"avgPrice":90.45,"source":"day-json"},"2025-06-17":{"volume":20201,"turnover":1757863.5,"avgPrice":87.0186,"source":"day-json"},"2025-06-18":{"volume":16310,"turnover":1417577,"avgPrice":86.9146,"source":"day-json"},"2025-06-19":{"volume":21010,"turnover":1827925,"avgPrice":87.0026,"source":"day-json"},"2025-06-20":{"volume":3310,"turnover":287670,"avgPrice":86.9094,"source":"day-json"},"2025-06-23":{"volume":211,"turnover":17893.01,"avgPrice":84.801,"source":"day-json"},"2025-06-24":{"volume":620,"turnover":54720.2,"avgPrice":88.2584,"source":"day-json"},"2025-06-25":{"volume":10030,"turnover":872856,"avgPrice":87.0245,"source":"day-json"},"2025-06-26":{"volume":10071,"turnover":876018.5,"avgPrice":86.9843,"source":"day-json"},"2025-06-27":{"volume":22760,"turnover":1981580,"avgPrice":87.0641,"source":"day-json"},"2025-06-30":{"volume":600,"turnover":53100,"avgPrice":88.5,"source":"day-json"},"2025-07-01":{"volume":601,"turnover":53180,"avgPrice":88.4859,"source":"day-json"},"2025-07-02":{"volume":100602,"turnover":8753277,"avgPrice":87.009,"source":"day-json"},"2025-07-03":{"volume":600,"turnover":53100,"avgPrice":88.5,"source":"day-json"},"2025-07-04":{"volume":600,"turnover":53100,"avgPrice":88.5,"source":"day-json"},"2025-07-07":{"volume":712,"turnover":62503.3,"avgPrice":87.7855,"source":"day-json"},"2025-07-08":{"volume":10060,"turnover":890061.8,"avgPrice":88.4753,"source":"day-json"},"2025-07-09":{"volume":66484,"turnover":5850592,"avgPrice":88,"source":"day-json"},"2025-07-10":{"volume":190,"turnover":16311.2,"avgPrice":85.8484,"source":"day-json"},"2025-07-11":{"volume":1400,"turnover":116859,"avgPrice":83.4707,"source":"day-json"},"2025-07-14":{"volume":1501,"turnover":124651.01,"avgPrice":83.0453,"source":"day-json"},"2025-07-15":{"volume":2100,"turnover":173372,"avgPrice":82.5581,"source":"day-json"},"2025-07-16":{"volume":100,"turnover":8650,"avgPrice":86.5,"source":"day-json"},"2025-07-17":{"volume":20,"turnover":1640,"avgPrice":82,"source":"day-json"},"2025-07-18":{"volume":230,"turnover":18910,"avgPrice":82.2174,"source":"day-json"},"2025-07-21":{"volume":4800,"turnover":399820,"avgPrice":83.2958,"source":"day-json"},"2025-07-22":{"volume":3000,"turnover":246750,"avgPrice":82.25,"source":"day-json"},"2025-07-23":{"volume":2250,"turnover":183531,"avgPrice":81.5693,"source":"day-json"},"2025-07-24":{"volume":1600,"turnover":131100,"avgPrice":81.94,"source":"day-json"},"2025-07-25":{"volume":2580,"turnover":211475.7,"avgPrice":81.97,"source":"day-json"},"2025-07-28":{"volume":5745,"turnover":472751.5,"avgPrice":82.29,"source":"day-json"},"2025-07-29":{"volume":1850,"turnover":148282,"avgPrice":80.15,"source":"day-json"},"2025-07-30":{"volume":58989,"turnover":5053609.5,"avgPrice":85.67,"source":"day-json"},"2025-07-31":{"volume":500,"turnover":39000,"avgPrice":78,"source":"day-json"},"2025-08-01":{"volume":1620,"turnover":132329.6,"avgPrice":81.68,"source":"day-json"},"2025-08-04":{"volume":3190,"turnover":261254.9,"avgPrice":81.9,"source":"day-json"},"2025-08-05":{"volume":1590,"turnover":125995.8,"avgPrice":79.2426,"source":"day-json"},"2025-08-06":{"volume":1000,"turnover":78000,"avgPrice":78,"source":"day-json"},"2025-08-07":{"volume":8700,"turnover":716800,"avgPrice":82.3908,"source":"day-json"},"2025-08-08":{"volume":700,"turnover":54600,"avgPrice":78,"source":"day-json"},"2025-08-11":{"volume":751,"turnover":59306,"avgPrice":78.9694,"source":"day-json"},"2025-08-12":{"volume":2126,"turnover":175041,"avgPrice":82.3335,"source":"day-json"},"2025-08-13":{"volume":810,"turnover":65006,"avgPrice":80.2543,"source":"day-json"},"2025-08-14":{"volume":1650,"turnover":134700,"avgPrice":81.6364,"source":"day-json"},"2025-08-15":{"volume":700,"turnover":54600,"avgPrice":78,"source":"day-json"},"2025-08-18":{"volume":600,"turnover":46800,"avgPrice":78,"source":"day-json"},"2025-08-19":{"volume":2550,"turnover":210900,"avgPrice":82.7059,"source":"day-json"},"2025-08-20":{"volume":3600,"turnover":292210,"avgPrice":81.1694,"source":"day-json"},"2025-08-21":{"volume":2700,"turnover":222900,"avgPrice":82.5556,"source":"day-json"},"2025-08-22":{"volume":1008,"turnover":77680,"avgPrice":77.0635,"source":"day-json"},"2025-08-25":{"volume":2700,"turnover":221000,"avgPrice":81.8519,"source":"day-json"},"2025-08-26":{"volume":3100,"turnover":254150,"avgPrice":81.9839,"source":"day-json"},"2025-08-27":{"volume":2200,"turnover":176000,"avgPrice":80,"source":"day-json"},"2025-08-28":{"volume":2360,"turnover":191093.6,"avgPrice":80.9719,"source":"day-json"},"2025-08-29":{"volume":202095,"turnover":17174010,"avgPrice":84.9799,"source":"day-json"},"2025-09-01":{"volume":600,"turnover":47505,"avgPrice":79.175,"source":"day-json"},"2025-09-02":{"volume":500,"turnover":39010,"avgPrice":78.02,"source":"day-json"},"2025-09-03":{"volume":8985,"turnover":718867.5,"avgPrice":80.0075,"source":"day-json"},"2025-09-04":{"volume":2600,"turnover":203530,"avgPrice":78.2808,"source":"day-json"},"2025-09-05":{"volume":48930,"turnover":4046007.84,"avgPrice":82.6897,"source":"day-json"},"2025-09-08":{"volume":16728,"turnover":1371896.48,"avgPrice":82.012,"source":"day-json"},"2025-09-09":{"volume":14050,"turnover":1012129,"avgPrice":72.0377,"source":"day-json"},"2025-09-10":{"volume":5071,"turnover":374910.5,"avgPrice":73.9323,"source":"day-json"},"2025-09-11":{"volume":78951,"turnover":6294470.1,"avgPrice":79.7263,"source":"day-json"},"2025-09-12":{"volume":11000,"turnover":803000,"avgPrice":73,"source":"day-json"},"2025-09-15":{"volume":3500,"turnover":249000,"avgPrice":71.1429,"source":"day-json"},"2025-09-16":{"volume":50100,"turnover":3908100,"avgPrice":78.006,"source":"day-json"},"2025-09-17":{"volume":6454,"turnover":496968,"avgPrice":77.0015,"source":"day-json"},"2025-09-18":{"volume":500,"turnover":39000,"avgPrice":78,"source":"day-json"},"2025-09-19":{"volume":2200,"turnover":167212,"avgPrice":76.0055,"source":"day-json"},"2025-09-22":{"volume":29301,"turnover":2289438,"avgPrice":78.1351,"source":"day-json"},"2025-09-23":{"volume":1143,"turnover":93083,"avgPrice":81.4374,"source":"day-json"},"2025-09-24":{"volume":33972,"turnover":3210254,"avgPrice":94.4971,"source":"day-json"},"2025-09-25":{"volume":139830,"turnover":10948477,"avgPrice":78.2985,"source":"day-json"},"2025-09-26":{"volume":4700,"turnover":338630,"avgPrice":72.0489,"source":"day-json"},"2025-09-29":{"volume":18873,"turnover":1438740.2,"avgPrice":76.2327,"source":"day-json"},"2025-09-30":{"volume":3000,"turnover":204000,"avgPrice":68,"source":"day-json"},"2025-10-09":{"volume":4000,"turnover":280080,"avgPrice":70.02,"source":"day-json"},"2025-10-10":{"volume":1400,"turnover":95364,"avgPrice":68.1171,"source":"day-json"},"2025-10-13":{"volume":655,"turnover":45685.25,"avgPrice":69.7485,"source":"day-json"},"2025-10-14":{"volume":5000,"turnover":321000,"avgPrice":64.2,"source":"day-json"},"2025-10-15":{"volume":2200,"turnover":155697.5,"avgPrice":70.7716,"source":"day-json"},"2025-10-16":{"volume":584,"turnover":39680,"avgPrice":67.9452,"source":"day-json"},"2025-10-17":{"volume":300,"turnover":18903,"avgPrice":63.01,"source":"day-json"},"2025-10-20":{"volume":1010,"turnover":62150,"avgPrice":61.5347,"source":"day-json"},"2025-10-21":{"volume":13020,"turnover":749936.3,"avgPrice":57.5988,"source":"day-json"},"2025-10-22":{"volume":8874,"turnover":477000.5,"avgPrice":53.7526,"source":"day-json"},"2025-10-23":{"volume":11368,"turnover":592275.86,"avgPrice":52.1003,"source":"day-json"},"2025-10-24":{"volume":120,"turnover":6100.2,"avgPrice":50.835,"source":"day-json"},"2025-10-27":{"volume":3100,"turnover":157980,"avgPrice":50.9613,"source":"day-json"},"2025-10-28":{"volume":10800,"turnover":550550,"avgPrice":50.9769,"source":"day-json"},"2025-10-29":{"volume":1000,"turnover":50960,"avgPrice":50.96,"source":"day-json"},"2025-10-30":{"volume":701000,"turnover":36118000,"avgPrice":51.5235,"source":"day-json"},"2025-10-31":{"volume":91,"turnover":4692.55,"avgPrice":51.5665,"source":"day-json"},"2025-11-03":{"volume":3390,"turnover":195973.3,"avgPrice":57.8092,"source":"day-json"},"2025-11-04":{"volume":127513,"turnover":8243770,"avgPrice":64.6504,"source":"day-json"},"2025-11-05":{"volume":300,"turnover":15750,"avgPrice":52.5,"source":"day-json"},"2025-11-06":{"volume":33677,"turnover":2020578,"avgPrice":59.9988,"source":"day-json"},"2025-11-07":{"volume":67838,"turnover":4064280,"avgPrice":59.9116,"source":"day-json"},"2025-11-10":{"volume":200,"turnover":10900,"avgPrice":54.5,"source":"day-json"},"2025-11-11":{"volume":20050,"turnover":1422825,"avgPrice":70.9638,"source":"day-json"},"2025-11-12":{"volume":269000,"turnover":16094240,"avgPrice":59.8299,"source":"day-json"},"2025-11-13":{"volume":11000,"turnover":649450,"avgPrice":59.0409,"source":"day-json"},"2025-11-14":{"volume":21590,"turnover":1488658.4,"avgPrice":68.9513,"source":"day-json"},"2025-11-17":{"volume":3001,"turnover":171410,"avgPrice":57.1176,"source":"day-json"},"2025-11-18":{"volume":50500,"turnover":3581250,"avgPrice":70.9158,"source":"day-json"},"2025-11-19":{"volume":20014,"turnover":1440988.5,"avgPrice":71.999,"source":"day-json"},"2025-11-20":{"volume":6280,"turnover":459600,"avgPrice":73.1847,"source":"day-json"},"2025-11-21":{"volume":200,"turnover":12880,"avgPrice":64.4,"source":"day-json"},"2025-11-24":{"volume":11402,"turnover":694964.4,"avgPrice":60.9511,"source":"day-json"},"2025-11-25":{"volume":450000,"turnover":29375000,"avgPrice":65.2778,"source":"day-json"},"2025-11-26":{"volume":1289861,"turnover":80589990.34,"avgPrice":62.4796,"source":"day-json"},"2025-11-27":{"volume":1500,"turnover":90060,"avgPrice":60.04,"source":"day-json"},"2025-11-28":{"volume":778,"turnover":49172,"avgPrice":63.2031,"source":"day-json"},"2025-12-01":{"volume":413,"turnover":31065.37,"avgPrice":75.2188,"source":"day-json"},"2025-12-02":{"volume":300202,"turnover":18948386.95,"avgPrice":63.1188,"source":"day-json"},"2025-12-03":{"volume":75944,"turnover":4644735.04,"avgPrice":61.16,"source":"day-json"},"2025-12-04":{"volume":5001,"turnover":275067.28,"avgPrice":55.0025,"source":"day-json"},"2025-12-05":{"volume":699,"turnover":60463.5,"avgPrice":86.5,"source":"day-json"},"2025-12-08":{"volume":1134196,"turnover":66480121.54,"avgPrice":58.6143,"source":"day-json"},"2025-12-09":{"volume":300,"turnover":24000,"avgPrice":80,"source":"day-json"},"2025-12-10":{"volume":3110,"turnover":208505,"avgPrice":67.0434,"source":"day-json"},"2025-12-11":{"volume":85100,"turnover":6398050,"avgPrice":75.1827,"source":"day-json"},"2025-12-12":{"volume":246147,"turnover":18587850.15,"avgPrice":75.5152,"source":"day-json"},"2025-12-15":{"volume":23463,"turnover":1635290,"avgPrice":69.6965,"source":"day-json"},"2025-12-16":{"volume":163796,"turnover":11899217.6,"avgPrice":72.6466,"source":"day-json"},"2025-12-17":{"volume":72,"turnover":5246.5,"avgPrice":72.8681,"source":"day-json"},"2025-12-18":{"volume":220101,"turnover":13868886.99,"avgPrice":63.0115,"source":"day-json"},"2025-12-19":{"volume":10000,"turnover":790000,"avgPrice":79,"source":"day-json"},"2025-12-22":{"volume":100,"turnover":6300,"avgPrice":63,"source":"day-json"},"2025-12-23":{"volume":83958,"turnover":5363385.84,"avgPrice":63.8818,"source":"day-json"},"2025-12-24":{"volume":100141,"turnover":8797081.1,"avgPrice":87.8469,"source":"day-json"},"2025-12-25":{"volume":20,"turnover":1573,"avgPrice":78.65,"source":"day-json"},"2025-12-26":{"volume":418662,"turnover":33794649.23,"avgPrice":80.7206,"source":"day-json"},"2025-12-29":{"volume":5194,"turnover":373608,"avgPrice":71.9307,"source":"day-json"},"2025-12-30":{"volume":3131,"turnover":239524.92,"avgPrice":76.5011,"source":"day-json"},"2025-12-31":{"volume":1,"turnover":85,"avgPrice":85,"source":"day-json"},"2026-01-05":{"volume":100001,"turnover":8150075,"avgPrice":81.4999,"source":"day-json"},"2026-01-06":{"volume":20101,"turnover":1668334,"avgPrice":82.9976,"source":"day-json"},"2026-01-07":{"volume":15152,"turnover":1257755.5,"avgPrice":83.0092,"source":"day-json"},"2026-01-08":{"volume":218009,"turnover":14294707.85,"avgPrice":65.5693,"source":"day-json"},"2026-01-09":{"volume":48030,"turnover":3153144,"avgPrice":65.6495,"source":"day-json"},"2026-01-12":{"volume":14590,"turnover":1042140,"avgPrice":71.4284,"source":"day-json"},"2026-01-13":{"volume":187000,"turnover":12757140,"avgPrice":68.22,"source":"day-json"},"2026-01-14":{"volume":14000,"turnover":952000,"avgPrice":68,"source":"day-json"},"2026-01-15":{"volume":8005,"turnover":550322.04,"avgPrice":68.7473,"source":"day-json"},"2026-01-16":{"volume":100000,"turnover":8200000,"avgPrice":82,"source":"day-json"},"2026-01-19":{"volume":33020,"turnover":2592790,"avgPrice":78.5218,"source":"day-json"},"2026-01-20":{"volume":890,"turnover":62898.9,"avgPrice":70.6729,"source":"day-json"},"2026-01-21":{"volume":100000,"turnover":8425001,"avgPrice":84.25,"source":"day-json"},"2026-01-22":{"volume":1,"turnover":80,"avgPrice":80,"source":"day-json"},"2026-01-23":{"volume":118022,"turnover":9948105,"avgPrice":84.2903,"source":"day-json"},"2026-01-26":{"volume":50000,"turnover":4180000,"avgPrice":83.6,"source":"day-json"},"2026-01-27":{"volume":150,"turnover":10395,"avgPrice":69.3,"source":"day-json"},"2026-01-28":{"volume":150,"turnover":11250,"avgPrice":75,"source":"day-json"},"2026-01-29":{"volume":20010,"turnover":1650820,"avgPrice":82.4998,"source":"day-json"},"2026-01-30":{"volume":10000,"turnover":840000,"avgPrice":84,"source":"day-json"},"2026-02-02":{"volume":10010,"turnover":850650.8,"avgPrice":84.9801,"source":"day-json"},"2026-02-03":{"volume":5000,"turnover":430000,"avgPrice":86,"source":"day-json"},"2026-02-04":{"volume":200108,"turnover":17008730,"avgPrice":84.9978,"source":"day-json"},"2026-02-05":{"volume":10,"turnover":880,"avgPrice":88,"source":"day-json"},"2026-02-06":{"volume":25456,"turnover":2176488,"avgPrice":85.5,"source":"day-json"},"2026-02-09":{"volume":43010,"turnover":3736715.9,"avgPrice":86.8802,"source":"day-json"},"2026-02-10":{"volume":10020,"turnover":881666.5,"avgPrice":87.9907,"source":"day-json"},"2026-02-11":{"volume":37340,"turnover":3223377.3,"avgPrice":86.325,"source":"day-json"},"2026-02-12":{"volume":3,"turnover":261,"avgPrice":87,"source":"day-json"},"2026-02-13":{"volume":15000,"turnover":1282500,"avgPrice":85.5,"source":"day-json"},"2026-02-24":{"volume":10,"turnover":890,"avgPrice":89,"source":"day-json"},"2026-02-25":{"volume":10,"turnover":770,"avgPrice":77,"source":"day-json"},"2026-02-26":{"volume":1001,"turnover":85085.48,"avgPrice":85.0005,"source":"day-json"},"2026-02-27":{"volume":244,"turnover":21280.5,"avgPrice":87.2152,"source":"day-json"},"2026-03-02":{"volume":2002,"turnover":172172.49,"avgPrice":86.0002,"source":"day-json"},"2026-03-03":{"volume":109,"turnover":9383.5,"avgPrice":86.0872,"source":"day-json"},"2026-03-04":{"volume":20,"turnover":1740,"avgPrice":87,"source":"day-json"},"2026-03-05":{"volume":10000,"turnover":860000,"avgPrice":86,"source":"day-json"},"2026-03-06":{"volume":201,"turnover":17687,"avgPrice":87.995,"source":"day-json"},"2026-03-09":{"volume":13,"turnover":1150.37,"avgPrice":88.49,"source":"day-json"},"2026-03-10":{"volume":1722,"turnover":164967.6,"avgPrice":95.8,"source":"day-json"},"2026-03-11":{"volume":51285,"turnover":4388722.5,"avgPrice":85.5752,"source":"day-json"},"2026-03-12":{"volume":12400,"turnover":1078300,"avgPrice":86.9597,"source":"day-json"},"2026-03-13":{"volume":80010,"turnover":6920860,"avgPrice":86.4999,"source":"day-json"},"2026-03-16":{"volume":10,"turnover":840,"avgPrice":84,"source":"day-json"},"2026-03-17":{"volume":90,"turnover":7810,"avgPrice":86.7778,"source":"day-json"},"2026-03-18":{"volume":100,"turnover":8635.8,"avgPrice":86.358,"source":"day-json"},"2026-03-19":{"volume":95,"turnover":8267.07,"avgPrice":87.0218,"source":"day-json"},"2026-03-20":{"volume":100983,"turnover":8588610.8,"avgPrice":85.0501,"source":"day-json"},"2026-03-23":{"volume":30000,"turnover":2850000,"avgPrice":95,"source":"day-json"},"2026-03-24":{"volume":237487,"turnover":21070335.5,"avgPrice":88.7221,"source":"day-json"},"2026-03-25":{"volume":20111,"turnover":1699452,"avgPrice":84.5036,"source":"day-json"},"2026-03-26":{"volume":310,"turnover":27504.5,"avgPrice":88.7242,"source":"day-json"},"2026-03-27":{"volume":80100,"turnover":7219250,"avgPrice":90.128,"source":"day-json"},"2026-03-30":{"volume":31010,"turnover":2616865,"avgPrice":84.3878,"source":"day-json"},"2026-03-31":{"volume":100000,"turnover":8460000,"avgPrice":84.6,"source":"day-json"},"2026-04-01":{"volume":0,"turnover":0,"avgPrice":null,"source":"day-json"},"2026-04-02":{"volume":20605,"turnover":1731425,"avgPrice":84.0294,"source":"day-json"},"2026-04-03":{"volume":20008,"turnover":1674680,"avgPrice":83.7005,"source":"day-json"},"2026-04-07":{"volume":110000,"turnover":9160000,"avgPrice":83.2727,"source":"day-json"},"2026-04-08":{"volume":0,"turnover":0,"avgPrice":null,"source":"day-json"},"2026-04-09":{"volume":10,"turnover":820,"avgPrice":82,"source":"day-json"},"2026-04-10":{"volume":20,"turnover":1700,"avgPrice":85,"source":"day-json"},"2026-04-13":{"volume":0,"turnover":0,"avgPrice":null,"source":"day-json"},"2026-04-14":{"volume":300,"turnover":25050,"avgPrice":83.5,"source":"day-json"},"2026-04-15":{"volume":70001,"turnover":5940084.5,"avgPrice":84.8571,"source":"day-json"},"2026-04-16":{"volume":5000,"turnover":471700,"avgPrice":94.34,"source":"day-json"},"2026-04-17":{"volume":3000,"turnover":285000,"avgPrice":95,"source":"day-json"},"2026-04-20":{"volume":12410,"turnover":1052418,"avgPrice":84.804,"source":"day-json"},"2026-04-21":{"volume":392,"turnover":36666,"avgPrice":93.5357,"source":"day-json"},"2026-04-22":{"volume":400,"turnover":36400,"avgPrice":91,"source":"day-json"},"2026-04-23":{"volume":52000,"turnover":4174000,"avgPrice":80.2692,"source":"day-json"},"2026-04-24":{"volume":20500,"turnover":1711000,"avgPrice":83.4634,"source":"day-json"},"2026-04-27":{"volume":0,"turnover":0,"avgPrice":null,"source":"day-json"},"2026-04-28":{"volume":127706,"turnover":11024351.98,"avgPrice":86.326,"source":"day-json"},"2026-04-29":{"volume":48072,"turnover":4297631,"avgPrice":89.3999,"source":"day-json"},"2026-04-30":{"volume":118100,"turnover":9947197,"avgPrice":84.2269,"source":"day-json"},"2026-05-06":{"volume":200,"turnover":17100,"avgPrice":85.5,"source":"day-json"},"2026-05-07":{"volume":20100,"turnover":1703917,"avgPrice":84.772,"source":"day-json"},"2026-05-08":{"volume":1105,"turnover":99445.3,"avgPrice":89.9957,"source":"day-json"},"2026-05-11":{"volume":205562,"turnover":17079086,"avgPrice":83.0848,"source":"day-json"},"2026-05-12":{"volume":30000,"turnover":2505000,"avgPrice":83.5,"source":"day-json"},"2026-05-13":{"volume":20000,"turnover":1660000,"avgPrice":83,"source":"day-json"},"2026-05-14":{"volume":56032,"turnover":4713320,"avgPrice":84.1184,"source":"day-json"},"2026-05-15":{"volume":150000,"turnover":12500000,"avgPrice":83.3333,"source":"day-json"},"2026-05-18":{"volume":23500,"turnover":2015000,"avgPrice":85.7447,"source":"day-json"},"2026-05-19":{"volume":10401,"turnover":894183,"avgPrice":85.9709,"source":"day-json"},"2026-05-20":{"volume":808,"turnover":68680,"avgPrice":85,"source":"day-json"},"2026-05-21":{"volume":150000,"turnover":12600000,"avgPrice":84,"source":"day-json"},"2026-05-22":{"volume":200,"turnover":17160,"avgPrice":85.8,"source":"day-json"},"2026-05-25":{"volume":250,"turnover":21450,"avgPrice":85.8,"source":"day-json"},"2026-05-26":{"volume":0,"turnover":0,"avgPrice":null,"source":"day-json"},"2026-05-27":{"volume":35004,"turnover":2926232,"avgPrice":83.5971,"source":"day-json"},"2026-05-28":{"volume":177136,"turnover":14838812.18,"avgPrice":83.7707,"source":"day-json"},"2026-05-29":{"volume":30042,"turnover":2509636.27,"avgPrice":83.5376,"source":"day-json"},"2026-06-01":{"volume":145554,"turnover":12091093.9,"avgPrice":83.0695,"source":"day-json"},"2026-06-02":{"volume":81000,"turnover":6549000,"avgPrice":80.8519,"source":"day-json"},"2026-06-03":{"volume":50000,"turnover":4150000,"avgPrice":83,"source":"day-json"},"2026-06-04":{"volume":10000,"turnover":830000,"avgPrice":83,"source":"day-json"},"2026-06-05":{"volume":341027,"turnover":28275535.2,"avgPrice":82.9129,"source":"day-json"},"2026-06-08":{"volume":224348,"turnover":18579058.5,"avgPrice":82.8136,"source":"day-json"},"2026-06-09":{"volume":40033,"turnover":3310763,"avgPrice":82.7008,"source":"day-json"},"2026-06-10":{"volume":51992,"turnover":4300424,"avgPrice":82.7132,"source":"day-json"},"2026-06-11":{"volume":259241,"turnover":21405462,"avgPrice":82.57,"source":"day-json"},"2026-06-12":{"volume":5818,"turnover":480186.5,"avgPrice":82.5346,"source":"day-json"},"2026-06-15":{"volume":326022,"turnover":27033332,"avgPrice":82.9187,"source":"day-json"},"2026-06-16":{"volume":458515,"turnover":37827535.5,"avgPrice":82.5001,"source":"day-json"},"2026-06-17":{"volume":40010,"turnover":3320835,"avgPrice":83.0001,"source":"day-json"},"2026-06-18":{"volume":10200,"turnover":911700,"avgPrice":89.3824,"source":"day-json"},"2026-06-22":{"volume":0,"turnover":0,"avgPrice":null,"source":"day-json"},"2026-06-23":{"volume":60000,"turnover":4974000,"avgPrice":82.9,"source":"day-json"},"2026-06-24":{"volume":49000,"turnover":4077500,"avgPrice":83.2143,"source":"day-json"},"2026-06-25":{"volume":10810,"turnover":904484.4,"avgPrice":83.6711,"source":"day-json"},"2026-06-26":{"volume":21212,"turnover":1766961.5,"avgPrice":83.3001,"source":"day-json"},"2026-06-29":{"volume":20500,"turnover":1707650,"avgPrice":83.3,"source":"day-json"},"2026-06-30":{"volume":70000,"turnover":5835500,"avgPrice":83.3643,"source":"day-json"},"2026-07-01":{"volume":23500,"turnover":1958700,"avgPrice":83.3489,"source":"day-json"},"2026-07-02":{"volume":49573,"turnover":4134620.9,"avgPrice":83.4047,"source":"day-json"},"2026-07-03":{"volume":60021,"turnover":5015418.3,"avgPrice":83.5611,"source":"day-json"},"2026-07-06":{"volume":42800,"turnover":3640500,"avgPrice":85.0584,"source":"day-json"},"2026-07-07":{"volume":322060,"turnover":25866220,"avgPrice":80.3149,"source":"day-json"},"2026-07-08":{"volume":7510,"turnover":649352,"avgPrice":86.465,"source":"day-json"},"2026-07-09":{"volume":510,"turnover":43370,"avgPrice":85.0392,"source":"day-json"},"2026-07-10":{"volume":122000,"turnover":10232000,"avgPrice":83.8689,"source":"day-json"},"2026-07-13":{"volume":5022,"turnover":435914,"avgPrice":86.8009,"source":"day-json"},"2026-07-14":{"volume":358319,"turnover":29362145,"avgPrice":81.9441,"source":"day-json"},"2026-07-15":{"volume":25261,"turnover":2218719.5,"avgPrice":87.8318,"source":"day-json"},"2026-07-16":{"volume":336016,"turnover":28092920,"avgPrice":83.6059,"source":"day-json"},"2026-07-17":{"volume":40610,"turnover":3651290,"avgPrice":89.9111,"source":"day-json"},"2026-07-20":{"volume":62001,"turnover":4992190.5,"avgPrice":80.5179,"source":"day-json"},"2026-07-21":{"volume":25001,"turnover":2243090,"avgPrice":89.72,"source":"day-json"},"2026-07-22":{"volume":29867,"turnover":2697303.4,"avgPrice":90.3105,"source":"day-json"},"2026-07-23":{"volume":141001,"turnover":12753091,"avgPrice":90.4468,"source":"day-json"},"2026-07-24":{"volume":130435,"turnover":11497710,"avgPrice":88.149,"source":"day-json"},"2026-07-27":{"volume":3987,"turnover":366804,"avgPrice":92,"source":"day-json"},"2026-07-28":{"volume":139643,"turnover":13033888.6,"avgPrice":93.3372,"source":"day-json"},"2026-07-29":{"volume":233418,"turnover":20175292,"avgPrice":86.4342,"source":"day-json"},"2026-07-30":{"volume":145317,"turnover":13631353.49,"avgPrice":93.8043,"source":"day-json"},"2026-07-31":{"volume":367751,"turnover":34906700.94,"avgPrice":94.9194,"source":"day-json"},"2026-08-03":{"volume":316872,"turnover":29210400.53,"avgPrice":92.1836,"source":"day-json"},"2026-08-04":{"volume":571370,"turnover":53950579,"avgPrice":94.4232,"source":"day-json"},"2026-08-05":{"volume":289450,"turnover":27475772,"avgPrice":94.9241,"source":"day-json"},"2026-08-06":{"volume":332514,"turnover":31017451.68,"avgPrice":93.2816,"source":"day-json"},"2026-08-07":{"volume":190811,"turnover":17938011,"avgPrice":94.0093,"source":"day-json"},"2026-08-10":{"volume":165999,"turnover":13888903.5,"avgPrice":83.6686,"source":"day-json"},"2026-08-11":{"volume":121108,"turnover":11591379.97,"avgPrice":95.7111,"source":"day-json"},"2026-08-12":{"volume":166112,"turnover":15296095.5,"avgPrice":92.083,"source":"day-json"},"2026-08-13":{"volume":122497,"turnover":11801521.1,"avgPrice":96.3413,"source":"day-json"},"2026-08-14":{"volume":42111,"turnover":4059541.5,"avgPrice":96.401,"source":"day-json"},"2026-08-17":{"volume":117772,"turnover":11328586,"avgPrice":96.1908,"source":"day-json"},"2026-08-18":{"volume":116000,"turnover":11159000,"avgPrice":96.1983,"source":"day-json"},"2026-08-19":{"volume":73387,"turnover":6864898.8,"avgPrice":93.5438,"source":"day-json"},"2026-08-20":{"volume":352877,"turnover":33462918.5,"avgPrice":94.8288,"source":"day-json"},"2026-08-21":{"volume":184148,"turnover":17739930,"avgPrice":96.3352,"source":"day-json"},"2026-08-24":{"volume":131982,"turnover":12745451.3,"avgPrice":96.5696,"source":"day-json"},"2026-08-25":{"volume":145348,"turnover":14033423.36,"avgPrice":96.5505,"source":"day-json"},"2026-08-26":{"volume":65887,"turnover":6386924.05,"avgPrice":96.9375,"source":"day-json"},"2026-08-27":{"volume":100827,"turnover":9739463.17,"avgPrice":96.6,"source":"day-json"},"2026-08-28":{"volume":231005,"turnover":21922947.75,"avgPrice":94.9025,"source":"day-json"},"2026-08-31":{"volume":21092,"turnover":2037868.8,"avgPrice":96.6181,"source":"day-json"},"2026-09-01":{"volume":47030,"turnover":4524480,"avgPrice":96.2041,"source":"day-json"},"2026-09-02":{"volume":63565,"turnover":6127140,"avgPrice":96.39,"source":"day-json"},"2026-09-03":{"volume":228075,"turnover":20409994.5,"avgPrice":89.4881,"source":"day-json"},"2026-09-04":{"volume":20070,"turnover":1901614.3,"avgPrice":94.7491,"source":"day-json"},"2026-09-07":{"volume":63476,"turnover":5944694.5,"avgPrice":93.65,"source":"day-json"},"2026-09-08":{"volume":101000,"turnover":9263500,"avgPrice":91.7178,"source":"day-json"},"2026-09-09":{"volume":20001,"turnover":1889094.5,"avgPrice":94.45,"source":"day-json"},"2026-09-10":{"volume":89218,"turnover":8545707,"avgPrice":95.7846,"source":"day-json"},"2026-09-11":{"volume":16000,"turnover":1520000,"avgPrice":95,"source":"day-json"},"2026-09-14":{"volume":56021,"turnover":5325995,"avgPrice":95.0714,"source":"day-json"},"2026-09-15":{"volume":310000,"turnover":29202000,"avgPrice":94.2,"source":"day-json"},"2026-09-16":{"volume":52700,"turnover":5006150,"avgPrice":94.9934,"source":"day-json"},"2026-09-17":{"volume":22000,"turnover":2094000,"avgPrice":95.1818,"source":"day-json"},"2026-09-18":{"volume":313636,"turnover":28466810.2,"avgPrice":90.7638,"source":"day-json"},"2026-09-21":{"volume":126605,"turnover":12017087.65,"avgPrice":94.918,"source":"day-json"},"2026-09-22":{"volume":56450,"turnover":5375730.3,"avgPrice":95.2299,"source":"day-json"}}};
+/*__CCER_BUILTIN_END__*/
 let CARBON_PRICE_DATA = {
   meta:{
     unit:"元/吨",
@@ -2801,6 +2833,7 @@ function switchModStage(k){
   if(k===5){ initTools(m); }
   if(k===2||k===8){ mindPath=[]; mindDetail=-1; mindRender(); }
   if(k===8){ esgRadarDraw(); }
+  if(k===6){ ccerRenderChart('month'); }
   enhanceTables();
 }
 
@@ -2871,62 +2904,62 @@ function pdPct(v){
   return `<span class="pd-pct ${up?'up':'down'}">${up?'▲':'▼'} ${v}</span>`;
 }
 
-/* ---------- 表格定义（渲染与导出共用） ---------- */
+/* ---------- 表格定义（渲染与导出共用，按子页面分组 group: ccer|cea|pilot） ---------- */
 function priceTables(){
   const D=CARBON_PRICE_DATA;
   const T=[];
 
-  /* 表1 年度 */
-  T.push({
-    key:"annual", title:"表一 · 年度统计（2021—2026）",
-    note:"均价优先按「成交额 ÷ 成交量」加权；成交量／成交额单位分别为万吨、亿元，价格单位元/吨。同比为加权均价同比。",
-    cols:["市场","品种","年度","统计区间","成交量(万吨)","成交额(亿元)","加权均价(元/吨)","最低价(元/吨)","最高价(元/吨)","均价同比","数据来源","备注"],
-    rows: D.annual.map(r=>[ r.market, r.product, r.period, r.span,
-      pdNum(r.vol,2), pdNum(r.turn,2), pdNum(r.avg,2), pdNum(r.min,2), pdNum(r.max,2),
-      r.yoy||"待补充", r.src, (r.avgCal&&r.avgCal.indexOf("推算")>=0?"【"+r.avgCal+"】":"")+ (r.note||"") ])
-  });
+  /* —— 年度：按品种拆分 —— */
+  const aCols=["市场","品种","年度","统计区间","成交量(万吨)","成交额(亿元)","加权均价(元/吨)","最低价(元/吨)","最高价(元/吨)","均价同比","数据来源","备注"];
+  const aRow=r=>[ r.market, r.product, r.period, r.span,
+    pdNum(r.vol,2), pdNum(r.turn,2), pdNum(r.avg,2), pdNum(r.min,2), pdNum(r.max,2),
+    r.yoy||"待补充", r.src, (r.avgCal&&r.avgCal.indexOf("推算")>=0?"【"+r.avgCal+"】":"")+(r.note||"") ];
+  T.push({key:"aCEA", group:"cea", title:"表一 · 全国碳市场配额（CEA）年度统计（2021—2026）",
+    note:"全国碳排放权交易市场配额（CEA）。均价优先按「成交额 ÷ 成交量」加权；成交量／成交额单位分别为万吨、亿元，价格单位元/吨。同比为加权均价同比。",
+    cols:aCols, rows: D.annual.filter(r=>r.product==="CEA").map(aRow)});
 
-  /* 表2 月度 */
-  T.push({
-    key:"monthly", title:"表二 · 月度统计（2025-01 至 2026-03）",
+  /* —— 月度：按品种拆分 —— */
+  const mCols=["市场","品种","月份","最高价(元/吨)","最低价(元/吨)","加权均价(元/吨)","环比","同比","数据来源","备注"];
+  const mRow=r=>[ r.market, r.product, r.ym,
+    pdNum(r.high,2), pdNum(r.low,2), pdNum(r.avg,2),
+    r.mom||"待补充", r.yoy||"待补充", r.src, r.note||"" ];
+  T.push({key:"mCEA", group:"cea", title:"表二 · 全国 CEA 月度统计（2025-01 至 2026-03）",
     note:"最高／最低为当月日成交均价的最高／最低值；环比为加权均价环比。2025 各月同比因 2024 分月成交额未公开而留空（见「数据缺失说明」）。",
-    cols:["市场","品种","月份","最高价(元/吨)","最低价(元/吨)","加权均价(元/吨)","环比","同比","数据来源","备注"],
-    rows: D.monthly.map(r=>[ r.market, r.product, r.ym,
-      pdNum(r.high,2), pdNum(r.low,2), pdNum(r.avg,2),
-      r.mom||"待补充", r.yoy||"待补充", r.src, r.note||"" ])
-  });
+    cols:mCols, rows: D.monthly.filter(r=>r.product==="CEA").map(mRow)});
 
-  /* 表3 试点年度 */
-  T.push({
-    key:"pilot", title:"表三 · 地方试点碳市场年度成交均价（2025 / 2024）",
+  /* —— 最新行情快照：按品种拆分 —— */
+  const sCols=["日期","市场","开盘(元/吨)","最高(元/吨)","最低(元/吨)","收盘／均价(元/吨)","涨跌幅","成交量(万吨)","成交额(万元)","数据来源","备注"];
+  const sRow=r=>[ r.d, r.mkt, pdNum(r.open,2), pdNum(r.high,2), pdNum(r.low,2),
+    pdNum(r.close,2), r.chg||"—", pdNum(r.vol,4), pdNum(r.turn,2), r.src, r.note||"" ];
+  T.push({key:"sCEA", group:"cea", title:"表三 · 全国 CEA 最新行情快照",
+    note:"成交量单位万吨、成交额单位万元，价格单位元/吨。快照用于校验上表的累计口径与当前价格水平。",
+    cols:sCols, rows: D.snapshot.filter(r=>r.mkt.indexOf("CEA")>=0 && r.mkt.indexOf("CCER")<0).map(sRow)});
+
+  T.push({key:"aPilot", group:"pilot", title:"表一 · 地方试点碳市场配额年度成交（2024—2025）",
+    note:"8 个试点（北京／上海／天津／重庆／湖北／广东／深圳／福建）合计配额年度成交量与成交额；均价由「各试点官网／公众号披露 ÷ 成交量」计算，部分采用研究机构值并标注来源。",
+    cols:aCols, rows: D.annual.filter(r=>r.market.indexOf("试点")>=0).map(aRow)});
+
+  /* —— 地方试点年度均价 —— */
+  T.push({key:"pilot", group:"pilot", title:"表二 · 地方试点碳市场年度成交均价（2025 / 2024）",
     note:"两来源并列：IIGF = 中央财经大学绿色金融国际研究院《2025中国碳市场年报》；北理工 = 北京理工大学学报《全球和中国碳市场回顾与展望（2026）》。两者口径存在差异，不做合并。",
     cols:["试点市场","2025 成交量(万吨)","2025 成交额(亿元)","2025 均价·IIGF(元/吨)","2025 均价·北理工(元/吨)","均价同比","数据来源","备注"],
     rows: D.pilot.map(r=>[ r.mkt, pdNum(r.vol25,2), pdNum(r.turn25,2),
-      pdNum(r.avgIIGF,2), pdNum(r.avgBIT,2), r.yoy||"待补充", r.src, r.note||"" ])
-  });
+      pdNum(r.avgIIGF,2), pdNum(r.avgBIT,2), r.yoy||"待补充", r.src, r.note||"" ])});
 
-  /* 表4 试点月度快照 */
-  T.push({
-    key:"pilotM", title:"表四 · 地方试点碳市场月度快照（2026 年 3 月）",
+  /* —— 地方试点月度快照 —— */
+  T.push({key:"pilotM", group:"pilot", title:"表三 · 地方试点碳市场月度快照（2026 年 3 月）",
     note:"成交量单位万吨、成交额单位亿元。2026-03 天津、重庆两市场无交易。",
     cols:["试点市场","成交量(万吨)","成交额(亿元)","成交均价(元/吨)","最高价(元/吨)","最低价(元/吨)","数据来源","备注"],
     rows: D.pilotMonthly.map(r=>[ r.mkt, pdNum(r.vol,4), pdNum(r.turn,6),
-      pdNum(r.avg,2), pdNum(r.high,2), pdNum(r.low,2), r.src, r.note||"" ])
-  });
-
-  /* 表5 最新行情快照 */
-  T.push({
-    key:"snap", title:"表五 · 最新行情快照",
-    note:"成交量单位万吨、成交额单位万元，价格单位元/吨。快照用于校验上表的累计口径与当前价格水平。",
-    cols:["日期","市场","开盘(元/吨)","最高(元/吨)","最低(元/吨)","收盘／均价(元/吨)","涨跌幅","成交量(万吨)","成交额(万元)","数据来源","备注"],
-    rows: D.snapshot.map(r=>[ r.d, r.mkt, pdNum(r.open,2), pdNum(r.high,2), pdNum(r.low,2),
-      pdNum(r.close,2), r.chg||"—", pdNum(r.vol,4), pdNum(r.turn,2), r.src, r.note||"" ])
-  });
+      pdNum(r.avg,2), pdNum(r.high,2), pdNum(r.low,2), r.src, r.note||"" ])});
 
   return T;
 }
 
 /* ---------- 页面渲染 ---------- */
+/* 子页面状态（持久于模块作用域：进入阶段后切换子页不丢失） */
+var pdSub="ccer";
+
 function priceDataHTML(m){
   const D=CARBON_PRICE_DATA;
   let h="";
@@ -2956,33 +2989,111 @@ function priceDataHTML(m){
   h+=`<div class="panel" id="pdCal" style="display:none"><h4>⚖ 统计口径说明</h4><ol class="pd-ol">`+
     D.meta.caliber.map(c=>`<li>${c}</li>`).join("")+`</ol></div>`;
 
-  /* 各数据表 */
-  priceTables().forEach(t=>{
-    h+=`<div class="panel"><div class="pd-t-head">
-        <h4>${t.title}</h4>
-        <div class="pd-t-btns">
-          <button class="btn xs" onclick="exportPriceCSV('${t.key}')">⬇ CSV</button>
-          <button class="btn xs" onclick="exportPriceXLSX('${t.key}')">⬇ Excel</button>
-        </div></div>
-      <p class="hint">${t.note}</p>
-      <div class="tbl-wrap"><table class="price-tbl"><thead><tr>`+
-      t.cols.map(c=>`<th>${c}</th>`).join("")+`</tr></thead><tbody>`+
-      t.rows.map(r=>`<tr>`+r.map((c,i)=>{
-        let cls="";
-        if(i===0) cls="td-std";
-        return `<td class="${cls}">${c}</td>`;
-      }).join("")+`</tr>`).join("")+
-      `</tbody></table></div></div>`;
-  });
-
-  /* 数据缺失与替代方案 */
+  /* 数据缺失与替代方案（共享） */
   h+=`<div class="panel"><h4>⚠ 数据缺失、抓取失败与替代方案</h4>
     <div class="tbl-wrap"><table class="price-tbl"><thead><tr><th>缺失／异常项</th><th>原因</th><th>处理方式与替代方案</th></tr></thead><tbody>`+
     D.gaps.map(g=>`<tr><td class="td-std">${g.item}</td><td>${g.reason}</td><td>${g.alt}</td></tr>`).join("")+
     `</tbody></table></div></div>`;
 
+  /* 子页面导航：全国碳市场（CCER | 配额） + 地方碳市场 */
+  h+=`<div class="pd-subnav">
+    <div class="pd-subgroup">
+      <button class="pd-sub ${pdSub==='ccer'||pdSub==='cea'?'on':''}" data-pdsub="national" onclick="pdSetSub('national')">全国碳市场</button>
+      <div class="pd-sub2">
+        <button class="pd-sub2-btn ${pdSub==='ccer'?'active':''}" data-pdsub="ccer" onclick="pdSetSub('ccer')">CCER（自愿减排量）</button>
+        <button class="pd-sub2-btn ${pdSub==='cea'?'active':''}" data-pdsub="cea" onclick="pdSetSub('cea')">配额（CEA）</button>
+      </div>
+    </div>
+    <button class="pd-sub ${pdSub==='pilot'?'on':''}" data-pdsub="pilot" onclick="pdSetSub('pilot')">地方碳市场</button>
+  </div>`;
+
+  /* 子页面主体（三个子页面：CCER / 配额 / 地方） */
+  h+=`<div id="pdSubBody">`+pdSubHTML(pdSub,m)+`</div>`;
+
   return h;
 }
+
+/* 单表渲染（含该表导出按钮） */
+function pdTableHTML(t){
+  return `<div class="panel"><div class="pd-t-head"><h4>${t.title}</h4>
+    <div class="pd-t-btns">
+      <button class="btn xs" onclick="exportPriceCSV('${t.key}')">⬇ CSV</button>
+      <button class="btn xs" onclick="exportPriceXLSX('${t.key}')">⬇ Excel</button>
+    </div></div>
+    <p class="hint">${t.note}</p>
+    <div class="tbl-wrap"><table class="price-tbl"><thead><tr>`+
+    t.cols.map(c=>`<th class="${c==='备注'?'col-note':''}">${c}</th>`).join("")+`</tr></thead><tbody>`+
+    t.rows.map(r=>`<tr>`+r.map((c,i)=>`<td class="${i===0?'td-std':''}${t.cols[i]==='备注'?' col-note':''}">${c}</td>`).join("")+`</tr>`).join("")+
+    `</tbody></table></div></div>`;
+}
+
+/* 子页面分发 */
+function pdSubHTML(sub,m){
+  if(sub==="cea") return ceaHTML(m);
+  if(sub==="pilot") return pilotHTML(m);
+  return ccerSubHTML(m); /* 默认 CCER */
+}
+
+/* 子页面一：全国碳市场 · CCER（年度/月度汇总 + 按日期每日行情） */
+function ccerSubHTML(m){
+  const ts=priceTables().filter(t=>t.group==="ccer");
+  let h='<div class="pd-subintro">🟢 <b>全国碳市场 · CCER（核证自愿减排量）</b>：全国统一管理、可作配额清缴抵消的减排量交易市场。下方年度／月度汇总均由每日行情明细逐条统计得出（非估算），并附按日期组织的每日行情明细（含均价—成交量组合图与月度／日度派生表）。</div>';
+  h+=ts.map(pdTableHTML).join("");
+  h+=ccerHTML();
+  return h;
+}
+
+/* 子页面二：全国碳市场 · 配额（CEA） */
+function ceaHTML(m){
+  const ts=priceTables().filter(t=>t.group==="cea");
+  let h='<div class="pd-subintro">🔵 <b>全国碳市场 · 配额（CEA）</b>：全国碳排放权交易市场配额（碳排放配额），由上海环境能源交易所运营。下方为年度、月度与最新行情快照。</div>';
+  h+='<div class="panel pd-meta"><div class="pd-meta-row pd-actions">'+
+       '<button class="btn sm" onclick="exportPdSubCSV(\'cea\')">⬇ 导出本页 CSV</button>'+
+       '<button class="btn sm" onclick="exportPdSubXLSX(\'cea\')">⬇ 导出本页 Excel</button></div></div>';
+  h+=ts.map(pdTableHTML).join("");
+  return h;
+}
+
+/* 子页面三：地方碳市场（试点） */
+function pilotHTML(m){
+  const ts=priceTables().filter(t=>t.group==="pilot");
+  let h='<div class="pd-subintro">🟠 <b>地方碳市场（试点）</b>：北京／上海／天津／重庆／湖北／广东／深圳／福建等地方试点碳排放权交易市场配额，由各试点交易所运营，与全国碳市场配额（CEA）相互独立、口径与价格不可直接相加。</div>';
+  h+='<div class="panel pd-meta"><div class="pd-meta-row pd-actions">'+
+       '<button class="btn sm" onclick="exportPdSubCSV(\'pilot\')">⬇ 导出本页 CSV</button>'+
+       '<button class="btn sm" onclick="exportPdSubXLSX(\'pilot\')">⬇ 导出本页 Excel</button></div></div>';
+  h+=ts.map(pdTableHTML).join("");
+  return h;
+}
+
+/* 子页面切换（不重渲染整页，保留数据源/口径面板展开状态） */
+function pdSetSub(sub){
+  if(sub==="national"){ sub = (pdSub==="pilot") ? "ccer" : pdSub; }
+  pdSub=sub;
+  document.querySelectorAll(".pd-subnav [data-pdsub]").forEach(function(b){
+    const key=b.getAttribute("data-pdsub");
+    if(key==="national") b.classList.toggle("on", sub==="ccer"||sub==="cea");
+    else b.classList.toggle("active", key===sub);
+  });
+  const m=DATA.modules[curMod];
+  const body=document.getElementById("pdSubBody");
+  if(body) body.innerHTML=pdSubHTML(sub,m);
+  if(sub==="ccer") ccerRenderChart("month");
+  enhanceTables();
+}
+
+/* 子页面分组导出键 */
+var PD_SUB_KEYS={ccer:[], cea:["aCEA","mCEA","sCEA"], pilot:["aPilot","pilot","pilotM"]};
+function exportPdSubCSV(sub){
+  const keys=PD_SUB_KEYS[sub]; if(!keys) return;
+  const csv="\ufeff"+priceCSVOf(keys);
+  dlFile(new Blob([csv],{type:"text/csv;charset=utf-8"}), "碳价_"+sub+"_"+CARBON_PRICE_DATA.meta.cutoff+".csv");
+  toast("CSV 已导出");
+}
+function exportPdSubXLSX(sub){
+  const keys=PD_SUB_KEYS[sub]; if(!keys) return;
+  exportPriceXLSX(keys);
+}
+
 function togglePD(id){
   const el=document.getElementById(id); if(el) el.style.display = (el.style.display==="none")?"block":"none";
 }
@@ -3002,7 +3113,8 @@ function fetchPriceJSON(){
 
 /* ---------- 导出：CSV ---------- */
 function priceCSVOf(key){
-  const ts=priceTables().filter(t=>key==="__ALL__"||t.key===key);
+  const match = (t)=> key==="__ALL__" ? true : (Array.isArray(key) ? key.indexOf(t.key)>=0 : t.key===key);
+  const ts=priceTables().filter(match);
   const D=CARBON_PRICE_DATA;
   let out=[];
   out.push(["数据截止时间",D.meta.cutoff,"价格单位",D.meta.unit]);
@@ -3119,7 +3231,8 @@ function buildXLSX(sheets){ // sheets:[{name, rows}]
   return zipStore(files);
 }
 function exportPriceXLSX(key){
-  const D=CARBON_PRICE_DATA, ts=priceTables().filter(t=>key==="__ALL__"||t.key===key);
+  const match = (t)=> key==="__ALL__" ? true : (Array.isArray(key) ? key.indexOf(t.key)>=0 : t.key===key);
+  const D=CARBON_PRICE_DATA, ts=priceTables().filter(match);
   const sheets=[];
   // 说明页
   const info=[["碳价市场数据表"],["数据截止时间",D.meta.cutoff],["本页更新",D.meta.updated],["价格单位",D.meta.unit],
@@ -3139,7 +3252,7 @@ function exportPriceXLSX(key){
   try{
     const u8=buildXLSX(sheets);
     dlFile(new Blob([u8],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"}),
-      "碳价数据_"+(key==="__ALL__"?"全部":key)+"_"+D.meta.cutoff+".xlsx");
+      "碳价数据_"+(Array.isArray(key)?"分组":(key==="__ALL__"?"全部":key))+"_"+D.meta.cutoff+".xlsx");
     toast("Excel 已导出");
   }catch(e){ toast("Excel 导出失败："+e.message+"，请改用 CSV 导出"); }
 }
@@ -3152,6 +3265,285 @@ function dlFile(blob,name){
     setTimeout(()=>{ try{ document.body.removeChild(a); }catch(x){} URL.revokeObjectURL(url); },3000);
   }catch(e){ toast("下载失败："+e.message); }
 }
+
+/* ==== CCER INTEGRATION START ==== */
+/* =========================================================================
+   CCER 全国温室气体自愿减排交易市场 · 每日行情子模块
+   数据契约：ccer-market-data.json
+     { meta:{ market, marketName, source, sourceUrls, fieldFormat,
+              updatedAt, recordCount, updateMethod },
+       records:{ "YYYY-MM-DD":{ volume, turnover, avgPrice, source } } }
+   - 数据按「日期」为键组织；累计值由展示层逐项累加派生，不入库。
+   - 内置常量 CCER_DAILY_DATA（由 _build_ccer_data.js 注入），
+     与 CARBON_PRICE_DATA 的「内置 + fetch 更新」范式一致。
+   - 离线回退：CCER_DAILY_DATA；在线更新：fetchCcerJSON() 读取同目录 JSON。
+   ========================================================================= */
+
+/* 安全读取当前 CCER 数据（内置常量 → fetch 覆盖） */
+function ccerStore(){
+  var g = (typeof CCER_DAILY_DATA!=="undefined" && CCER_DAILY_DATA) ? CCER_DAILY_DATA : (window.CCER_DAILY_DATA||null);
+  return (g && g.records && Object.keys(g.records).length) ? g : null;
+}
+/* 千分位（无 locale 依赖） */
+function ccerFmtNum(v){
+  if(v===null||v===undefined) return "—";
+  var s=Math.round(Number(v)*100)/100;
+  return s.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+/* 派生：日度（含累计）+ 月度聚合 */
+function ccerDerived(){
+  var s=ccerStore(); if(!s) return null;
+  var recs=s.records||{}, dates=Object.keys(recs).sort();
+  var cumVol=0, cumTurn=0;
+  var daily=dates.map(function(d){
+    var r=recs[d]; r=r||{};
+    cumVol += (r.volume||0); cumTurn += (r.turnover||0);
+    return { date:d, volume:r.volume||0, turnover:r.turnover||0,
+      avgPrice:(r.avgPrice==null?null:r.avgPrice), cumVol:cumVol, cumTurn:cumTurn, source:r.source||"" };
+  });
+  var mm={};
+  daily.forEach(function(x){
+    var ym=x.date.slice(0,7);
+    if(!mm[ym]) mm[ym]={ym:ym,volume:0,turnover:0,days:0,high:-Infinity,low:Infinity,priceSum:0,priceN:0,cumVol:0,cumTurn:0};
+    var o=mm[ym];
+    o.volume+=x.volume; o.turnover+=x.turnover; o.days++;
+    o.cumVol=x.cumVol; o.cumTurn=x.cumTurn;
+    if(x.avgPrice!=null){ o.high=Math.max(o.high,x.avgPrice); o.low=Math.min(o.low,x.avgPrice); o.priceSum+=x.avgPrice; o.priceN++; }
+  });
+  var monthly=Object.keys(mm).sort().map(function(ym){
+    var o=mm[ym];
+    return { ym:ym, days:o.days, volume:o.volume, turnover:o.turnover,
+      weighted: o.volume? o.turnover/o.volume : null,
+      avgPrice: o.priceN? o.priceSum/o.priceN : null,
+      high: o.high===-Infinity?null:o.high, low:o.low===Infinity?null:o.low,
+      cumVol:o.cumVol, cumTurn:o.cumTurn };
+  });
+  return { meta:s.meta||{}, daily:daily, monthly:monthly };
+}
+
+/* 年度汇总：严格由每日明细逐条累加/统计，无推估/插值/预测
+   - 成交量＝Σ每日成交量；成交额＝Σ每日成交额；加权均价＝Σ成交额÷Σ成交量
+   - 最高/最低日均价取自各交易日成交均价；零成交日（avgPrice=null）不计入交易日数及极值 */
+function ccerAnnual(daily){
+  var byYear={};
+  daily.forEach(function(d){
+    var year=d.date.slice(0,4);
+    if(!byYear[year]) byYear[year]={year:year,recordDays:0,tradeDays:0,totalVolume:0,totalTurnover:0,_min:Infinity,_max:-Infinity,firstDate:null,lastDate:null,firstAvg:null,lastAvg:null};
+    var y=byYear[year]; y.recordDays++;
+    y.totalVolume += d.volume; y.totalTurnover += d.turnover;
+    if(d.volume>0){
+      y.tradeDays++;
+      if(y.firstDate===null){ y.firstDate=d.date; y.firstAvg=d.avgPrice; }
+      y.lastDate=d.date; y.lastAvg=d.avgPrice;
+      if(d.avgPrice!=null){ if(d.avgPrice<y._min) y._min=d.avgPrice; if(d.avgPrice>y._max) y._max=d.avgPrice; }
+    }
+  });
+  var years=Object.keys(byYear).sort();
+  var out=years.map(function(year){
+    var y=byYear[year];
+    var w = y.totalVolume>0 ? y.totalTurnover/y.totalVolume : null;
+    return { year:year, recordDays:y.recordDays, tradeDays:y.tradeDays,
+      totalVolume:y.totalVolume, totalTurnover:Math.round(y.totalTurnover*100)/100,
+      weightedAvgPrice: w==null?null:Math.round(w*100)/100,
+      minAvgPrice: y._min===Infinity?null:y._min, maxAvgPrice: y._max===-Infinity?null:y._max,
+      firstTradeDate:y.firstDate, lastTradeDate:y.lastDate,
+      firstTradeAvgPrice:y.firstAvg, lastTradeAvgPrice:y.lastAvg };
+  });
+  for(var i=1;i<out.length;i++){
+    var p=out[i-1].weightedAvgPrice, c=out[i].weightedAvgPrice;
+    out[i].avgYoy = (p && p!==0 && c!=null)? Math.round((c/p-1)*10000)/10000 : null;
+  }
+  return out;
+}
+
+/* 轴刻度格式化 */
+function ccerAxisFmt(v){
+  if(v==null) return "";
+  if(Math.abs(v)>=100000000) return (v/100000000).toFixed(2)+"亿";
+  if(Math.abs(v)>=10000) return (v/10000).toFixed(v>=1000000?0:1)+"万";
+  if(Math.abs(v)>=1000) return (v/1000).toFixed(1)+"k";
+  return (v<10? v.toFixed(1): v.toFixed(0));
+}
+
+/* 双轴组合图（均价线 + 成交量柱），mode: month|day */
+function ccerRenderChart(mode){
+  var box=document.getElementById("ccerChart"); if(!box) return;
+  var dv=ccerDerived();
+  if(!dv){ box.innerHTML='<div class="hint">尚未接入 CCER 数据。</div>'; return; }
+  var series = (mode==="day")? dv.daily : dv.monthly;
+  var n=series.length;
+  if(!n){ box.innerHTML='<div class="hint">无数据。</div>'; return; }
+  var labels = series.map(function(x){ return (mode==="day")? x.date.slice(5) : x.ym; });
+  var vols  = series.map(function(x){ return x.volume; });
+  var prices= series.map(function(x){ return (mode==="day")? x.avgPrice : x.weighted; });
+  var W=920,H=420,mL=58,mR=66,mT=30,mB=58;
+  var pw=W-mL-mR, ph=H-mT-mB, baseY=mT+ph;
+  var bw=pw/n;
+  var volMax=Math.max.apply(null, vols.concat([1]));
+  var pVals=prices.filter(function(v){return v!=null;});
+  var pMin=Math.min.apply(null, pVals.length?pVals:[0]);
+  var pMax=Math.max.apply(null, pVals.length?pVals:[1]);
+  var pPad=(pMax-pMin)*0.12||1; pMin=Math.max(0,pMin-pPad); pMax=pMax+pPad;
+  function xC(i){ return mL + bw*(i+0.5); }
+  function yVol(v){ return baseY - (v/volMax)*ph; }
+  function yPri(p){ return baseY - ((p-pMin)/(pMax-pMin))*ph; }
+  var grid="",gl="";
+  for(var g=0; g<=4; g++){
+    var yy=mT+ph*g/4;
+    grid+='<line x1="'+mL+'" y1="'+yy+'" x2="'+(mL+pw)+'" y2="'+yy+'" stroke="#e6ebf1" stroke-width="1"/>';
+    var pv=pMax-(pMax-pMin)*g/4, vv=volMax-(volMax)*g/4;
+    gl+='<text x="'+(mL-8)+'" y="'+(yy+4)+'" text-anchor="end" class="ccer-axis">'+ccerAxisFmt(pv)+'</text>';
+    gl+='<text x="'+(mL+pw+8)+'" y="'+(yy+4)+'" text-anchor="start" class="ccer-axis">'+ccerAxisFmt(vv)+'</text>';
+  }
+  var barW=Math.max(1, bw*(mode==="day"?0.7:0.55)), bars="";
+  for(var i=0;i<n;i++){
+    var yv=yVol(vols[i]), hgt=baseY-yv;
+    if(hgt>0) bars+='<rect x="'+(xC(i)-barW/2).toFixed(2)+'" y="'+yv.toFixed(2)+'" width="'+barW.toFixed(2)+'" height="'+hgt.toFixed(2)+'" fill="#9fc7e8" opacity="0.55"/>';
+  }
+  var line="",pts="",lastX=null,lastY=null;
+  for(var j=0;j<n;j++){
+    var p=prices[j]; if(p==null){ lastX=null; lastY=null; continue; }
+    var x=xC(j), y=yPri(p);
+    pts+='<circle cx="'+x.toFixed(2)+'" cy="'+y.toFixed(2)+'" r="'+(mode==="day"?1.4:2.6)+'" fill="#0e9f6e"/>';
+    if(lastX!=null) line+='<line x1="'+lastX.toFixed(2)+'" y1="'+lastY.toFixed(2)+'" x2="'+x.toFixed(2)+'" y2="'+y.toFixed(2)+'" stroke="#0e9f6e" stroke-width="2.2"/>';
+    lastX=x; lastY=y;
+  }
+  var step=Math.ceil(n/14), xlab="";
+  for(var k=0;k<n;k+=step){ xlab+='<text x="'+xC(k).toFixed(2)+'" y="'+(baseY+18)+'" text-anchor="middle" class="ccer-axis">'+labels[k]+'</text>'; }
+  var titles='<text x="'+(mL-44)+'" y="'+(mT-12)+'" class="ccer-axis" fill="#0e9f6e">成交均价(元/吨)</text>'+
+             '<text x="'+(mL+pw+8)+'" y="'+(mT-12)+'" class="ccer-axis" fill="#3a7ca5">成交量(吨)</text>';
+  var legend='<g transform="translate('+(mL+pw-232)+','+(mT-22)+')">'+
+      '<rect x="0" y="0" width="14" height="10" fill="#9fc7e8" opacity="0.7"/><text x="18" y="9" class="ccer-axis">成交量(柱)</text>'+
+      '<rect x="96" y="0" width="14" height="10" fill="#0e9f6e"/><text x="114" y="9" class="ccer-axis">成交均价(线)</text></g>';
+  box.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;display:block" role="img">'+
+    grid+bars+line+pts+gl+xlab+titles+legend+'</svg>';
+}
+function ccerSetMode(mode){
+  ccerRenderChart(mode);
+  var tag=document.getElementById("ccerModeTag"); if(tag) tag.textContent="当前："+(mode==="month"?"月度":"日度");
+}
+function ccerToggleDef(){ togglePD("ccerDef"); }
+
+/* 在线更新：读取同目录 ccer-market-data.json 覆盖内置 */
+function fetchCcerJSON(){
+  if(typeof fetch!=="function"){ toast("当前环境不支持联网更新，已使用内置数据"); return; }
+  fetch("ccer-market-data.json",{cache:"no-store"})
+    .then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return r.json(); })
+    .then(function(j){
+      if(!j||!j.records) throw new Error("JSON 结构不完整");
+      window.CCER_DAILY_DATA=j;
+      toast("已从 ccer-market-data.json 更新 CCER 每日行情");
+      switchModStage(6);
+    })
+    .catch(function(e){ toast("未能读取 ccer-market-data.json（"+e.message+"），已回退内置数据"); });
+}
+/* 导出 CSV（日度 / 月度） */
+function exportCcerCSV(kind){
+  var dv=ccerDerived(); if(!dv){ toast("尚未接入 CCER 数据"); return; }
+  var cols, rows, name;
+  if(kind==="month"){
+    cols=["月份","交易日数","成交量(吨)","成交额(元)","加权均价(元/吨)","最高日均价(元/吨)","最低日均价(元/吨)","累计成交量(吨)","累计成交额(元)"];
+    rows=dv.monthly.map(function(o){ return [o.ym,o.days,o.volume,o.turnover,
+      o.weighted==null?"":o.weighted.toFixed(4), o.high==null?"":o.high.toFixed(4), o.low==null?"":o.low.toFixed(4),
+      o.cumVol, o.cumTurn]; });
+    name="CCER_月度_"+dv.meta.updatedAt;
+  }else if(kind==="annual"){
+    cols=["年份","交易日数","成交量(吨)","成交额(元)","加权均价(元/吨)","最高日均价(元/吨)","最低日均价(元/吨)","均价同比"];
+    var an=ccerAnnual(dv.daily);
+    rows=an.map(function(a){ return [a.year,a.tradeDays,a.totalVolume,a.totalTurnover,
+      a.weightedAvgPrice==null?"":a.weightedAvgPrice.toFixed(4), a.maxAvgPrice==null?"":a.maxAvgPrice.toFixed(4), a.minAvgPrice==null?"":a.minAvgPrice.toFixed(4),
+      a.avgYoy==null?"":(a.avgYoy*100).toFixed(2)+"%"]; });
+    name="CCER_年度_"+dv.meta.updatedAt;
+  }else{
+    cols=["交易日期","成交量(吨)","成交额(元)","成交均价(元/吨)","累计成交量(吨)","累计成交额(元)","数据来源"];
+    rows=dv.daily.map(function(x){ return [x.date,x.volume,x.turnover,
+      x.avgPrice==null?"":x.avgPrice.toFixed(4), x.cumVol, x.cumTurn, x.source]; });
+    name="CCER_日度_"+dv.meta.updatedAt;
+  }
+  var esc=function(v){ v=String(v===null||v===undefined?"":v); return /[",\n]/.test(v)? '"'+v.replace(/"/g,'""')+'"' : v; };
+  var out=[cols.map(esc)].concat(rows.map(function(r){return r.map(esc);})).map(function(r){return r.join(",");}).join("\r\n");
+  dlFile(new Blob(["﻿"+out],{type:"text/csv;charset=utf-8"}), name+".csv");
+  toast("CCER "+(kind==="month"?"月度":(kind==="annual"?"年度":"日度"))+" CSV 已导出");
+}
+
+/* CCER 子模块 HTML（追加到「市场数据」阶段末尾） */
+function ccerHTML(){
+  var dv=ccerDerived();
+  if(!dv){
+    return '<div class="ccer-wrap"><div class="ccer-sec-head"><h3>🟢 全国温室气体自愿减排交易市场（CCER）· 每日行情</h3>'+
+      '<span class="ccer-badge">按日期组织 · 增量追加</span></div>'+
+      '<p class="hint">尚未接入 CCER 每日行情数据。请运行 <code>_build_ccer_data.js</code> 将 <code>ccer-market-data.json</code> 内置注入本页，'+
+      '或在「市场数据」阶段点击「🔄 从 ccer-market-data.json 更新数据」。</p></div>';
+  }
+  var m=dv.meta, first=dv.daily[0], last=dv.daily[dv.daily.length-1];
+  var fmt=m.fieldFormat||{}, srcUrls=m.sourceUrls||{};
+  var fmtRows=Object.keys(fmt).map(function(k){ return '<tr><td class="td-std">'+k+'</td><td>'+fmt[k]+'</td></tr>'; }).join("");
+  var srcRows=Object.keys(srcUrls).map(function(k){ return '<tr><td class="td-std">'+k+'</td><td><a class="src-link" href="'+srcUrls[k]+'" target="_blank" rel="noopener">'+srcUrls[k]+'</a></td></tr>'; }).join("");
+  var h='<div class="ccer-wrap">';
+  h+='<div class="ccer-sec-head"><h3>🟢 全国温室气体自愿减排交易市场（CCER）· 每日行情</h3><span class="ccer-badge">按日期组织 · 增量追加</span></div>';
+  h+='<div class="ccer-isolate">⚠ 本模块为 <b>全国温室气体自愿减排交易市场（CCER，核证自愿减排量）</b>，与上方「地方试点碳市场」分属不同市场体系：'+
+     'CCER 为全国统一管理、可作配额清缴抵消的减排量；试点市场为各省市碳排放权（CEA）配额交易。两者口径、价格与成交量不可直接相加，请勿混淆。</div>';
+  h+='<div class="panel pd-meta ccer-meta">'+
+       '<div class="pd-meta-row"><b>市场：</b>'+(m.marketName||m.market)+'　<b>记录数：</b>'+m.recordCount+' 个交易日　<b>数据区间：</b>'+first.date+' ~ '+last.date+'</div>'+
+       '<div class="pd-meta-row"><b>数据来源：</b>'+(m.source||"—")+'</div>'+
+       '<div class="pd-meta-row"><b>更新时间：</b>'+(m.updatedAt||"—")+'　<b>更新方式：</b>'+(m.updateMethod||"—")+'</div>'+
+       '<div class="pd-meta-row pd-actions">'+
+         '<button class="btn sm" onclick="exportCcerCSV(\'day\')">⬇ 导出日度 CSV</button>'+
+         '<button class="btn sm" onclick="exportCcerCSV(\'month\')">⬇ 导出月度 CSV</button>'+
+         '<button class="btn sm ghost" onclick="fetchCcerJSON()">🔄 从 ccer-market-data.json 更新数据</button>'+
+         '<button class="btn sm ghost" onclick="ccerToggleDef()">📐 数据结构 / 同步方式</button>'+
+         '<button class="btn sm ghost" onclick="ccerSetMode(\'month\')">📊 月度图</button>'+
+         '<button class="btn sm ghost" onclick="ccerSetMode(\'day\')">📈 日度图</button>'+
+       '</div></div>';
+  h+='<div class="panel"><div class="pd-t-head"><h4>CCER 成交均价（线）与成交量（柱）组合图</h4>'+
+       '<div class="pd-t-btns"><span class="ccer-mode-tag" id="ccerModeTag">当前：月度</span></div></div>'+
+       '<p class="hint">左轴为成交均价（元/吨，绿线，加权均价＝成交额÷成交量）；右轴为成交量（吨，蓝柱）。零成交日均价为 null，折线在此断开。可切换「月度／日度」查看不同颗粒度。</p>'+
+       '<div id="ccerChart" class="ccer-chart"></div></div>';
+  /* 年度汇总（由每日明细逐条统计，非估算） */
+  var annual = ccerAnnual(dv.daily);
+  var partialNote = (annual.length && annual[0].recordDays<=1) ? '　⚠ 注意：2024 年官方数据查询源仅提供开市首日（2024-01-22）一条明细，故 2024 年度汇总仅代表首日，2025 年“均价同比”据此计算。' : '';
+  h+='<div class="panel"><div class="pd-t-head"><h4>表一 · CCER 年度汇总（由每日明细逐条统计，非估算）</h4>'+
+       '<div class="pd-t-btns"><button class="btn xs" onclick="exportCcerCSV(\'annual\')">⬇ CSV</button></div></div>'+
+       '<p class="hint">年度指标严格由每日行情明细逐条累加／统计得出：成交量＝Σ每日成交量，成交额＝Σ每日成交额，加权均价＝Σ成交额÷Σ成交量；最高／最低日均价取自各交易日成交均价；零成交日（均价 null）不计入交易日数及极值。无任何推估、插值或预测。'+partialNote+'</p>'+
+       '<div class="tbl-wrap"><table class="price-tbl"><thead><tr>'+
+         '<th>年份</th><th>交易日数</th><th>成交量(吨)</th><th>成交额(元)</th><th>加权均价(元/吨)</th><th>最高日均价</th><th>最低日均价</th><th>均价同比</th></tr></thead><tbody>'+
+       annual.map(function(a){ return '<tr><td class="td-std">'+a.year+'</td><td>'+a.tradeDays+'</td><td>'+ccerFmtNum(a.totalVolume)+'</td><td>'+ccerFmtNum(a.totalTurnover)+'</td>'+
+         '<td>'+(a.weightedAvgPrice==null?"—":a.weightedAvgPrice.toFixed(2))+'</td><td>'+(a.maxAvgPrice==null?"—":a.maxAvgPrice.toFixed(2))+'</td><td>'+(a.minAvgPrice==null?"—":a.minAvgPrice.toFixed(2))+'</td>'+
+         '<td>'+(a.avgYoy==null?"—":(a.avgYoy*100).toFixed(2)+"%")+'</td></tr>'; }).join("")+
+       '</tbody></table></div></div>';
+  h+='<div class="panel"><div class="pd-t-head"><h4>表二 · CCER 月度汇总（派生）</h4>'+
+       '<div class="pd-t-btns"><button class="btn xs" onclick="exportCcerCSV(\'month\')">⬇ CSV</button></div></div>'+
+       '<p class="hint">每月加权均价＝当月成交额÷当月成交量；累计值为按日期升序逐项累加（不入库，展示层派生）。</p>'+
+       '<div class="tbl-wrap"><table class="price-tbl"><thead><tr>'+
+         '<th>月份</th><th>交易日</th><th>成交量(吨)</th><th>成交额(元)</th><th>加权均价(元/吨)</th><th>最高日均价</th><th>最低日均价</th><th>累计成交量(吨)</th><th>累计成交额(元)</th></tr></thead><tbody>'+
+       dv.monthly.map(function(o){ return '<tr><td class="td-std">'+o.ym+'</td><td>'+o.days+'</td><td>'+ccerFmtNum(o.volume)+'</td><td>'+ccerFmtNum(o.turnover)+'</td>'+
+         '<td>'+(o.weighted==null?"—":o.weighted.toFixed(2))+'</td><td>'+(o.high==null?"—":o.high.toFixed(2))+'</td><td>'+(o.low==null?"—":o.low.toFixed(2))+'</td>'+
+         '<td>'+ccerFmtNum(o.cumVol)+'</td><td>'+ccerFmtNum(o.cumTurn)+'</td></tr>'; }).join("")+
+       '</tbody></table></div></div>';
+  h+='<div class="panel"><div class="pd-t-head"><h4>表三 · CCER 每日行情明细（含累计）</h4>'+
+       '<div class="pd-t-btns"><button class="btn xs" onclick="exportCcerCSV(\'day\')">⬇ CSV</button></div></div>'+
+       '<p class="hint">按交易日期倒序（最新在前）；累计成交量／累计成交额由展示层逐项累加派生，无需在历史记录中维护。</p>'+
+       '<div class="tbl-wrap"><table class="price-tbl"><thead><tr>'+
+         '<th>交易日期</th><th>成交量(吨)</th><th>成交额(元)</th><th>成交均价(元/吨)</th><th>累计成交量(吨)</th><th>累计成交额(元)</th><th>来源</th></tr></thead><tbody>'+
+       dv.daily.slice().sort(function(a,b){ return a.date<b.date?1:(a.date>b.date?-1:0); }).map(function(x){ return '<tr><td class="td-std">'+x.date+'</td><td>'+ccerFmtNum(x.volume)+'</td><td>'+ccerFmtNum(x.turnover)+'</td>'+
+         '<td>'+(x.avgPrice==null?"—":x.avgPrice.toFixed(2))+'</td><td>'+ccerFmtNum(x.cumVol)+'</td><td>'+ccerFmtNum(x.cumTurn)+'</td><td>'+x.source+'</td></tr>'; }).join("")+
+       '</tbody></table></div></div>';
+  h+='<div class="panel" id="ccerDef" style="display:none"><h4>📐 数据结构定义与每日数据接入／同步方式</h4>'+
+       '<div class="ccer-def-block"><b>数据来源（ccer-market-data.json）</b>'+
+         '<div class="tbl-wrap"><table class="price-tbl"><thead><tr><th>键</th><th>地址</th></tr></thead><tbody>'+srcRows+'</tbody></table></div></div>'+
+       '<div class="ccer-def-block"><b>字段格式（records[日期] 各字段）</b>'+
+         '<div class="tbl-wrap"><table class="price-tbl"><thead><tr><th>字段</th><th>含义与类型</th></tr></thead><tbody>'+fmtRows+'</tbody></table></div></div>'+
+       '<ol class="pd-ol">'+
+         '<li><b>组织结构：</b>数据以 <code>records</code> 对象按 <code>YYYY-MM-DD</code> 为键存放，单日记录为 <code>{volume, turnover, avgPrice, source}</code>；主键即日期，天然支持按月／按日检索与排序。</li>'+
+         '<li><b>新增每日数据：</b>运行 <code>_ccer_scrape.js</code> 抓取全量日报列表，仅把「本地尚不存在的日期」追加进 <code>records</code>（增量），历史记录<b>零改动</b>；累计值由展示层按日期升序派生。</li>'+
+         '<li><b>同步到平台：</b>运行 <code>_build_ccer_data.js</code> 把 <code>ccer-market-data.json</code> 以内置常量 <code>CCER_DAILY_DATA</code> 注入本页（离线回退），与 <code>CARBON_PRICE_DATA</code> 的「内置＋fetch 更新」范式一致。</li>'+
+         '<li><b>在线更新：</b>点击「🔄 从 ccer-market-data.json 更新数据」即 <code>fetch</code> 同目录 JSON 覆盖内置，无需改动页面结构。</li>'+
+         '<li><b>口径说明：</b>成交均价＝成交额÷成交量；零成交日均价为 null（折线断开）。所有金额单位为元、量单位为吨。</li>'+
+       '</ol></div>';
+  h+='</div>';
+  return h;
+}
+/* ==== CCER INTEGRATION END ==== */
 
 /* ---- 标准体系阶段：分类 + 对比表 + 可缩放思维导图 ---- */
 function standardsHTML(m){
